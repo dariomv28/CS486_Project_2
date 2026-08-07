@@ -241,9 +241,13 @@ GO
    facility instances for each required facility type.
 
    Current-status semantic choice:
-   - 'available' and 'in use' are operational statuses that may still be
-     considered for another requested time interval.
-   - 'under maintenance', 'temporarily closed', and 'retired' are excluded.
+   - 'available', 'in use', and 'under maintenance' may be considered
+     for the requested time interval.
+   - 'under maintenance' alone does not block booking in Phase 2.
+     Maintenance availability is determined by impact level and overlap.
+   - 'temporarily closed' and 'retired' are excluded.
+   - An overlapping active out-of-service maintenance record blocks
+     the requested time interval.
 
    Facility semantic choice:
    Only facility_instances whose instance_status = 'available' count toward
@@ -286,10 +290,13 @@ SELECT
 FROM dbo.spaces AS s
 WHERE s.capacity >= @required_capacity
 
-  -- These statuses permit the space to be considered by the room finder.
-  AND s.current_status IN (
-          N'available',
-          N'in use'
+  -- Phase 2:
+  -- 'under maintenance' does not automatically make a space unavailable.
+  -- Availability depends on whether an overlapping out-of-service
+  -- maintenance record exists for the requested time interval.
+  AND s.current_status NOT IN (
+          N'temporarily closed',
+          N'retired'
       )
 
   /* ---------------------------------------------------------------

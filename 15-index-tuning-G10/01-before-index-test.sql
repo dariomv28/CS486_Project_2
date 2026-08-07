@@ -180,9 +180,9 @@ SELECT
     s.current_status
 FROM dbo.spaces AS s
 WHERE s.capacity >= @required_capacity
-  AND s.current_status IN (
-          N'available',
-          N'in use'
+  AND s.current_status NOT IN (
+          N'temporarily closed',
+          N'retired'
       )
   AND NOT EXISTS (
       SELECT 1

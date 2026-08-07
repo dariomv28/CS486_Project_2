@@ -927,6 +927,78 @@ GO
 
 
 /* =====================================================================
+   5A. REQUESTER ADVISORY LOOKUP
+
+   Returns all active advisory maintenance records that overlap the
+   requested booking interval.
+
+   The application should display these advisories to the requester
+   before calling usp_submit_booking.
+   ===================================================================== */
+
+CREATE OR ALTER PROCEDURE dbo.usp_get_booking_advisories
+    @space_code                 VARCHAR(20),
+    @requested_start_time       DATETIME2(0),
+    @requested_end_time         DATETIME2(0)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+
+    IF @requested_end_time <= @requested_start_time
+    BEGIN
+        THROW 52340,
+              'Booking end time must be later than start time.',
+              1;
+    END;
+
+
+    IF NOT EXISTS (
+        SELECT 1
+        FROM dbo.spaces AS s
+        WHERE s.space_code = @space_code
+    )
+    BEGIN
+        THROW 52341,
+              'The selected space was not found.',
+              1;
+    END;
+
+
+    SELECT
+        mr.maintenance_id,
+        mr.space_code,
+        mr.problem_type,
+        mr.problem_description,
+        mr.start_time,
+        mr.completion_time,
+        mr.maintenance_status,
+        mr.impact_level
+    FROM dbo.maintenance_records AS mr
+    WHERE mr.space_code = @space_code
+      AND mr.impact_level = N'advisory'
+      AND mr.maintenance_status IN (
+          N'reported',
+          N'assigned',
+          N'in progress'
+      )
+      AND @requested_start_time <
+          COALESCE(
+              mr.completion_time,
+              CONVERT(
+                  DATETIME2(0),
+                  '9999-12-31 23:59:59'
+              )
+          )
+      AND @requested_end_time > mr.start_time
+    ORDER BY
+        mr.start_time,
+        mr.maintenance_id;
+END;
+GO
+
+
+/* =====================================================================
    6. BOOKING SUBMISSION PROCEDURE
 
    Advisory rule:
@@ -2716,6 +2788,12 @@ GO
    ------------------------------------------------------------- */
 
 GRANT EXECUTE
+ON dbo.usp_get_booking_advisories
+TO campus_app_role;
+GO
+
+
+GRANT EXECUTE
 ON dbo.usp_submit_booking
 TO campus_app_role;
 GO
@@ -2843,8 +2921,15 @@ SELECT
 /*
 -----------------------------------------------------------------------
 Example B
-Submit booking and acknowledge advisory maintenance IDs.
+Look up advisory maintenance, then submit booking with the IDs
+acknowledged by the requester.
 -----------------------------------------------------------------------
+
+EXEC dbo.usp_get_booking_advisories
+    @space_code = 'A101',
+    @requested_start_time = '2026-09-01 09:00:00',
+    @requested_end_time = '2026-09-01 11:00:00';
+
 
 DECLARE @acknowledgements dbo.maintenance_id_list;
 
