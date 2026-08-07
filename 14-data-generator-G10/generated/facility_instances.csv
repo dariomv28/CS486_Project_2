@@ -1,0 +1,474 @@
+facility_id,facility_type_name,space_code,asset_tag,instance_status,condition_note,installed_at
+1000000,Projector,DG001,DG-DG001-1000000,available,Generated benchmark asset in serviceable condition.,2022-07-15T00:00:00
+1000001,Microphone,DG001,DG-DG001-1000001,available,Generated benchmark asset in serviceable condition.,2022-08-03T00:00:00
+1000002,Microphone,DG001,DG-DG001-1000002,available,Generated benchmark asset in serviceable condition.,2022-08-22T00:00:00
+1000003,Microphone,DG001,DG-DG001-1000003,available,Generated benchmark asset in serviceable condition.,2021-06-04T00:00:00
+1000004,Livestreaming equipment,DG001,DG-DG001-1000004,available,Generated benchmark asset in serviceable condition.,2023-01-18T00:00:00
+1000005,Air conditioner,DG001,DG-DG001-1000005,available,Generated benchmark asset in serviceable condition.,2022-08-05T00:00:00
+1000006,Computer,DG001,DG-DG001-1000006,available,Generated benchmark asset in serviceable condition.,2023-03-30T00:00:00
+1000007,Projector,DG002,DG-DG002-1000007,available,Generated benchmark asset in serviceable condition.,2021-05-27T00:00:00
+1000008,Whiteboard,DG002,DG-DG002-1000008,available,Generated benchmark asset in serviceable condition.,2023-03-17T00:00:00
+1000009,Air conditioner,DG002,DG-DG002-1000009,available,Generated benchmark asset in serviceable condition.,2022-09-18T00:00:00
+1000010,TV screen,DG002,DG-DG002-1000010,available,Generated benchmark asset in serviceable condition.,2022-08-05T00:00:00
+1000011,Computer,DG002,DG-DG002-1000011,available,Generated benchmark asset in serviceable condition.,2023-03-25T00:00:00
+1000012,Computer,DG003,DG-DG003-1000012,available,Generated benchmark asset in serviceable condition.,2021-01-02T00:00:00
+1000013,Computer,DG003,DG-DG003-1000013,available,Generated benchmark asset in serviceable condition.,2022-08-12T00:00:00
+1000014,Computer,DG003,DG-DG003-1000014,available,Generated benchmark asset in serviceable condition.,2021-12-05T00:00:00
+1000015,Computer,DG003,DG-DG003-1000015,available,Generated benchmark asset in serviceable condition.,2023-03-06T00:00:00
+1000016,Computer,DG003,DG-DG003-1000016,available,Generated benchmark asset in serviceable condition.,2023-01-27T00:00:00
+1000017,Computer,DG003,DG-DG003-1000017,available,Generated benchmark asset in serviceable condition.,2023-05-03T00:00:00
+1000018,Computer,DG003,DG-DG003-1000018,available,Generated benchmark asset in serviceable condition.,2023-04-27T00:00:00
+1000019,Computer,DG003,DG-DG003-1000019,available,Generated benchmark asset in serviceable condition.,2021-11-29T00:00:00
+1000020,Computer,DG003,DG-DG003-1000020,available,Generated benchmark asset in serviceable condition.,2021-03-10T00:00:00
+1000021,Projector,DG003,DG-DG003-1000021,available,Generated benchmark asset in serviceable condition.,2021-09-19T00:00:00
+1000022,Air conditioner,DG003,DG-DG003-1000022,available,Generated benchmark asset in serviceable condition.,2023-01-23T00:00:00
+1000023,TV screen,DG003,DG-DG003-1000023,available,Generated benchmark asset in serviceable condition.,2022-01-05T00:00:00
+1000024,Livestreaming equipment,DG003,DG-DG003-1000024,available,Generated benchmark asset in serviceable condition.,2022-03-26T00:00:00
+1000025,Computer,DG004,DG-DG004-1000025,available,Generated benchmark asset in serviceable condition.,2023-02-10T00:00:00
+1000026,Computer,DG004,DG-DG004-1000026,available,Generated benchmark asset in serviceable condition.,2021-06-04T00:00:00
+1000027,Computer,DG004,DG-DG004-1000027,available,Generated benchmark asset in serviceable condition.,2022-01-18T00:00:00
+1000028,Computer,DG004,DG-DG004-1000028,available,Generated benchmark asset in serviceable condition.,2023-01-03T00:00:00
+1000029,Computer,DG004,DG-DG004-1000029,available,Generated benchmark asset in serviceable condition.,2022-03-04T00:00:00
+1000030,Computer,DG004,DG-DG004-1000030,available,Generated benchmark asset in serviceable condition.,2021-12-28T00:00:00
+1000031,Computer,DG004,DG-DG004-1000031,available,Generated benchmark asset in serviceable condition.,2022-11-04T00:00:00
+1000032,Computer,DG004,DG-DG004-1000032,available,Generated benchmark asset in serviceable condition.,2023-03-04T00:00:00
+1000033,Whiteboard,DG004,DG-DG004-1000033,available,Generated benchmark asset in serviceable condition.,2021-03-08T00:00:00
+1000034,Air conditioner,DG004,DG-DG004-1000034,available,Generated benchmark asset in serviceable condition.,2022-05-17T00:00:00
+1000035,TV screen,DG005,DG-DG005-1000035,available,Generated benchmark asset in serviceable condition.,2021-01-20T00:00:00
+1000036,Whiteboard,DG005,DG-DG005-1000036,available,Generated benchmark asset in serviceable condition.,2023-02-27T00:00:00
+1000037,Air conditioner,DG005,DG-DG005-1000037,available,Generated benchmark asset in serviceable condition.,2022-12-19T00:00:00
+1000038,Livestreaming equipment,DG005,DG-DG005-1000038,available,Generated benchmark asset in serviceable condition.,2023-03-22T00:00:00
+1000039,Whiteboard,DG006,DG-DG006-1000039,available,Generated benchmark asset in serviceable condition.,2022-04-03T00:00:00
+1000040,Air conditioner,DG006,DG-DG006-1000040,available,Generated benchmark asset in serviceable condition.,2022-11-22T00:00:00
+1000041,Computer,DG006,DG-DG006-1000041,available,Generated benchmark asset in serviceable condition.,2022-06-07T00:00:00
+1000042,Projector,DG006,DG-DG006-1000042,available,Generated benchmark asset in serviceable condition.,2021-04-09T00:00:00
+1000043,Projector,DG007,DG-DG007-1000043,available,Generated benchmark asset in serviceable condition.,2021-07-21T00:00:00
+1000044,Microphone,DG007,DG-DG007-1000044,available,Generated benchmark asset in serviceable condition.,2021-09-05T00:00:00
+1000045,Microphone,DG007,DG-DG007-1000045,available,Generated benchmark asset in serviceable condition.,2022-07-31T00:00:00
+1000046,Livestreaming equipment,DG007,DG-DG007-1000046,available,Generated benchmark asset in serviceable condition.,2022-05-17T00:00:00
+1000047,Air conditioner,DG007,DG-DG007-1000047,available,Generated benchmark asset in serviceable condition.,2021-12-02T00:00:00
+1000048,Computer,DG007,DG-DG007-1000048,available,Generated benchmark asset in serviceable condition.,2023-01-28T00:00:00
+1000049,Whiteboard,DG007,DG-DG007-1000049,available,Generated benchmark asset in serviceable condition.,2022-06-22T00:00:00
+1000050,Projector,DG008,DG-DG008-1000050,available,Generated benchmark asset in serviceable condition.,2021-10-08T00:00:00
+1000051,Whiteboard,DG008,DG-DG008-1000051,available,Generated benchmark asset in serviceable condition.,2023-06-05T00:00:00
+1000052,Air conditioner,DG008,DG-DG008-1000052,available,Generated benchmark asset in serviceable condition.,2022-08-16T00:00:00
+1000053,Computer,DG008,DG-DG008-1000053,available,Generated benchmark asset in serviceable condition.,2023-05-16T00:00:00
+1000054,Computer,DG009,DG-DG009-1000054,available,Generated benchmark asset in serviceable condition.,2023-01-25T00:00:00
+1000055,Computer,DG009,DG-DG009-1000055,available,Generated benchmark asset in serviceable condition.,2022-05-02T00:00:00
+1000056,Computer,DG009,DG-DG009-1000056,available,Generated benchmark asset in serviceable condition.,2023-03-17T00:00:00
+1000057,Computer,DG009,DG-DG009-1000057,available,Generated benchmark asset in serviceable condition.,2022-03-01T00:00:00
+1000058,Computer,DG009,DG-DG009-1000058,available,Generated benchmark asset in serviceable condition.,2023-04-21T00:00:00
+1000059,Computer,DG009,DG-DG009-1000059,available,Generated benchmark asset in serviceable condition.,2022-04-07T00:00:00
+1000060,Computer,DG009,DG-DG009-1000060,available,Generated benchmark asset in serviceable condition.,2023-03-16T00:00:00
+1000061,Computer,DG009,DG-DG009-1000061,available,Generated benchmark asset in serviceable condition.,2021-09-03T00:00:00
+1000062,Computer,DG009,DG-DG009-1000062,available,Generated benchmark asset in serviceable condition.,2022-09-21T00:00:00
+1000063,Computer,DG009,DG-DG009-1000063,available,Generated benchmark asset in serviceable condition.,2021-03-08T00:00:00
+1000064,Computer,DG009,DG-DG009-1000064,available,Generated benchmark asset in serviceable condition.,2022-03-04T00:00:00
+1000065,Computer,DG009,DG-DG009-1000065,available,Generated benchmark asset in serviceable condition.,2023-01-07T00:00:00
+1000066,Computer,DG009,DG-DG009-1000066,available,Generated benchmark asset in serviceable condition.,2022-12-23T00:00:00
+1000067,Computer,DG009,DG-DG009-1000067,available,Generated benchmark asset in serviceable condition.,2021-03-11T00:00:00
+1000068,Projector,DG009,DG-DG009-1000068,available,Generated benchmark asset in serviceable condition.,2021-06-07T00:00:00
+1000069,Air conditioner,DG009,DG-DG009-1000069,available,Generated benchmark asset in serviceable condition.,2023-01-23T00:00:00
+1000070,Computer,DG010,DG-DG010-1000070,available,Generated benchmark asset in serviceable condition.,2021-08-06T00:00:00
+1000071,Computer,DG010,DG-DG010-1000071,available,Generated benchmark asset in serviceable condition.,2023-05-02T00:00:00
+1000072,Computer,DG010,DG-DG010-1000072,available,Generated benchmark asset in serviceable condition.,2021-12-13T00:00:00
+1000073,Computer,DG010,DG-DG010-1000073,available,Generated benchmark asset in serviceable condition.,2021-05-17T00:00:00
+1000074,Computer,DG010,DG-DG010-1000074,available,Generated benchmark asset in serviceable condition.,2022-07-24T00:00:00
+1000075,Computer,DG010,DG-DG010-1000075,available,Generated benchmark asset in serviceable condition.,2022-12-17T00:00:00
+1000076,Computer,DG010,DG-DG010-1000076,available,Generated benchmark asset in serviceable condition.,2022-06-04T00:00:00
+1000077,Computer,DG010,DG-DG010-1000077,available,Generated benchmark asset in serviceable condition.,2023-02-24T00:00:00
+1000078,Computer,DG010,DG-DG010-1000078,available,Generated benchmark asset in serviceable condition.,2023-01-19T00:00:00
+1000079,Computer,DG010,DG-DG010-1000079,available,Generated benchmark asset in serviceable condition.,2021-04-20T00:00:00
+1000080,Computer,DG010,DG-DG010-1000080,available,Generated benchmark asset in serviceable condition.,2022-11-23T00:00:00
+1000081,Computer,DG010,DG-DG010-1000081,available,Generated benchmark asset in serviceable condition.,2022-07-24T00:00:00
+1000082,Whiteboard,DG010,DG-DG010-1000082,available,Generated benchmark asset in serviceable condition.,2022-11-09T00:00:00
+1000083,Air conditioner,DG010,DG-DG010-1000083,available,Generated benchmark asset in serviceable condition.,2022-12-16T00:00:00
+1000084,TV screen,DG011,DG-DG011-1000084,available,Generated benchmark asset in serviceable condition.,2022-04-25T00:00:00
+1000085,Whiteboard,DG011,DG-DG011-1000085,available,Generated benchmark asset in serviceable condition.,2021-01-10T00:00:00
+1000086,Air conditioner,DG011,DG-DG011-1000086,available,Generated benchmark asset in serviceable condition.,2022-02-19T00:00:00
+1000087,Whiteboard,DG012,DG-DG012-1000087,available,Generated benchmark asset in serviceable condition.,2022-11-23T00:00:00
+1000088,Air conditioner,DG012,DG-DG012-1000088,available,Generated benchmark asset in serviceable condition.,2023-01-19T00:00:00
+1000089,Microphone,DG012,DG-DG012-1000089,available,Generated benchmark asset in serviceable condition.,2022-02-18T00:00:00
+1000090,Projector,DG012,DG-DG012-1000090,available,Generated benchmark asset in serviceable condition.,2021-03-27T00:00:00
+1000091,Projector,DG013,DG-DG013-1000091,available,Generated benchmark asset in serviceable condition.,2021-09-17T00:00:00
+1000092,Microphone,DG013,DG-DG013-1000092,available,Generated benchmark asset in serviceable condition.,2021-09-29T00:00:00
+1000093,Microphone,DG013,DG-DG013-1000093,available,Generated benchmark asset in serviceable condition.,2022-10-30T00:00:00
+1000094,Livestreaming equipment,DG013,DG-DG013-1000094,available,Generated benchmark asset in serviceable condition.,2021-08-02T00:00:00
+1000095,Air conditioner,DG013,DG-DG013-1000095,available,Generated benchmark asset in serviceable condition.,2021-12-18T00:00:00
+1000096,TV screen,DG013,DG-DG013-1000096,available,Generated benchmark asset in serviceable condition.,2022-04-26T00:00:00
+1000097,Computer,DG013,DG-DG013-1000097,available,Generated benchmark asset in serviceable condition.,2023-05-24T00:00:00
+1000098,Projector,DG014,DG-DG014-1000098,available,Generated benchmark asset in serviceable condition.,2022-04-06T00:00:00
+1000099,Whiteboard,DG014,DG-DG014-1000099,available,Generated benchmark asset in serviceable condition.,2023-03-21T00:00:00
+1000100,Air conditioner,DG014,DG-DG014-1000100,available,Generated benchmark asset in serviceable condition.,2021-09-25T00:00:00
+1000101,TV screen,DG014,DG-DG014-1000101,available,Generated benchmark asset in serviceable condition.,2023-05-09T00:00:00
+1000102,Computer,DG015,DG-DG015-1000102,available,Generated benchmark asset in serviceable condition.,2021-07-23T00:00:00
+1000103,Computer,DG015,DG-DG015-1000103,available,Generated benchmark asset in serviceable condition.,2021-06-07T00:00:00
+1000104,Computer,DG015,DG-DG015-1000104,available,Generated benchmark asset in serviceable condition.,2022-11-09T00:00:00
+1000105,Computer,DG015,DG-DG015-1000105,available,Generated benchmark asset in serviceable condition.,2023-05-28T00:00:00
+1000106,Computer,DG015,DG-DG015-1000106,available,Generated benchmark asset in serviceable condition.,2021-03-01T00:00:00
+1000107,Computer,DG015,DG-DG015-1000107,available,Generated benchmark asset in serviceable condition.,2022-10-28T00:00:00
+1000108,Computer,DG015,DG-DG015-1000108,available,Generated benchmark asset in serviceable condition.,2022-05-01T00:00:00
+1000109,Computer,DG015,DG-DG015-1000109,available,Generated benchmark asset in serviceable condition.,2021-01-26T00:00:00
+1000110,Computer,DG015,DG-DG015-1000110,available,Generated benchmark asset in serviceable condition.,2021-11-21T00:00:00
+1000111,Computer,DG015,DG-DG015-1000111,available,Generated benchmark asset in serviceable condition.,2022-01-19T00:00:00
+1000112,Computer,DG015,DG-DG015-1000112,available,Generated benchmark asset in serviceable condition.,2021-08-03T00:00:00
+1000113,Computer,DG015,DG-DG015-1000113,available,Generated benchmark asset in serviceable condition.,2021-05-23T00:00:00
+1000114,Computer,DG015,DG-DG015-1000114,available,Generated benchmark asset in serviceable condition.,2022-07-03T00:00:00
+1000115,Computer,DG015,DG-DG015-1000115,available,Generated benchmark asset in serviceable condition.,2021-01-28T00:00:00
+1000116,Computer,DG015,DG-DG015-1000116,available,Generated benchmark asset in serviceable condition.,2022-03-01T00:00:00
+1000117,Projector,DG015,DG-DG015-1000117,available,Generated benchmark asset in serviceable condition.,2022-09-02T00:00:00
+1000118,Air conditioner,DG015,DG-DG015-1000118,available,Generated benchmark asset in serviceable condition.,2023-02-17T00:00:00
+1000119,Computer,DG016,DG-DG016-1000119,available,Generated benchmark asset in serviceable condition.,2022-02-02T00:00:00
+1000120,Computer,DG016,DG-DG016-1000120,available,Generated benchmark asset in serviceable condition.,2022-07-06T00:00:00
+1000121,Computer,DG016,DG-DG016-1000121,available,Generated benchmark asset in serviceable condition.,2021-12-10T00:00:00
+1000122,Computer,DG016,DG-DG016-1000122,available,Generated benchmark asset in serviceable condition.,2022-04-05T00:00:00
+1000123,Computer,DG016,DG-DG016-1000123,available,Generated benchmark asset in serviceable condition.,2022-03-03T00:00:00
+1000124,Computer,DG016,DG-DG016-1000124,available,Generated benchmark asset in serviceable condition.,2022-11-08T00:00:00
+1000125,Computer,DG016,DG-DG016-1000125,available,Generated benchmark asset in serviceable condition.,2022-03-04T00:00:00
+1000126,Computer,DG016,DG-DG016-1000126,available,Generated benchmark asset in serviceable condition.,2021-05-07T00:00:00
+1000127,Computer,DG016,DG-DG016-1000127,available,Generated benchmark asset in serviceable condition.,2023-06-04T00:00:00
+1000128,Computer,DG016,DG-DG016-1000128,available,Generated benchmark asset in serviceable condition.,2022-08-19T00:00:00
+1000129,Computer,DG016,DG-DG016-1000129,available,Generated benchmark asset in serviceable condition.,2022-08-23T00:00:00
+1000130,Computer,DG016,DG-DG016-1000130,available,Generated benchmark asset in serviceable condition.,2021-09-10T00:00:00
+1000131,Whiteboard,DG016,DG-DG016-1000131,available,Generated benchmark asset in serviceable condition.,2021-12-14T00:00:00
+1000132,Air conditioner,DG016,DG-DG016-1000132,available,Generated benchmark asset in serviceable condition.,2021-03-07T00:00:00
+1000133,Microphone,DG016,DG-DG016-1000133,available,Generated benchmark asset in serviceable condition.,2022-10-11T00:00:00
+1000134,Projector,DG016,DG-DG016-1000134,available,Generated benchmark asset in serviceable condition.,2023-05-27T00:00:00
+1000135,TV screen,DG017,DG-DG017-1000135,available,Generated benchmark asset in serviceable condition.,2021-07-10T00:00:00
+1000136,Whiteboard,DG017,DG-DG017-1000136,available,Generated benchmark asset in serviceable condition.,2021-08-09T00:00:00
+1000137,Air conditioner,DG017,DG-DG017-1000137,available,Generated benchmark asset in serviceable condition.,2021-11-22T00:00:00
+1000138,Computer,DG017,DG-DG017-1000138,available,Generated benchmark asset in serviceable condition.,2021-07-03T00:00:00
+1000139,Whiteboard,DG018,DG-DG018-1000139,available,Generated benchmark asset in serviceable condition.,2023-06-05T00:00:00
+1000140,Air conditioner,DG018,DG-DG018-1000140,available,Generated benchmark asset in serviceable condition.,2021-05-29T00:00:00
+1000141,Projector,DG019,DG-DG019-1000141,available,Generated benchmark asset in serviceable condition.,2023-02-18T00:00:00
+1000142,Microphone,DG019,DG-DG019-1000142,available,Generated benchmark asset in serviceable condition.,2021-04-22T00:00:00
+1000143,Microphone,DG019,DG-DG019-1000143,available,Generated benchmark asset in serviceable condition.,2023-05-13T00:00:00
+1000144,Livestreaming equipment,DG019,DG-DG019-1000144,available,Generated benchmark asset in serviceable condition.,2021-09-27T00:00:00
+1000145,Air conditioner,DG019,DG-DG019-1000145,available,Generated benchmark asset in serviceable condition.,2021-11-30T00:00:00
+1000146,Projector,DG020,DG-DG020-1000146,available,Generated benchmark asset in serviceable condition.,2022-09-15T00:00:00
+1000147,Whiteboard,DG020,DG-DG020-1000147,available,Generated benchmark asset in serviceable condition.,2021-08-24T00:00:00
+1000148,Air conditioner,DG020,DG-DG020-1000148,available,Generated benchmark asset in serviceable condition.,2021-08-03T00:00:00
+1000149,Computer,DG021,DG-DG021-1000149,available,Generated benchmark asset in serviceable condition.,2022-12-01T00:00:00
+1000150,Computer,DG021,DG-DG021-1000150,available,Generated benchmark asset in serviceable condition.,2022-06-04T00:00:00
+1000151,Computer,DG021,DG-DG021-1000151,available,Generated benchmark asset in serviceable condition.,2021-07-16T00:00:00
+1000152,Computer,DG021,DG-DG021-1000152,available,Generated benchmark asset in serviceable condition.,2022-09-29T00:00:00
+1000153,Computer,DG021,DG-DG021-1000153,available,Generated benchmark asset in serviceable condition.,2021-06-15T00:00:00
+1000154,Computer,DG021,DG-DG021-1000154,available,Generated benchmark asset in serviceable condition.,2022-09-02T00:00:00
+1000155,Computer,DG021,DG-DG021-1000155,available,Generated benchmark asset in serviceable condition.,2021-05-14T00:00:00
+1000156,Computer,DG021,DG-DG021-1000156,available,Generated benchmark asset in serviceable condition.,2021-11-20T00:00:00
+1000157,Computer,DG021,DG-DG021-1000157,available,Generated benchmark asset in serviceable condition.,2022-01-26T00:00:00
+1000158,Computer,DG021,DG-DG021-1000158,available,Generated benchmark asset in serviceable condition.,2021-10-28T00:00:00
+1000159,Computer,DG021,DG-DG021-1000159,available,Generated benchmark asset in serviceable condition.,2023-02-25T00:00:00
+1000160,Projector,DG021,DG-DG021-1000160,available,Generated benchmark asset in serviceable condition.,2021-04-12T00:00:00
+1000161,Air conditioner,DG021,DG-DG021-1000161,available,Generated benchmark asset in serviceable condition.,2022-03-11T00:00:00
+1000162,Whiteboard,DG021,DG-DG021-1000162,available,Generated benchmark asset in serviceable condition.,2022-10-08T00:00:00
+1000163,Computer,DG022,DG-DG022-1000163,available,Generated benchmark asset in serviceable condition.,2022-07-31T00:00:00
+1000164,Computer,DG022,DG-DG022-1000164,available,Generated benchmark asset in serviceable condition.,2021-04-09T00:00:00
+1000165,Computer,DG022,DG-DG022-1000165,available,Generated benchmark asset in serviceable condition.,2021-12-07T00:00:00
+1000166,Computer,DG022,DG-DG022-1000166,available,Generated benchmark asset in serviceable condition.,2022-12-17T00:00:00
+1000167,Computer,DG022,DG-DG022-1000167,available,Generated benchmark asset in serviceable condition.,2021-04-09T00:00:00
+1000168,Computer,DG022,DG-DG022-1000168,available,Generated benchmark asset in serviceable condition.,2023-01-29T00:00:00
+1000169,Computer,DG022,DG-DG022-1000169,available,Generated benchmark asset in serviceable condition.,2022-11-04T00:00:00
+1000170,Computer,DG022,DG-DG022-1000170,available,Generated benchmark asset in serviceable condition.,2021-04-05T00:00:00
+1000171,Computer,DG022,DG-DG022-1000171,available,Generated benchmark asset in serviceable condition.,2021-01-03T00:00:00
+1000172,Computer,DG022,DG-DG022-1000172,available,Generated benchmark asset in serviceable condition.,2023-03-25T00:00:00
+1000173,Computer,DG022,DG-DG022-1000173,available,Generated benchmark asset in serviceable condition.,2021-01-17T00:00:00
+1000174,Computer,DG022,DG-DG022-1000174,available,Generated benchmark asset in serviceable condition.,2023-03-23T00:00:00
+1000175,Computer,DG022,DG-DG022-1000175,available,Generated benchmark asset in serviceable condition.,2022-09-12T00:00:00
+1000176,Whiteboard,DG022,DG-DG022-1000176,available,Generated benchmark asset in serviceable condition.,2021-02-16T00:00:00
+1000177,Air conditioner,DG022,DG-DG022-1000177,available,Generated benchmark asset in serviceable condition.,2023-05-02T00:00:00
+1000178,Livestreaming equipment,DG022,DG-DG022-1000178,available,Generated benchmark asset in serviceable condition.,2023-05-26T00:00:00
+1000179,TV screen,DG023,DG-DG023-1000179,available,Generated benchmark asset in serviceable condition.,2021-07-23T00:00:00
+1000180,Whiteboard,DG023,DG-DG023-1000180,available,Generated benchmark asset in serviceable condition.,2021-01-27T00:00:00
+1000181,Air conditioner,DG023,DG-DG023-1000181,available,Generated benchmark asset in serviceable condition.,2021-06-11T00:00:00
+1000182,Microphone,DG023,DG-DG023-1000182,available,Generated benchmark asset in serviceable condition.,2021-09-21T00:00:00
+1000183,Whiteboard,DG024,DG-DG024-1000183,available,Generated benchmark asset in serviceable condition.,2021-09-27T00:00:00
+1000184,Air conditioner,DG024,DG-DG024-1000184,available,Generated benchmark asset in serviceable condition.,2022-10-19T00:00:00
+1000185,Livestreaming equipment,DG024,DG-DG024-1000185,available,Generated benchmark asset in serviceable condition.,2022-04-15T00:00:00
+1000186,TV screen,DG024,DG-DG024-1000186,available,Generated benchmark asset in serviceable condition.,2022-03-22T00:00:00
+1000187,Projector,DG025,DG-DG025-1000187,available,Generated benchmark asset in serviceable condition.,2022-07-26T00:00:00
+1000188,Microphone,DG025,DG-DG025-1000188,available,Generated benchmark asset in serviceable condition.,2023-03-04T00:00:00
+1000189,Microphone,DG025,DG-DG025-1000189,available,Generated benchmark asset in serviceable condition.,2021-05-12T00:00:00
+1000190,Livestreaming equipment,DG025,DG-DG025-1000190,available,Generated benchmark asset in serviceable condition.,2021-07-31T00:00:00
+1000191,Air conditioner,DG025,DG-DG025-1000191,available,Generated benchmark asset in serviceable condition.,2022-03-01T00:00:00
+1000192,Whiteboard,DG025,DG-DG025-1000192,available,Generated benchmark asset in serviceable condition.,2022-12-08T00:00:00
+1000193,Projector,DG026,DG-DG026-1000193,available,Generated benchmark asset in serviceable condition.,2023-02-26T00:00:00
+1000194,Whiteboard,DG026,DG-DG026-1000194,available,Generated benchmark asset in serviceable condition.,2021-05-27T00:00:00
+1000195,Air conditioner,DG026,DG-DG026-1000195,available,Generated benchmark asset in serviceable condition.,2021-05-30T00:00:00
+1000196,Microphone,DG026,DG-DG026-1000196,available,Generated benchmark asset in serviceable condition.,2021-11-22T00:00:00
+1000197,Computer,DG026,DG-DG026-1000197,available,Generated benchmark asset in serviceable condition.,2021-07-01T00:00:00
+1000198,Computer,DG027,DG-DG027-1000198,available,Generated benchmark asset in serviceable condition.,2022-01-10T00:00:00
+1000199,Computer,DG027,DG-DG027-1000199,available,Generated benchmark asset in serviceable condition.,2021-04-04T00:00:00
+1000200,Computer,DG027,DG-DG027-1000200,available,Generated benchmark asset in serviceable condition.,2021-11-16T00:00:00
+1000201,Computer,DG027,DG-DG027-1000201,available,Generated benchmark asset in serviceable condition.,2022-06-03T00:00:00
+1000202,Computer,DG027,DG-DG027-1000202,available,Generated benchmark asset in serviceable condition.,2023-01-10T00:00:00
+1000203,Computer,DG027,DG-DG027-1000203,available,Generated benchmark asset in serviceable condition.,2021-02-23T00:00:00
+1000204,Computer,DG027,DG-DG027-1000204,available,Generated benchmark asset in serviceable condition.,2022-01-22T00:00:00
+1000205,Computer,DG027,DG-DG027-1000205,available,Generated benchmark asset in serviceable condition.,2023-03-16T00:00:00
+1000206,Computer,DG027,DG-DG027-1000206,available,Generated benchmark asset in serviceable condition.,2021-05-20T00:00:00
+1000207,Computer,DG027,DG-DG027-1000207,available,Generated benchmark asset in serviceable condition.,2022-11-12T00:00:00
+1000208,Computer,DG027,DG-DG027-1000208,available,Generated benchmark asset in serviceable condition.,2022-11-23T00:00:00
+1000209,Computer,DG027,DG-DG027-1000209,available,Generated benchmark asset in serviceable condition.,2022-11-06T00:00:00
+1000210,Computer,DG027,DG-DG027-1000210,available,Generated benchmark asset in serviceable condition.,2022-04-24T00:00:00
+1000211,Computer,DG027,DG-DG027-1000211,available,Generated benchmark asset in serviceable condition.,2023-06-20T00:00:00
+1000212,Projector,DG027,DG-DG027-1000212,available,Generated benchmark asset in serviceable condition.,2022-01-10T00:00:00
+1000213,Air conditioner,DG027,DG-DG027-1000213,available,Generated benchmark asset in serviceable condition.,2021-12-02T00:00:00
+1000214,Computer,DG028,DG-DG028-1000214,available,Generated benchmark asset in serviceable condition.,2021-03-04T00:00:00
+1000215,Computer,DG028,DG-DG028-1000215,available,Generated benchmark asset in serviceable condition.,2021-05-08T00:00:00
+1000216,Computer,DG028,DG-DG028-1000216,available,Generated benchmark asset in serviceable condition.,2022-04-12T00:00:00
+1000217,Computer,DG028,DG-DG028-1000217,available,Generated benchmark asset in serviceable condition.,2023-01-25T00:00:00
+1000218,Computer,DG028,DG-DG028-1000218,available,Generated benchmark asset in serviceable condition.,2022-04-22T00:00:00
+1000219,Computer,DG028,DG-DG028-1000219,available,Generated benchmark asset in serviceable condition.,2022-12-22T00:00:00
+1000220,Computer,DG028,DG-DG028-1000220,available,Generated benchmark asset in serviceable condition.,2022-11-02T00:00:00
+1000221,Computer,DG028,DG-DG028-1000221,available,Generated benchmark asset in serviceable condition.,2023-04-17T00:00:00
+1000222,Computer,DG028,DG-DG028-1000222,available,Generated benchmark asset in serviceable condition.,2023-03-14T00:00:00
+1000223,Whiteboard,DG028,DG-DG028-1000223,available,Generated benchmark asset in serviceable condition.,2021-12-18T00:00:00
+1000224,Air conditioner,DG028,DG-DG028-1000224,available,Generated benchmark asset in serviceable condition.,2022-10-23T00:00:00
+1000225,TV screen,DG028,DG-DG028-1000225,available,Generated benchmark asset in serviceable condition.,2022-12-12T00:00:00
+1000226,TV screen,DG029,DG-DG029-1000226,available,Generated benchmark asset in serviceable condition.,2022-06-20T00:00:00
+1000227,Whiteboard,DG029,DG-DG029-1000227,available,Generated benchmark asset in serviceable condition.,2022-09-02T00:00:00
+1000228,Air conditioner,DG029,DG-DG029-1000228,available,Generated benchmark asset in serviceable condition.,2023-03-28T00:00:00
+1000229,Computer,DG029,DG-DG029-1000229,available,Generated benchmark asset in serviceable condition.,2022-09-23T00:00:00
+1000230,Whiteboard,DG030,DG-DG030-1000230,available,Generated benchmark asset in serviceable condition.,2022-08-30T00:00:00
+1000231,Air conditioner,DG030,DG-DG030-1000231,available,Generated benchmark asset in serviceable condition.,2022-03-20T00:00:00
+1000232,Projector,DG030,DG-DG030-1000232,available,Generated benchmark asset in serviceable condition.,2022-01-23T00:00:00
+1000233,Computer,DG030,DG-DG030-1000233,available,Generated benchmark asset in serviceable condition.,2021-06-01T00:00:00
+1000234,Projector,DG031,DG-DG031-1000234,available,Generated benchmark asset in serviceable condition.,2022-11-25T00:00:00
+1000235,Microphone,DG031,DG-DG031-1000235,available,Generated benchmark asset in serviceable condition.,2022-07-13T00:00:00
+1000236,Microphone,DG031,DG-DG031-1000236,available,Generated benchmark asset in serviceable condition.,2022-05-12T00:00:00
+1000237,Microphone,DG031,DG-DG031-1000237,available,Generated benchmark asset in serviceable condition.,2021-06-28T00:00:00
+1000238,Livestreaming equipment,DG031,DG-DG031-1000238,available,Generated benchmark asset in serviceable condition.,2022-01-17T00:00:00
+1000239,Air conditioner,DG031,DG-DG031-1000239,available,Generated benchmark asset in serviceable condition.,2022-09-25T00:00:00
+1000240,Projector,DG032,DG-DG032-1000240,available,Generated benchmark asset in serviceable condition.,2022-03-25T00:00:00
+1000241,Whiteboard,DG032,DG-DG032-1000241,available,Generated benchmark asset in serviceable condition.,2021-03-01T00:00:00
+1000242,Air conditioner,DG032,DG-DG032-1000242,available,Generated benchmark asset in serviceable condition.,2022-04-21T00:00:00
+1000243,Computer,DG033,DG-DG033-1000243,available,Generated benchmark asset in serviceable condition.,2021-11-06T00:00:00
+1000244,Computer,DG033,DG-DG033-1000244,available,Generated benchmark asset in serviceable condition.,2023-04-22T00:00:00
+1000245,Computer,DG033,DG-DG033-1000245,available,Generated benchmark asset in serviceable condition.,2021-11-11T00:00:00
+1000246,Computer,DG033,DG-DG033-1000246,available,Generated benchmark asset in serviceable condition.,2022-02-22T00:00:00
+1000247,Computer,DG033,DG-DG033-1000247,available,Generated benchmark asset in serviceable condition.,2022-01-19T00:00:00
+1000248,Computer,DG033,DG-DG033-1000248,available,Generated benchmark asset in serviceable condition.,2023-01-16T00:00:00
+1000249,Computer,DG033,DG-DG033-1000249,available,Generated benchmark asset in serviceable condition.,2021-03-14T00:00:00
+1000250,Computer,DG033,DG-DG033-1000250,available,Generated benchmark asset in serviceable condition.,2021-05-10T00:00:00
+1000251,Computer,DG033,DG-DG033-1000251,available,Generated benchmark asset in serviceable condition.,2022-01-16T00:00:00
+1000252,Computer,DG033,DG-DG033-1000252,available,Generated benchmark asset in serviceable condition.,2021-11-28T00:00:00
+1000253,Projector,DG033,DG-DG033-1000253,available,Generated benchmark asset in serviceable condition.,2022-07-02T00:00:00
+1000254,Air conditioner,DG033,DG-DG033-1000254,available,Generated benchmark asset in serviceable condition.,2022-07-30T00:00:00
+1000255,Computer,DG034,DG-DG034-1000255,available,Generated benchmark asset in serviceable condition.,2021-05-02T00:00:00
+1000256,Computer,DG034,DG-DG034-1000256,available,Generated benchmark asset in serviceable condition.,2022-11-03T00:00:00
+1000257,Computer,DG034,DG-DG034-1000257,available,Generated benchmark asset in serviceable condition.,2021-06-09T00:00:00
+1000258,Computer,DG034,DG-DG034-1000258,available,Generated benchmark asset in serviceable condition.,2022-08-16T00:00:00
+1000259,Computer,DG034,DG-DG034-1000259,available,Generated benchmark asset in serviceable condition.,2022-09-29T00:00:00
+1000260,Computer,DG034,DG-DG034-1000260,available,Generated benchmark asset in serviceable condition.,2022-03-05T00:00:00
+1000261,Computer,DG034,DG-DG034-1000261,available,Generated benchmark asset in serviceable condition.,2022-08-10T00:00:00
+1000262,Computer,DG034,DG-DG034-1000262,available,Generated benchmark asset in serviceable condition.,2023-04-12T00:00:00
+1000263,Computer,DG034,DG-DG034-1000263,available,Generated benchmark asset in serviceable condition.,2021-10-03T00:00:00
+1000264,Computer,DG034,DG-DG034-1000264,available,Generated benchmark asset in serviceable condition.,2023-01-08T00:00:00
+1000265,Computer,DG034,DG-DG034-1000265,available,Generated benchmark asset in serviceable condition.,2023-02-03T00:00:00
+1000266,Computer,DG034,DG-DG034-1000266,available,Generated benchmark asset in serviceable condition.,2021-06-08T00:00:00
+1000267,Computer,DG034,DG-DG034-1000267,available,Generated benchmark asset in serviceable condition.,2021-09-14T00:00:00
+1000268,Whiteboard,DG034,DG-DG034-1000268,available,Generated benchmark asset in serviceable condition.,2021-05-19T00:00:00
+1000269,Air conditioner,DG034,DG-DG034-1000269,available,Generated benchmark asset in serviceable condition.,2021-08-20T00:00:00
+1000270,Microphone,DG034,DG-DG034-1000270,available,Generated benchmark asset in serviceable condition.,2022-08-20T00:00:00
+1000271,Projector,DG034,DG-DG034-1000271,available,Generated benchmark asset in serviceable condition.,2022-03-16T00:00:00
+1000272,TV screen,DG035,DG-DG035-1000272,available,Generated benchmark asset in serviceable condition.,2023-02-15T00:00:00
+1000273,Whiteboard,DG035,DG-DG035-1000273,available,Generated benchmark asset in serviceable condition.,2021-03-21T00:00:00
+1000274,Air conditioner,DG035,DG-DG035-1000274,available,Generated benchmark asset in serviceable condition.,2021-02-08T00:00:00
+1000275,Livestreaming equipment,DG035,DG-DG035-1000275,available,Generated benchmark asset in serviceable condition.,2022-02-22T00:00:00
+1000276,Whiteboard,DG036,DG-DG036-1000276,available,Generated benchmark asset in serviceable condition.,2023-03-29T00:00:00
+1000277,Air conditioner,DG036,DG-DG036-1000277,available,Generated benchmark asset in serviceable condition.,2021-11-03T00:00:00
+1000278,Projector,DG037,DG-DG037-1000278,available,Generated benchmark asset in serviceable condition.,2023-01-26T00:00:00
+1000279,Microphone,DG037,DG-DG037-1000279,available,Generated benchmark asset in serviceable condition.,2022-09-10T00:00:00
+1000280,Microphone,DG037,DG-DG037-1000280,available,Generated benchmark asset in serviceable condition.,2023-02-12T00:00:00
+1000281,Microphone,DG037,DG-DG037-1000281,available,Generated benchmark asset in serviceable condition.,2021-12-22T00:00:00
+1000282,Livestreaming equipment,DG037,DG-DG037-1000282,available,Generated benchmark asset in serviceable condition.,2021-09-18T00:00:00
+1000283,Air conditioner,DG037,DG-DG037-1000283,available,Generated benchmark asset in serviceable condition.,2022-01-30T00:00:00
+1000284,Projector,DG038,DG-DG038-1000284,available,Generated benchmark asset in serviceable condition.,2021-07-29T00:00:00
+1000285,Whiteboard,DG038,DG-DG038-1000285,available,Generated benchmark asset in serviceable condition.,2021-08-06T00:00:00
+1000286,Air conditioner,DG038,DG-DG038-1000286,available,Generated benchmark asset in serviceable condition.,2021-06-19T00:00:00
+1000287,Computer,DG039,DG-DG039-1000287,available,Generated benchmark asset in serviceable condition.,2023-03-26T00:00:00
+1000288,Computer,DG039,DG-DG039-1000288,available,Generated benchmark asset in serviceable condition.,2021-01-29T00:00:00
+1000289,Computer,DG039,DG-DG039-1000289,available,Generated benchmark asset in serviceable condition.,2021-05-23T00:00:00
+1000290,Computer,DG039,DG-DG039-1000290,available,Generated benchmark asset in serviceable condition.,2021-06-01T00:00:00
+1000291,Computer,DG039,DG-DG039-1000291,available,Generated benchmark asset in serviceable condition.,2022-07-04T00:00:00
+1000292,Computer,DG039,DG-DG039-1000292,available,Generated benchmark asset in serviceable condition.,2022-06-02T00:00:00
+1000293,Computer,DG039,DG-DG039-1000293,available,Generated benchmark asset in serviceable condition.,2021-04-25T00:00:00
+1000294,Computer,DG039,DG-DG039-1000294,available,Generated benchmark asset in serviceable condition.,2021-04-22T00:00:00
+1000295,Computer,DG039,DG-DG039-1000295,available,Generated benchmark asset in serviceable condition.,2023-01-11T00:00:00
+1000296,Computer,DG039,DG-DG039-1000296,available,Generated benchmark asset in serviceable condition.,2021-04-30T00:00:00
+1000297,Computer,DG039,DG-DG039-1000297,available,Generated benchmark asset in serviceable condition.,2021-05-31T00:00:00
+1000298,Computer,DG039,DG-DG039-1000298,available,Generated benchmark asset in serviceable condition.,2022-10-27T00:00:00
+1000299,Computer,DG039,DG-DG039-1000299,available,Generated benchmark asset in serviceable condition.,2021-09-10T00:00:00
+1000300,Projector,DG039,DG-DG039-1000300,available,Generated benchmark asset in serviceable condition.,2021-07-27T00:00:00
+1000301,Air conditioner,DG039,DG-DG039-1000301,available,Generated benchmark asset in serviceable condition.,2021-08-13T00:00:00
+1000302,Livestreaming equipment,DG039,DG-DG039-1000302,available,Generated benchmark asset in serviceable condition.,2023-02-28T00:00:00
+1000303,Microphone,DG039,DG-DG039-1000303,available,Generated benchmark asset in serviceable condition.,2022-10-06T00:00:00
+1000304,Computer,DG040,DG-DG040-1000304,available,Generated benchmark asset in serviceable condition.,2021-06-18T00:00:00
+1000305,Computer,DG040,DG-DG040-1000305,available,Generated benchmark asset in serviceable condition.,2021-08-24T00:00:00
+1000306,Computer,DG040,DG-DG040-1000306,available,Generated benchmark asset in serviceable condition.,2021-07-20T00:00:00
+1000307,Computer,DG040,DG-DG040-1000307,available,Generated benchmark asset in serviceable condition.,2022-11-15T00:00:00
+1000308,Computer,DG040,DG-DG040-1000308,available,Generated benchmark asset in serviceable condition.,2022-06-14T00:00:00
+1000309,Computer,DG040,DG-DG040-1000309,available,Generated benchmark asset in serviceable condition.,2021-01-20T00:00:00
+1000310,Computer,DG040,DG-DG040-1000310,available,Generated benchmark asset in serviceable condition.,2022-02-03T00:00:00
+1000311,Computer,DG040,DG-DG040-1000311,available,Generated benchmark asset in serviceable condition.,2022-01-29T00:00:00
+1000312,Computer,DG040,DG-DG040-1000312,available,Generated benchmark asset in serviceable condition.,2021-03-06T00:00:00
+1000313,Computer,DG040,DG-DG040-1000313,available,Generated benchmark asset in serviceable condition.,2021-03-12T00:00:00
+1000314,Computer,DG040,DG-DG040-1000314,available,Generated benchmark asset in serviceable condition.,2022-01-31T00:00:00
+1000315,Whiteboard,DG040,DG-DG040-1000315,available,Generated benchmark asset in serviceable condition.,2022-01-03T00:00:00
+1000316,Air conditioner,DG040,DG-DG040-1000316,available,Generated benchmark asset in serviceable condition.,2022-08-27T00:00:00
+1000317,TV screen,DG040,DG-DG040-1000317,available,Generated benchmark asset in serviceable condition.,2022-01-06T00:00:00
+1000318,Livestreaming equipment,DG040,DG-DG040-1000318,available,Generated benchmark asset in serviceable condition.,2021-02-05T00:00:00
+1000319,TV screen,DG041,DG-DG041-1000319,available,Generated benchmark asset in serviceable condition.,2022-01-26T00:00:00
+1000320,Whiteboard,DG041,DG-DG041-1000320,available,Generated benchmark asset in serviceable condition.,2023-01-29T00:00:00
+1000321,Air conditioner,DG041,DG-DG041-1000321,available,Generated benchmark asset in serviceable condition.,2023-03-10T00:00:00
+1000322,Whiteboard,DG042,DG-DG042-1000322,available,Generated benchmark asset in serviceable condition.,2021-10-22T00:00:00
+1000323,Air conditioner,DG042,DG-DG042-1000323,available,Generated benchmark asset in serviceable condition.,2021-12-12T00:00:00
+1000324,Projector,DG043,DG-DG043-1000324,available,Generated benchmark asset in serviceable condition.,2021-01-17T00:00:00
+1000325,Microphone,DG043,DG-DG043-1000325,available,Generated benchmark asset in serviceable condition.,2022-08-19T00:00:00
+1000326,Microphone,DG043,DG-DG043-1000326,available,Generated benchmark asset in serviceable condition.,2022-03-04T00:00:00
+1000327,Microphone,DG043,DG-DG043-1000327,available,Generated benchmark asset in serviceable condition.,2021-01-13T00:00:00
+1000328,Microphone,DG043,DG-DG043-1000328,available,Generated benchmark asset in serviceable condition.,2022-01-24T00:00:00
+1000329,Livestreaming equipment,DG043,DG-DG043-1000329,available,Generated benchmark asset in serviceable condition.,2022-10-30T00:00:00
+1000330,Air conditioner,DG043,DG-DG043-1000330,available,Generated benchmark asset in serviceable condition.,2021-05-08T00:00:00
+1000331,Projector,DG044,DG-DG044-1000331,available,Generated benchmark asset in serviceable condition.,2021-06-01T00:00:00
+1000332,Whiteboard,DG044,DG-DG044-1000332,available,Generated benchmark asset in serviceable condition.,2023-01-08T00:00:00
+1000333,Air conditioner,DG044,DG-DG044-1000333,available,Generated benchmark asset in serviceable condition.,2021-10-23T00:00:00
+1000334,Microphone,DG044,DG-DG044-1000334,available,Generated benchmark asset in serviceable condition.,2022-03-30T00:00:00
+1000335,Computer,DG045,DG-DG045-1000335,available,Generated benchmark asset in serviceable condition.,2022-08-04T00:00:00
+1000336,Computer,DG045,DG-DG045-1000336,available,Generated benchmark asset in serviceable condition.,2022-02-16T00:00:00
+1000337,Computer,DG045,DG-DG045-1000337,available,Generated benchmark asset in serviceable condition.,2021-10-09T00:00:00
+1000338,Computer,DG045,DG-DG045-1000338,available,Generated benchmark asset in serviceable condition.,2022-01-10T00:00:00
+1000339,Computer,DG045,DG-DG045-1000339,available,Generated benchmark asset in serviceable condition.,2022-12-18T00:00:00
+1000340,Computer,DG045,DG-DG045-1000340,available,Generated benchmark asset in serviceable condition.,2022-06-16T00:00:00
+1000341,Computer,DG045,DG-DG045-1000341,available,Generated benchmark asset in serviceable condition.,2021-08-22T00:00:00
+1000342,Computer,DG045,DG-DG045-1000342,available,Generated benchmark asset in serviceable condition.,2023-05-28T00:00:00
+1000343,Computer,DG045,DG-DG045-1000343,available,Generated benchmark asset in serviceable condition.,2022-11-21T00:00:00
+1000344,Computer,DG045,DG-DG045-1000344,available,Generated benchmark asset in serviceable condition.,2021-09-02T00:00:00
+1000345,Computer,DG045,DG-DG045-1000345,available,Generated benchmark asset in serviceable condition.,2021-01-19T00:00:00
+1000346,Computer,DG045,DG-DG045-1000346,available,Generated benchmark asset in serviceable condition.,2021-01-18T00:00:00
+1000347,Projector,DG045,DG-DG045-1000347,available,Generated benchmark asset in serviceable condition.,2023-01-29T00:00:00
+1000348,Air conditioner,DG045,DG-DG045-1000348,available,Generated benchmark asset in serviceable condition.,2022-05-25T00:00:00
+1000349,TV screen,DG045,DG-DG045-1000349,available,Generated benchmark asset in serviceable condition.,2023-01-01T00:00:00
+1000350,Microphone,DG045,DG-DG045-1000350,available,Generated benchmark asset in serviceable condition.,2023-03-22T00:00:00
+1000351,Computer,DG046,DG-DG046-1000351,available,Generated benchmark asset in serviceable condition.,2021-05-30T00:00:00
+1000352,Computer,DG046,DG-DG046-1000352,available,Generated benchmark asset in serviceable condition.,2023-01-31T00:00:00
+1000353,Computer,DG046,DG-DG046-1000353,available,Generated benchmark asset in serviceable condition.,2021-06-28T00:00:00
+1000354,Computer,DG046,DG-DG046-1000354,available,Generated benchmark asset in serviceable condition.,2021-10-23T00:00:00
+1000355,Computer,DG046,DG-DG046-1000355,available,Generated benchmark asset in serviceable condition.,2021-02-07T00:00:00
+1000356,Computer,DG046,DG-DG046-1000356,available,Generated benchmark asset in serviceable condition.,2021-07-25T00:00:00
+1000357,Computer,DG046,DG-DG046-1000357,available,Generated benchmark asset in serviceable condition.,2023-02-24T00:00:00
+1000358,Computer,DG046,DG-DG046-1000358,available,Generated benchmark asset in serviceable condition.,2021-01-17T00:00:00
+1000359,Computer,DG046,DG-DG046-1000359,available,Generated benchmark asset in serviceable condition.,2023-05-10T00:00:00
+1000360,Computer,DG046,DG-DG046-1000360,available,Generated benchmark asset in serviceable condition.,2022-05-27T00:00:00
+1000361,Computer,DG046,DG-DG046-1000361,available,Generated benchmark asset in serviceable condition.,2023-06-03T00:00:00
+1000362,Computer,DG046,DG-DG046-1000362,available,Generated benchmark asset in serviceable condition.,2022-05-27T00:00:00
+1000363,Computer,DG046,DG-DG046-1000363,available,Generated benchmark asset in serviceable condition.,2022-12-31T00:00:00
+1000364,Whiteboard,DG046,DG-DG046-1000364,available,Generated benchmark asset in serviceable condition.,2023-02-27T00:00:00
+1000365,Air conditioner,DG046,DG-DG046-1000365,available,Generated benchmark asset in serviceable condition.,2022-12-14T00:00:00
+1000366,TV screen,DG047,DG-DG047-1000366,available,Generated benchmark asset in serviceable condition.,2022-08-26T00:00:00
+1000367,Whiteboard,DG047,DG-DG047-1000367,available,Generated benchmark asset in serviceable condition.,2023-04-26T00:00:00
+1000368,Air conditioner,DG047,DG-DG047-1000368,available,Generated benchmark asset in serviceable condition.,2021-10-01T00:00:00
+1000369,Microphone,DG047,DG-DG047-1000369,available,Generated benchmark asset in serviceable condition.,2021-03-16T00:00:00
+1000370,Projector,DG047,DG-DG047-1000370,available,Generated benchmark asset in serviceable condition.,2023-06-09T00:00:00
+1000371,Whiteboard,DG048,DG-DG048-1000371,available,Generated benchmark asset in serviceable condition.,2022-08-19T00:00:00
+1000372,Air conditioner,DG048,DG-DG048-1000372,available,Generated benchmark asset in serviceable condition.,2023-05-16T00:00:00
+1000373,Projector,DG049,DG-DG049-1000373,available,Generated benchmark asset in serviceable condition.,2022-09-14T00:00:00
+1000374,Microphone,DG049,DG-DG049-1000374,available,Generated benchmark asset in serviceable condition.,2021-09-14T00:00:00
+1000375,Microphone,DG049,DG-DG049-1000375,available,Generated benchmark asset in serviceable condition.,2021-02-04T00:00:00
+1000376,Microphone,DG049,DG-DG049-1000376,available,Generated benchmark asset in serviceable condition.,2021-09-10T00:00:00
+1000377,Microphone,DG049,DG-DG049-1000377,available,Generated benchmark asset in serviceable condition.,2023-01-21T00:00:00
+1000378,Livestreaming equipment,DG049,DG-DG049-1000378,available,Generated benchmark asset in serviceable condition.,2023-02-11T00:00:00
+1000379,Air conditioner,DG049,DG-DG049-1000379,available,Generated benchmark asset in serviceable condition.,2022-12-30T00:00:00
+1000380,Computer,DG049,DG-DG049-1000380,available,Generated benchmark asset in serviceable condition.,2021-01-20T00:00:00
+1000381,Projector,DG050,DG-DG050-1000381,available,Generated benchmark asset in serviceable condition.,2021-10-07T00:00:00
+1000382,Whiteboard,DG050,DG-DG050-1000382,available,Generated benchmark asset in serviceable condition.,2023-01-17T00:00:00
+1000383,Air conditioner,DG050,DG-DG050-1000383,available,Generated benchmark asset in serviceable condition.,2021-10-29T00:00:00
+1000384,Livestreaming equipment,DG050,DG-DG050-1000384,available,Generated benchmark asset in serviceable condition.,2021-09-28T00:00:00
+1000385,Computer,DG050,DG-DG050-1000385,available,Generated benchmark asset in serviceable condition.,2022-04-10T00:00:00
+1000386,Computer,DG051,DG-DG051-1000386,available,Generated benchmark asset in serviceable condition.,2021-11-19T00:00:00
+1000387,Computer,DG051,DG-DG051-1000387,available,Generated benchmark asset in serviceable condition.,2023-01-09T00:00:00
+1000388,Computer,DG051,DG-DG051-1000388,available,Generated benchmark asset in serviceable condition.,2022-05-19T00:00:00
+1000389,Computer,DG051,DG-DG051-1000389,available,Generated benchmark asset in serviceable condition.,2022-09-24T00:00:00
+1000390,Computer,DG051,DG-DG051-1000390,available,Generated benchmark asset in serviceable condition.,2021-11-13T00:00:00
+1000391,Computer,DG051,DG-DG051-1000391,available,Generated benchmark asset in serviceable condition.,2022-07-02T00:00:00
+1000392,Computer,DG051,DG-DG051-1000392,available,Generated benchmark asset in serviceable condition.,2021-02-12T00:00:00
+1000393,Computer,DG051,DG-DG051-1000393,available,Generated benchmark asset in serviceable condition.,2023-02-21T00:00:00
+1000394,Computer,DG051,DG-DG051-1000394,available,Generated benchmark asset in serviceable condition.,2022-04-14T00:00:00
+1000395,Computer,DG051,DG-DG051-1000395,available,Generated benchmark asset in serviceable condition.,2021-06-13T00:00:00
+1000396,Projector,DG051,DG-DG051-1000396,available,Generated benchmark asset in serviceable condition.,2021-10-29T00:00:00
+1000397,Air conditioner,DG051,DG-DG051-1000397,available,Generated benchmark asset in serviceable condition.,2023-01-24T00:00:00
+1000398,Microphone,DG051,DG-DG051-1000398,available,Generated benchmark asset in serviceable condition.,2022-05-06T00:00:00
+1000399,Whiteboard,DG051,DG-DG051-1000399,available,Generated benchmark asset in serviceable condition.,2021-06-07T00:00:00
+1000400,Computer,DG052,DG-DG052-1000400,available,Generated benchmark asset in serviceable condition.,2023-02-15T00:00:00
+1000401,Computer,DG052,DG-DG052-1000401,available,Generated benchmark asset in serviceable condition.,2022-01-20T00:00:00
+1000402,Computer,DG052,DG-DG052-1000402,available,Generated benchmark asset in serviceable condition.,2021-06-05T00:00:00
+1000403,Computer,DG052,DG-DG052-1000403,available,Generated benchmark asset in serviceable condition.,2022-04-13T00:00:00
+1000404,Computer,DG052,DG-DG052-1000404,available,Generated benchmark asset in serviceable condition.,2022-08-29T00:00:00
+1000405,Computer,DG052,DG-DG052-1000405,available,Generated benchmark asset in serviceable condition.,2021-12-18T00:00:00
+1000406,Computer,DG052,DG-DG052-1000406,available,Generated benchmark asset in serviceable condition.,2021-11-27T00:00:00
+1000407,Computer,DG052,DG-DG052-1000407,available,Generated benchmark asset in serviceable condition.,2023-02-28T00:00:00
+1000408,Computer,DG052,DG-DG052-1000408,available,Generated benchmark asset in serviceable condition.,2022-05-29T00:00:00
+1000409,Computer,DG052,DG-DG052-1000409,available,Generated benchmark asset in serviceable condition.,2023-03-02T00:00:00
+1000410,Computer,DG052,DG-DG052-1000410,available,Generated benchmark asset in serviceable condition.,2023-04-20T00:00:00
+1000411,Computer,DG052,DG-DG052-1000411,available,Generated benchmark asset in serviceable condition.,2023-04-15T00:00:00
+1000412,Computer,DG052,DG-DG052-1000412,available,Generated benchmark asset in serviceable condition.,2021-08-14T00:00:00
+1000413,Computer,DG052,DG-DG052-1000413,available,Generated benchmark asset in serviceable condition.,2021-07-11T00:00:00
+1000414,Computer,DG052,DG-DG052-1000414,available,Generated benchmark asset in serviceable condition.,2021-07-13T00:00:00
+1000415,Whiteboard,DG052,DG-DG052-1000415,available,Generated benchmark asset in serviceable condition.,2022-05-08T00:00:00
+1000416,Air conditioner,DG052,DG-DG052-1000416,available,Generated benchmark asset in serviceable condition.,2022-09-20T00:00:00
+1000417,Livestreaming equipment,DG052,DG-DG052-1000417,available,Generated benchmark asset in serviceable condition.,2022-09-30T00:00:00
+1000418,TV screen,DG053,DG-DG053-1000418,available,Generated benchmark asset in serviceable condition.,2023-01-30T00:00:00
+1000419,Whiteboard,DG053,DG-DG053-1000419,available,Generated benchmark asset in serviceable condition.,2022-08-05T00:00:00
+1000420,Air conditioner,DG053,DG-DG053-1000420,available,Generated benchmark asset in serviceable condition.,2022-03-18T00:00:00
+1000421,Computer,DG053,DG-DG053-1000421,available,Generated benchmark asset in serviceable condition.,2021-03-21T00:00:00
+1000422,Whiteboard,DG054,DG-DG054-1000422,available,Generated benchmark asset in serviceable condition.,2021-06-06T00:00:00
+1000423,Air conditioner,DG054,DG-DG054-1000423,available,Generated benchmark asset in serviceable condition.,2021-05-08T00:00:00
+1000424,Livestreaming equipment,DG054,DG-DG054-1000424,available,Generated benchmark asset in serviceable condition.,2022-06-12T00:00:00
+1000425,Projector,DG055,DG-DG055-1000425,available,Generated benchmark asset in serviceable condition.,2021-01-14T00:00:00
+1000426,Microphone,DG055,DG-DG055-1000426,available,Generated benchmark asset in serviceable condition.,2022-10-29T00:00:00
+1000427,Microphone,DG055,DG-DG055-1000427,available,Generated benchmark asset in serviceable condition.,2021-12-18T00:00:00
+1000428,Livestreaming equipment,DG055,DG-DG055-1000428,available,Generated benchmark asset in serviceable condition.,2021-12-25T00:00:00
+1000429,Air conditioner,DG055,DG-DG055-1000429,available,Generated benchmark asset in serviceable condition.,2021-05-15T00:00:00
+1000430,Computer,DG055,DG-DG055-1000430,available,Generated benchmark asset in serviceable condition.,2021-09-13T00:00:00
+1000431,TV screen,DG055,DG-DG055-1000431,available,Generated benchmark asset in serviceable condition.,2022-01-29T00:00:00
+1000432,Projector,DG056,DG-DG056-1000432,available,Generated benchmark asset in serviceable condition.,2023-03-27T00:00:00
+1000433,Whiteboard,DG056,DG-DG056-1000433,available,Generated benchmark asset in serviceable condition.,2022-11-06T00:00:00
+1000434,Air conditioner,DG056,DG-DG056-1000434,available,Generated benchmark asset in serviceable condition.,2022-03-05T00:00:00
+1000435,Microphone,DG056,DG-DG056-1000435,available,Generated benchmark asset in serviceable condition.,2022-08-01T00:00:00
+1000436,Computer,DG056,DG-DG056-1000436,available,Generated benchmark asset in serviceable condition.,2022-10-23T00:00:00
+1000437,Computer,DG057,DG-DG057-1000437,available,Generated benchmark asset in serviceable condition.,2022-02-24T00:00:00
+1000438,Computer,DG057,DG-DG057-1000438,available,Generated benchmark asset in serviceable condition.,2021-08-18T00:00:00
+1000439,Computer,DG057,DG-DG057-1000439,available,Generated benchmark asset in serviceable condition.,2021-07-23T00:00:00
+1000440,Computer,DG057,DG-DG057-1000440,available,Generated benchmark asset in serviceable condition.,2022-03-01T00:00:00
+1000441,Computer,DG057,DG-DG057-1000441,available,Generated benchmark asset in serviceable condition.,2022-05-04T00:00:00
+1000442,Computer,DG057,DG-DG057-1000442,available,Generated benchmark asset in serviceable condition.,2022-04-01T00:00:00
+1000443,Computer,DG057,DG-DG057-1000443,available,Generated benchmark asset in serviceable condition.,2021-02-03T00:00:00
+1000444,Computer,DG057,DG-DG057-1000444,available,Generated benchmark asset in serviceable condition.,2021-03-18T00:00:00
+1000445,Computer,DG057,DG-DG057-1000445,available,Generated benchmark asset in serviceable condition.,2021-08-19T00:00:00
+1000446,Projector,DG057,DG-DG057-1000446,available,Generated benchmark asset in serviceable condition.,2021-09-10T00:00:00
+1000447,Air conditioner,DG057,DG-DG057-1000447,available,Generated benchmark asset in serviceable condition.,2022-04-15T00:00:00
+1000448,Computer,DG058,DG-DG058-1000448,available,Generated benchmark asset in serviceable condition.,2022-11-27T00:00:00
+1000449,Computer,DG058,DG-DG058-1000449,available,Generated benchmark asset in serviceable condition.,2022-08-23T00:00:00
+1000450,Computer,DG058,DG-DG058-1000450,available,Generated benchmark asset in serviceable condition.,2022-06-05T00:00:00
+1000451,Computer,DG058,DG-DG058-1000451,available,Generated benchmark asset in serviceable condition.,2022-02-01T00:00:00
+1000452,Computer,DG058,DG-DG058-1000452,available,Generated benchmark asset in serviceable condition.,2022-06-11T00:00:00
+1000453,Computer,DG058,DG-DG058-1000453,available,Generated benchmark asset in serviceable condition.,2021-05-06T00:00:00
+1000454,Computer,DG058,DG-DG058-1000454,available,Generated benchmark asset in serviceable condition.,2022-07-04T00:00:00
+1000455,Computer,DG058,DG-DG058-1000455,available,Generated benchmark asset in serviceable condition.,2021-07-18T00:00:00
+1000456,Computer,DG058,DG-DG058-1000456,available,Generated benchmark asset in serviceable condition.,2021-01-28T00:00:00
+1000457,Computer,DG058,DG-DG058-1000457,available,Generated benchmark asset in serviceable condition.,2021-03-11T00:00:00
+1000458,Computer,DG058,DG-DG058-1000458,available,Generated benchmark asset in serviceable condition.,2023-05-05T00:00:00
+1000459,Computer,DG058,DG-DG058-1000459,available,Generated benchmark asset in serviceable condition.,2022-04-09T00:00:00
+1000460,Computer,DG058,DG-DG058-1000460,available,Generated benchmark asset in serviceable condition.,2021-04-10T00:00:00
+1000461,Computer,DG058,DG-DG058-1000461,available,Generated benchmark asset in serviceable condition.,2022-09-04T00:00:00
+1000462,Computer,DG058,DG-DG058-1000462,available,Generated benchmark asset in serviceable condition.,2022-10-04T00:00:00
+1000463,Computer,DG058,DG-DG058-1000463,available,Generated benchmark asset in serviceable condition.,2021-11-21T00:00:00
+1000464,Whiteboard,DG058,DG-DG058-1000464,available,Generated benchmark asset in serviceable condition.,2022-01-10T00:00:00
+1000465,Air conditioner,DG058,DG-DG058-1000465,available,Generated benchmark asset in serviceable condition.,2023-04-20T00:00:00
+1000466,Livestreaming equipment,DG058,DG-DG058-1000466,available,Generated benchmark asset in serviceable condition.,2023-06-16T00:00:00
+1000467,Projector,DG058,DG-DG058-1000467,available,Generated benchmark asset in serviceable condition.,2022-05-08T00:00:00
+1000468,TV screen,DG059,DG-DG059-1000468,available,Generated benchmark asset in serviceable condition.,2022-12-03T00:00:00
+1000469,Whiteboard,DG059,DG-DG059-1000469,available,Generated benchmark asset in serviceable condition.,2021-12-11T00:00:00
+1000470,Air conditioner,DG059,DG-DG059-1000470,available,Generated benchmark asset in serviceable condition.,2022-03-22T00:00:00
+1000471,Whiteboard,DG060,DG-DG060-1000471,available,Generated benchmark asset in serviceable condition.,2022-08-22T00:00:00
+1000472,Air conditioner,DG060,DG-DG060-1000472,available,Generated benchmark asset in serviceable condition.,2022-01-04T00:00:00

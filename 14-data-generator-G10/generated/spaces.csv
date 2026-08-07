@@ -1,0 +1,61 @@
+space_code,space_name,space_type,building,floor,room_number,capacity,current_status,usage_policy
+DG001,Generated Auditorium DG001,auditorium,Generated Building H,1,101,165,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG002,Generated Classroom DG002,classroom,Generated Building H,2,102,45,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG003,Generated Computer Laboratory DG003,computer laboratory,Generated Building H,3,103,60,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG004,Generated Project Laboratory DG004,project laboratory,Generated Building H,4,104,25,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG005,Generated Meeting Room DG005,meeting room,Generated Building H,5,105,23,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG006,Generated Student Workspace DG006,student workspace,Generated Building H,1,106,50,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG007,Generated Auditorium DG007,auditorium,Generated Building H,2,107,270,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG008,Generated Classroom DG008,classroom,Generated Building H,3,108,40,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG009,Generated Computer Laboratory DG009,computer laboratory,Generated Building H,4,109,45,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG010,Generated Project Laboratory DG010,project laboratory,Generated Building H,5,110,15,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG011,Generated Meeting Room DG011,meeting room,Generated Building H,1,111,13,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG012,Generated Student Workspace DG012,student workspace,Generated Building H,2,112,20,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG013,Generated Auditorium DG013,auditorium,Generated Building H,3,113,255,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG014,Generated Classroom DG014,classroom,Generated Building H,4,114,45,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG015,Generated Computer Laboratory DG015,computer laboratory,Generated Building H,5,115,50,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG016,Generated Project Laboratory DG016,project laboratory,Generated Building I,1,116,20,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG017,Generated Meeting Room DG017,meeting room,Generated Building I,2,117,23,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG018,Generated Student Workspace DG018,student workspace,Generated Building I,3,118,25,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG019,Generated Auditorium DG019,auditorium,Generated Building I,4,119,130,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG020,Generated Classroom DG020,classroom,Generated Building I,5,120,35,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG021,Generated Computer Laboratory DG021,computer laboratory,Generated Building I,1,121,35,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG022,Generated Project Laboratory DG022,project laboratory,Generated Building I,2,122,20,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG023,Generated Meeting Room DG023,meeting room,Generated Building I,3,123,13,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG024,Generated Student Workspace DG024,student workspace,Generated Building I,4,124,40,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG025,Generated Auditorium DG025,auditorium,Generated Building I,5,125,215,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG026,Generated Classroom DG026,classroom,Generated Building I,1,126,40,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG027,Generated Computer Laboratory DG027,computer laboratory,Generated Building I,2,127,55,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG028,Generated Project Laboratory DG028,project laboratory,Generated Building I,3,128,15,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG029,Generated Meeting Room DG029,meeting room,Generated Building I,4,129,28,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG030,Generated Student Workspace DG030,student workspace,Generated Building I,5,130,30,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG031,Generated Auditorium DG031,auditorium,Generated Building J,1,131,295,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG032,Generated Classroom DG032,classroom,Generated Building J,2,132,70,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG033,Generated Computer Laboratory DG033,computer laboratory,Generated Building J,3,133,50,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG034,Generated Project Laboratory DG034,project laboratory,Generated Building J,4,134,35,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG035,Generated Meeting Room DG035,meeting room,Generated Building J,5,135,13,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG036,Generated Student Workspace DG036,student workspace,Generated Building J,1,136,50,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG037,Generated Auditorium DG037,auditorium,Generated Building J,2,137,135,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG038,Generated Classroom DG038,classroom,Generated Building J,3,138,55,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG039,Generated Computer Laboratory DG039,computer laboratory,Generated Building J,4,139,30,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG040,Generated Project Laboratory DG040,project laboratory,Generated Building J,5,140,35,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG041,Generated Meeting Room DG041,meeting room,Generated Building J,1,141,23,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG042,Generated Student Workspace DG042,student workspace,Generated Building J,2,142,55,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG043,Generated Auditorium DG043,auditorium,Generated Building J,3,143,280,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG044,Generated Classroom DG044,classroom,Generated Building J,4,144,55,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG045,Generated Computer Laboratory DG045,computer laboratory,Generated Building J,5,145,35,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG046,Generated Project Laboratory DG046,project laboratory,Generated Building K,1,146,35,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG047,Generated Meeting Room DG047,meeting room,Generated Building K,2,147,8,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG048,Generated Student Workspace DG048,student workspace,Generated Building K,3,148,45,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG049,Generated Auditorium DG049,auditorium,Generated Building K,4,149,150,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG050,Generated Classroom DG050,classroom,Generated Building K,5,150,45,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG051,Generated Computer Laboratory DG051,computer laboratory,Generated Building K,1,151,50,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG052,Generated Project Laboratory DG052,project laboratory,Generated Building K,2,152,30,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG053,Generated Meeting Room DG053,meeting room,Generated Building K,3,153,8,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG054,Generated Student Workspace DG054,student workspace,Generated Building K,4,154,35,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG055,Generated Auditorium DG055,auditorium,Generated Building K,5,155,215,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG056,Generated Classroom DG056,classroom,Generated Building K,1,156,55,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG057,Generated Computer Laboratory DG057,computer laboratory,Generated Building K,2,157,55,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG058,Generated Project Laboratory DG058,project laboratory,Generated Building K,3,158,40,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG059,Generated Meeting Room DG059,meeting room,Generated Building K,4,159,23,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.
+DG060,Generated Student Workspace DG060,student workspace,Generated Building K,5,160,50,available,Generated Phase 2 benchmark space. Standard academic-use policy applies.

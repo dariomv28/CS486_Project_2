@@ -1,0 +1,501 @@
+user_id,full_name,email,phone_number,role,department,account_status
+DGU0001,Generated User 0001,generated.user0001@hcmus.edu.vn,0970000001,student,Computer Science,active
+DGU0002,Generated User 0002,generated.user0002@hcmus.edu.vn,0970000002,student,Computer Science,active
+DGU0003,Generated User 0003,generated.user0003@hcmus.edu.vn,0970000003,student,Computer Science,active
+DGU0004,Generated User 0004,generated.user0004@hcmus.edu.vn,0970000004,student,Computer Science,active
+DGU0005,Generated User 0005,generated.user0005@hcmus.edu.vn,0970000005,student,Computer Science,active
+DGU0006,Generated User 0006,generated.user0006@hcmus.edu.vn,0970000006,student,Computer Science,active
+DGU0007,Generated User 0007,generated.user0007@hcmus.edu.vn,0970000007,student,Computer Science,active
+DGU0008,Generated User 0008,generated.user0008@hcmus.edu.vn,0970000008,student,Computer Science,active
+DGU0009,Generated User 0009,generated.user0009@hcmus.edu.vn,0970000009,student,Computer Science,active
+DGU0010,Generated User 0010,generated.user0010@hcmus.edu.vn,0970000010,student,Computer Science,active
+DGU0011,Generated User 0011,generated.user0011@hcmus.edu.vn,0970000011,student,Computer Science,active
+DGU0012,Generated User 0012,generated.user0012@hcmus.edu.vn,0970000012,student,Computer Science,active
+DGU0013,Generated User 0013,generated.user0013@hcmus.edu.vn,0970000013,student,Computer Science,active
+DGU0014,Generated User 0014,generated.user0014@hcmus.edu.vn,0970000014,student,Computer Science,active
+DGU0015,Generated User 0015,generated.user0015@hcmus.edu.vn,0970000015,student,Computer Science,active
+DGU0016,Generated User 0016,generated.user0016@hcmus.edu.vn,0970000016,student,Computer Science,active
+DGU0017,Generated User 0017,generated.user0017@hcmus.edu.vn,0970000017,student,Computer Science,active
+DGU0018,Generated User 0018,generated.user0018@hcmus.edu.vn,0970000018,student,Computer Science,active
+DGU0019,Generated User 0019,generated.user0019@hcmus.edu.vn,0970000019,student,Computer Science,active
+DGU0020,Generated User 0020,generated.user0020@hcmus.edu.vn,0970000020,student,Computer Science,active
+DGU0021,Generated User 0021,generated.user0021@hcmus.edu.vn,0970000021,student,Computer Science,active
+DGU0022,Generated User 0022,generated.user0022@hcmus.edu.vn,0970000022,student,Computer Science,active
+DGU0023,Generated User 0023,generated.user0023@hcmus.edu.vn,0970000023,student,Computer Science,active
+DGU0024,Generated User 0024,generated.user0024@hcmus.edu.vn,0970000024,student,Computer Science,active
+DGU0025,Generated User 0025,generated.user0025@hcmus.edu.vn,0970000025,student,Computer Science,active
+DGU0026,Generated User 0026,generated.user0026@hcmus.edu.vn,0970000026,student,Computer Science,active
+DGU0027,Generated User 0027,generated.user0027@hcmus.edu.vn,0970000027,student,Computer Science,active
+DGU0028,Generated User 0028,generated.user0028@hcmus.edu.vn,0970000028,student,Computer Science,active
+DGU0029,Generated User 0029,generated.user0029@hcmus.edu.vn,0970000029,student,Computer Science,active
+DGU0030,Generated User 0030,generated.user0030@hcmus.edu.vn,0970000030,student,Computer Science,active
+DGU0031,Generated User 0031,generated.user0031@hcmus.edu.vn,0970000031,student,Computer Science,active
+DGU0032,Generated User 0032,generated.user0032@hcmus.edu.vn,0970000032,student,Computer Science,active
+DGU0033,Generated User 0033,generated.user0033@hcmus.edu.vn,0970000033,student,Computer Science,active
+DGU0034,Generated User 0034,generated.user0034@hcmus.edu.vn,0970000034,student,Computer Science,active
+DGU0035,Generated User 0035,generated.user0035@hcmus.edu.vn,0970000035,student,Computer Science,active
+DGU0036,Generated User 0036,generated.user0036@hcmus.edu.vn,0970000036,student,Computer Science,active
+DGU0037,Generated User 0037,generated.user0037@hcmus.edu.vn,0970000037,student,Computer Science,active
+DGU0038,Generated User 0038,generated.user0038@hcmus.edu.vn,0970000038,student,Computer Science,active
+DGU0039,Generated User 0039,generated.user0039@hcmus.edu.vn,0970000039,student,Computer Science,active
+DGU0040,Generated User 0040,generated.user0040@hcmus.edu.vn,0970000040,student,Computer Science,active
+DGU0041,Generated User 0041,generated.user0041@hcmus.edu.vn,0970000041,student,Computer Science,active
+DGU0042,Generated User 0042,generated.user0042@hcmus.edu.vn,0970000042,student,Computer Science,active
+DGU0043,Generated User 0043,generated.user0043@hcmus.edu.vn,0970000043,student,Computer Science,active
+DGU0044,Generated User 0044,generated.user0044@hcmus.edu.vn,0970000044,student,Computer Science,active
+DGU0045,Generated User 0045,generated.user0045@hcmus.edu.vn,0970000045,student,Computer Science,active
+DGU0046,Generated User 0046,generated.user0046@hcmus.edu.vn,0970000046,student,Computer Science,active
+DGU0047,Generated User 0047,generated.user0047@hcmus.edu.vn,0970000047,student,Computer Science,active
+DGU0048,Generated User 0048,generated.user0048@hcmus.edu.vn,0970000048,student,Computer Science,active
+DGU0049,Generated User 0049,generated.user0049@hcmus.edu.vn,0970000049,student,Computer Science,active
+DGU0050,Generated User 0050,generated.user0050@hcmus.edu.vn,0970000050,student,Computer Science,active
+DGU0051,Generated User 0051,generated.user0051@hcmus.edu.vn,0970000051,student,Computer Science,active
+DGU0052,Generated User 0052,generated.user0052@hcmus.edu.vn,0970000052,student,Computer Science,active
+DGU0053,Generated User 0053,generated.user0053@hcmus.edu.vn,0970000053,student,Computer Science,active
+DGU0054,Generated User 0054,generated.user0054@hcmus.edu.vn,0970000054,student,Computer Science,active
+DGU0055,Generated User 0055,generated.user0055@hcmus.edu.vn,0970000055,student,Computer Science,active
+DGU0056,Generated User 0056,generated.user0056@hcmus.edu.vn,0970000056,student,Computer Science,active
+DGU0057,Generated User 0057,generated.user0057@hcmus.edu.vn,0970000057,student,Computer Science,active
+DGU0058,Generated User 0058,generated.user0058@hcmus.edu.vn,0970000058,student,Computer Science,active
+DGU0059,Generated User 0059,generated.user0059@hcmus.edu.vn,0970000059,student,Computer Science,active
+DGU0060,Generated User 0060,generated.user0060@hcmus.edu.vn,0970000060,student,Computer Science,active
+DGU0061,Generated User 0061,generated.user0061@hcmus.edu.vn,0970000061,student,Computer Science,active
+DGU0062,Generated User 0062,generated.user0062@hcmus.edu.vn,0970000062,student,Computer Science,active
+DGU0063,Generated User 0063,generated.user0063@hcmus.edu.vn,0970000063,student,Computer Science,active
+DGU0064,Generated User 0064,generated.user0064@hcmus.edu.vn,0970000064,student,Computer Science,active
+DGU0065,Generated User 0065,generated.user0065@hcmus.edu.vn,0970000065,student,Computer Science,active
+DGU0066,Generated User 0066,generated.user0066@hcmus.edu.vn,0970000066,student,Computer Science,active
+DGU0067,Generated User 0067,generated.user0067@hcmus.edu.vn,0970000067,student,Computer Science,active
+DGU0068,Generated User 0068,generated.user0068@hcmus.edu.vn,0970000068,student,Computer Science,active
+DGU0069,Generated User 0069,generated.user0069@hcmus.edu.vn,0970000069,student,Computer Science,active
+DGU0070,Generated User 0070,generated.user0070@hcmus.edu.vn,0970000070,student,Computer Science,active
+DGU0071,Generated User 0071,generated.user0071@hcmus.edu.vn,0970000071,student,Computer Science,active
+DGU0072,Generated User 0072,generated.user0072@hcmus.edu.vn,0970000072,student,Computer Science,active
+DGU0073,Generated User 0073,generated.user0073@hcmus.edu.vn,0970000073,student,Computer Science,active
+DGU0074,Generated User 0074,generated.user0074@hcmus.edu.vn,0970000074,student,Computer Science,active
+DGU0075,Generated User 0075,generated.user0075@hcmus.edu.vn,0970000075,student,Computer Science,active
+DGU0076,Generated User 0076,generated.user0076@hcmus.edu.vn,0970000076,student,Computer Science,active
+DGU0077,Generated User 0077,generated.user0077@hcmus.edu.vn,0970000077,student,Computer Science,active
+DGU0078,Generated User 0078,generated.user0078@hcmus.edu.vn,0970000078,student,Computer Science,active
+DGU0079,Generated User 0079,generated.user0079@hcmus.edu.vn,0970000079,student,Computer Science,active
+DGU0080,Generated User 0080,generated.user0080@hcmus.edu.vn,0970000080,student,Computer Science,active
+DGU0081,Generated User 0081,generated.user0081@hcmus.edu.vn,0970000081,student,Computer Science,active
+DGU0082,Generated User 0082,generated.user0082@hcmus.edu.vn,0970000082,student,Computer Science,active
+DGU0083,Generated User 0083,generated.user0083@hcmus.edu.vn,0970000083,student,Computer Science,active
+DGU0084,Generated User 0084,generated.user0084@hcmus.edu.vn,0970000084,student,Computer Science,active
+DGU0085,Generated User 0085,generated.user0085@hcmus.edu.vn,0970000085,student,Computer Science,active
+DGU0086,Generated User 0086,generated.user0086@hcmus.edu.vn,0970000086,student,Computer Science,active
+DGU0087,Generated User 0087,generated.user0087@hcmus.edu.vn,0970000087,student,Computer Science,active
+DGU0088,Generated User 0088,generated.user0088@hcmus.edu.vn,0970000088,student,Computer Science,active
+DGU0089,Generated User 0089,generated.user0089@hcmus.edu.vn,0970000089,student,Computer Science,active
+DGU0090,Generated User 0090,generated.user0090@hcmus.edu.vn,0970000090,student,Computer Science,active
+DGU0091,Generated User 0091,generated.user0091@hcmus.edu.vn,0970000091,student,Computer Science,active
+DGU0092,Generated User 0092,generated.user0092@hcmus.edu.vn,0970000092,student,Computer Science,active
+DGU0093,Generated User 0093,generated.user0093@hcmus.edu.vn,0970000093,student,Computer Science,active
+DGU0094,Generated User 0094,generated.user0094@hcmus.edu.vn,0970000094,student,Computer Science,active
+DGU0095,Generated User 0095,generated.user0095@hcmus.edu.vn,0970000095,student,Computer Science,active
+DGU0096,Generated User 0096,generated.user0096@hcmus.edu.vn,0970000096,student,Computer Science,active
+DGU0097,Generated User 0097,generated.user0097@hcmus.edu.vn,0970000097,student,Computer Science,active
+DGU0098,Generated User 0098,generated.user0098@hcmus.edu.vn,0970000098,student,Computer Science,active
+DGU0099,Generated User 0099,generated.user0099@hcmus.edu.vn,0970000099,student,Computer Science,active
+DGU0100,Generated User 0100,generated.user0100@hcmus.edu.vn,0970000100,student,Computer Science,active
+DGU0101,Generated User 0101,generated.user0101@hcmus.edu.vn,0970000101,student,Computer Science,active
+DGU0102,Generated User 0102,generated.user0102@hcmus.edu.vn,0970000102,student,Computer Science,active
+DGU0103,Generated User 0103,generated.user0103@hcmus.edu.vn,0970000103,student,Computer Science,active
+DGU0104,Generated User 0104,generated.user0104@hcmus.edu.vn,0970000104,student,Computer Science,active
+DGU0105,Generated User 0105,generated.user0105@hcmus.edu.vn,0970000105,student,Computer Science,active
+DGU0106,Generated User 0106,generated.user0106@hcmus.edu.vn,0970000106,student,Computer Science,active
+DGU0107,Generated User 0107,generated.user0107@hcmus.edu.vn,0970000107,student,Computer Science,active
+DGU0108,Generated User 0108,generated.user0108@hcmus.edu.vn,0970000108,student,Computer Science,active
+DGU0109,Generated User 0109,generated.user0109@hcmus.edu.vn,0970000109,student,Computer Science,active
+DGU0110,Generated User 0110,generated.user0110@hcmus.edu.vn,0970000110,student,Computer Science,active
+DGU0111,Generated User 0111,generated.user0111@hcmus.edu.vn,0970000111,student,Computer Science,active
+DGU0112,Generated User 0112,generated.user0112@hcmus.edu.vn,0970000112,student,Computer Science,active
+DGU0113,Generated User 0113,generated.user0113@hcmus.edu.vn,0970000113,student,Computer Science,active
+DGU0114,Generated User 0114,generated.user0114@hcmus.edu.vn,0970000114,student,Computer Science,active
+DGU0115,Generated User 0115,generated.user0115@hcmus.edu.vn,0970000115,student,Computer Science,active
+DGU0116,Generated User 0116,generated.user0116@hcmus.edu.vn,0970000116,student,Computer Science,active
+DGU0117,Generated User 0117,generated.user0117@hcmus.edu.vn,0970000117,student,Computer Science,active
+DGU0118,Generated User 0118,generated.user0118@hcmus.edu.vn,0970000118,student,Computer Science,active
+DGU0119,Generated User 0119,generated.user0119@hcmus.edu.vn,0970000119,student,Computer Science,active
+DGU0120,Generated User 0120,generated.user0120@hcmus.edu.vn,0970000120,student,Computer Science,active
+DGU0121,Generated User 0121,generated.user0121@hcmus.edu.vn,0970000121,student,Computer Science,active
+DGU0122,Generated User 0122,generated.user0122@hcmus.edu.vn,0970000122,student,Computer Science,active
+DGU0123,Generated User 0123,generated.user0123@hcmus.edu.vn,0970000123,student,Computer Science,active
+DGU0124,Generated User 0124,generated.user0124@hcmus.edu.vn,0970000124,student,Computer Science,active
+DGU0125,Generated User 0125,generated.user0125@hcmus.edu.vn,0970000125,student,Computer Science,active
+DGU0126,Generated User 0126,generated.user0126@hcmus.edu.vn,0970000126,student,Computer Science,active
+DGU0127,Generated User 0127,generated.user0127@hcmus.edu.vn,0970000127,student,Computer Science,active
+DGU0128,Generated User 0128,generated.user0128@hcmus.edu.vn,0970000128,student,Computer Science,active
+DGU0129,Generated User 0129,generated.user0129@hcmus.edu.vn,0970000129,student,Computer Science,active
+DGU0130,Generated User 0130,generated.user0130@hcmus.edu.vn,0970000130,student,Computer Science,active
+DGU0131,Generated User 0131,generated.user0131@hcmus.edu.vn,0970000131,student,Computer Science,active
+DGU0132,Generated User 0132,generated.user0132@hcmus.edu.vn,0970000132,student,Computer Science,active
+DGU0133,Generated User 0133,generated.user0133@hcmus.edu.vn,0970000133,student,Computer Science,active
+DGU0134,Generated User 0134,generated.user0134@hcmus.edu.vn,0970000134,student,Computer Science,active
+DGU0135,Generated User 0135,generated.user0135@hcmus.edu.vn,0970000135,student,Computer Science,active
+DGU0136,Generated User 0136,generated.user0136@hcmus.edu.vn,0970000136,student,Computer Science,active
+DGU0137,Generated User 0137,generated.user0137@hcmus.edu.vn,0970000137,student,Computer Science,active
+DGU0138,Generated User 0138,generated.user0138@hcmus.edu.vn,0970000138,student,Computer Science,active
+DGU0139,Generated User 0139,generated.user0139@hcmus.edu.vn,0970000139,student,Computer Science,active
+DGU0140,Generated User 0140,generated.user0140@hcmus.edu.vn,0970000140,student,Computer Science,active
+DGU0141,Generated User 0141,generated.user0141@hcmus.edu.vn,0970000141,student,Computer Science,active
+DGU0142,Generated User 0142,generated.user0142@hcmus.edu.vn,0970000142,student,Computer Science,active
+DGU0143,Generated User 0143,generated.user0143@hcmus.edu.vn,0970000143,student,Computer Science,active
+DGU0144,Generated User 0144,generated.user0144@hcmus.edu.vn,0970000144,student,Computer Science,active
+DGU0145,Generated User 0145,generated.user0145@hcmus.edu.vn,0970000145,student,Computer Science,active
+DGU0146,Generated User 0146,generated.user0146@hcmus.edu.vn,0970000146,student,Computer Science,active
+DGU0147,Generated User 0147,generated.user0147@hcmus.edu.vn,0970000147,student,Computer Science,active
+DGU0148,Generated User 0148,generated.user0148@hcmus.edu.vn,0970000148,student,Computer Science,active
+DGU0149,Generated User 0149,generated.user0149@hcmus.edu.vn,0970000149,student,Computer Science,active
+DGU0150,Generated User 0150,generated.user0150@hcmus.edu.vn,0970000150,student,Computer Science,active
+DGU0151,Generated User 0151,generated.user0151@hcmus.edu.vn,0970000151,student,Computer Science,active
+DGU0152,Generated User 0152,generated.user0152@hcmus.edu.vn,0970000152,student,Computer Science,active
+DGU0153,Generated User 0153,generated.user0153@hcmus.edu.vn,0970000153,student,Computer Science,active
+DGU0154,Generated User 0154,generated.user0154@hcmus.edu.vn,0970000154,student,Computer Science,active
+DGU0155,Generated User 0155,generated.user0155@hcmus.edu.vn,0970000155,student,Computer Science,active
+DGU0156,Generated User 0156,generated.user0156@hcmus.edu.vn,0970000156,student,Computer Science,active
+DGU0157,Generated User 0157,generated.user0157@hcmus.edu.vn,0970000157,student,Computer Science,active
+DGU0158,Generated User 0158,generated.user0158@hcmus.edu.vn,0970000158,student,Computer Science,active
+DGU0159,Generated User 0159,generated.user0159@hcmus.edu.vn,0970000159,student,Computer Science,active
+DGU0160,Generated User 0160,generated.user0160@hcmus.edu.vn,0970000160,student,Computer Science,active
+DGU0161,Generated User 0161,generated.user0161@hcmus.edu.vn,0970000161,student,Computer Science,active
+DGU0162,Generated User 0162,generated.user0162@hcmus.edu.vn,0970000162,student,Computer Science,active
+DGU0163,Generated User 0163,generated.user0163@hcmus.edu.vn,0970000163,student,Computer Science,active
+DGU0164,Generated User 0164,generated.user0164@hcmus.edu.vn,0970000164,student,Computer Science,active
+DGU0165,Generated User 0165,generated.user0165@hcmus.edu.vn,0970000165,student,Computer Science,active
+DGU0166,Generated User 0166,generated.user0166@hcmus.edu.vn,0970000166,student,Computer Science,active
+DGU0167,Generated User 0167,generated.user0167@hcmus.edu.vn,0970000167,student,Computer Science,active
+DGU0168,Generated User 0168,generated.user0168@hcmus.edu.vn,0970000168,student,Computer Science,active
+DGU0169,Generated User 0169,generated.user0169@hcmus.edu.vn,0970000169,student,Computer Science,active
+DGU0170,Generated User 0170,generated.user0170@hcmus.edu.vn,0970000170,student,Computer Science,active
+DGU0171,Generated User 0171,generated.user0171@hcmus.edu.vn,0970000171,student,Computer Science,active
+DGU0172,Generated User 0172,generated.user0172@hcmus.edu.vn,0970000172,student,Computer Science,active
+DGU0173,Generated User 0173,generated.user0173@hcmus.edu.vn,0970000173,student,Computer Science,active
+DGU0174,Generated User 0174,generated.user0174@hcmus.edu.vn,0970000174,student,Computer Science,active
+DGU0175,Generated User 0175,generated.user0175@hcmus.edu.vn,0970000175,student,Computer Science,active
+DGU0176,Generated User 0176,generated.user0176@hcmus.edu.vn,0970000176,student,Computer Science,active
+DGU0177,Generated User 0177,generated.user0177@hcmus.edu.vn,0970000177,student,Computer Science,active
+DGU0178,Generated User 0178,generated.user0178@hcmus.edu.vn,0970000178,student,Computer Science,active
+DGU0179,Generated User 0179,generated.user0179@hcmus.edu.vn,0970000179,student,Computer Science,active
+DGU0180,Generated User 0180,generated.user0180@hcmus.edu.vn,0970000180,student,Computer Science,active
+DGU0181,Generated User 0181,generated.user0181@hcmus.edu.vn,0970000181,student,Computer Science,active
+DGU0182,Generated User 0182,generated.user0182@hcmus.edu.vn,0970000182,student,Computer Science,active
+DGU0183,Generated User 0183,generated.user0183@hcmus.edu.vn,0970000183,student,Computer Science,active
+DGU0184,Generated User 0184,generated.user0184@hcmus.edu.vn,0970000184,student,Computer Science,active
+DGU0185,Generated User 0185,generated.user0185@hcmus.edu.vn,0970000185,student,Computer Science,active
+DGU0186,Generated User 0186,generated.user0186@hcmus.edu.vn,0970000186,student,Computer Science,active
+DGU0187,Generated User 0187,generated.user0187@hcmus.edu.vn,0970000187,student,Computer Science,active
+DGU0188,Generated User 0188,generated.user0188@hcmus.edu.vn,0970000188,student,Computer Science,active
+DGU0189,Generated User 0189,generated.user0189@hcmus.edu.vn,0970000189,student,Computer Science,active
+DGU0190,Generated User 0190,generated.user0190@hcmus.edu.vn,0970000190,student,Computer Science,active
+DGU0191,Generated User 0191,generated.user0191@hcmus.edu.vn,0970000191,student,Computer Science,active
+DGU0192,Generated User 0192,generated.user0192@hcmus.edu.vn,0970000192,student,Computer Science,active
+DGU0193,Generated User 0193,generated.user0193@hcmus.edu.vn,0970000193,student,Computer Science,active
+DGU0194,Generated User 0194,generated.user0194@hcmus.edu.vn,0970000194,student,Computer Science,active
+DGU0195,Generated User 0195,generated.user0195@hcmus.edu.vn,0970000195,student,Computer Science,active
+DGU0196,Generated User 0196,generated.user0196@hcmus.edu.vn,0970000196,student,Computer Science,active
+DGU0197,Generated User 0197,generated.user0197@hcmus.edu.vn,0970000197,student,Computer Science,active
+DGU0198,Generated User 0198,generated.user0198@hcmus.edu.vn,0970000198,student,Computer Science,active
+DGU0199,Generated User 0199,generated.user0199@hcmus.edu.vn,0970000199,student,Computer Science,active
+DGU0200,Generated User 0200,generated.user0200@hcmus.edu.vn,0970000200,student,Computer Science,active
+DGU0201,Generated User 0201,generated.user0201@hcmus.edu.vn,0970000201,student,Computer Science,active
+DGU0202,Generated User 0202,generated.user0202@hcmus.edu.vn,0970000202,student,Computer Science,active
+DGU0203,Generated User 0203,generated.user0203@hcmus.edu.vn,0970000203,student,Computer Science,active
+DGU0204,Generated User 0204,generated.user0204@hcmus.edu.vn,0970000204,student,Computer Science,active
+DGU0205,Generated User 0205,generated.user0205@hcmus.edu.vn,0970000205,student,Computer Science,active
+DGU0206,Generated User 0206,generated.user0206@hcmus.edu.vn,0970000206,student,Computer Science,active
+DGU0207,Generated User 0207,generated.user0207@hcmus.edu.vn,0970000207,student,Computer Science,active
+DGU0208,Generated User 0208,generated.user0208@hcmus.edu.vn,0970000208,student,Computer Science,active
+DGU0209,Generated User 0209,generated.user0209@hcmus.edu.vn,0970000209,student,Computer Science,active
+DGU0210,Generated User 0210,generated.user0210@hcmus.edu.vn,0970000210,student,Computer Science,active
+DGU0211,Generated User 0211,generated.user0211@hcmus.edu.vn,0970000211,student,Computer Science,active
+DGU0212,Generated User 0212,generated.user0212@hcmus.edu.vn,0970000212,student,Computer Science,active
+DGU0213,Generated User 0213,generated.user0213@hcmus.edu.vn,0970000213,student,Computer Science,active
+DGU0214,Generated User 0214,generated.user0214@hcmus.edu.vn,0970000214,student,Computer Science,active
+DGU0215,Generated User 0215,generated.user0215@hcmus.edu.vn,0970000215,student,Computer Science,active
+DGU0216,Generated User 0216,generated.user0216@hcmus.edu.vn,0970000216,student,Computer Science,active
+DGU0217,Generated User 0217,generated.user0217@hcmus.edu.vn,0970000217,student,Computer Science,active
+DGU0218,Generated User 0218,generated.user0218@hcmus.edu.vn,0970000218,student,Computer Science,active
+DGU0219,Generated User 0219,generated.user0219@hcmus.edu.vn,0970000219,student,Computer Science,active
+DGU0220,Generated User 0220,generated.user0220@hcmus.edu.vn,0970000220,student,Computer Science,active
+DGU0221,Generated User 0221,generated.user0221@hcmus.edu.vn,0970000221,student,Computer Science,active
+DGU0222,Generated User 0222,generated.user0222@hcmus.edu.vn,0970000222,student,Computer Science,active
+DGU0223,Generated User 0223,generated.user0223@hcmus.edu.vn,0970000223,student,Computer Science,active
+DGU0224,Generated User 0224,generated.user0224@hcmus.edu.vn,0970000224,student,Computer Science,active
+DGU0225,Generated User 0225,generated.user0225@hcmus.edu.vn,0970000225,student,Computer Science,active
+DGU0226,Generated User 0226,generated.user0226@hcmus.edu.vn,0970000226,student,Computer Science,active
+DGU0227,Generated User 0227,generated.user0227@hcmus.edu.vn,0970000227,student,Computer Science,active
+DGU0228,Generated User 0228,generated.user0228@hcmus.edu.vn,0970000228,student,Computer Science,active
+DGU0229,Generated User 0229,generated.user0229@hcmus.edu.vn,0970000229,student,Computer Science,active
+DGU0230,Generated User 0230,generated.user0230@hcmus.edu.vn,0970000230,student,Computer Science,active
+DGU0231,Generated User 0231,generated.user0231@hcmus.edu.vn,0970000231,student,Computer Science,active
+DGU0232,Generated User 0232,generated.user0232@hcmus.edu.vn,0970000232,student,Computer Science,active
+DGU0233,Generated User 0233,generated.user0233@hcmus.edu.vn,0970000233,student,Computer Science,active
+DGU0234,Generated User 0234,generated.user0234@hcmus.edu.vn,0970000234,student,Computer Science,active
+DGU0235,Generated User 0235,generated.user0235@hcmus.edu.vn,0970000235,student,Computer Science,active
+DGU0236,Generated User 0236,generated.user0236@hcmus.edu.vn,0970000236,student,Computer Science,active
+DGU0237,Generated User 0237,generated.user0237@hcmus.edu.vn,0970000237,student,Computer Science,active
+DGU0238,Generated User 0238,generated.user0238@hcmus.edu.vn,0970000238,student,Computer Science,active
+DGU0239,Generated User 0239,generated.user0239@hcmus.edu.vn,0970000239,student,Computer Science,active
+DGU0240,Generated User 0240,generated.user0240@hcmus.edu.vn,0970000240,student,Computer Science,active
+DGU0241,Generated User 0241,generated.user0241@hcmus.edu.vn,0970000241,student,Computer Science,active
+DGU0242,Generated User 0242,generated.user0242@hcmus.edu.vn,0970000242,student,Computer Science,active
+DGU0243,Generated User 0243,generated.user0243@hcmus.edu.vn,0970000243,student,Computer Science,active
+DGU0244,Generated User 0244,generated.user0244@hcmus.edu.vn,0970000244,student,Computer Science,active
+DGU0245,Generated User 0245,generated.user0245@hcmus.edu.vn,0970000245,student,Computer Science,active
+DGU0246,Generated User 0246,generated.user0246@hcmus.edu.vn,0970000246,student,Computer Science,active
+DGU0247,Generated User 0247,generated.user0247@hcmus.edu.vn,0970000247,student,Computer Science,active
+DGU0248,Generated User 0248,generated.user0248@hcmus.edu.vn,0970000248,student,Computer Science,active
+DGU0249,Generated User 0249,generated.user0249@hcmus.edu.vn,0970000249,student,Computer Science,active
+DGU0250,Generated User 0250,generated.user0250@hcmus.edu.vn,0970000250,student,Computer Science,active
+DGU0251,Generated User 0251,generated.user0251@hcmus.edu.vn,0970000251,student,Computer Science,active
+DGU0252,Generated User 0252,generated.user0252@hcmus.edu.vn,0970000252,student,Computer Science,active
+DGU0253,Generated User 0253,generated.user0253@hcmus.edu.vn,0970000253,student,Computer Science,active
+DGU0254,Generated User 0254,generated.user0254@hcmus.edu.vn,0970000254,student,Computer Science,active
+DGU0255,Generated User 0255,generated.user0255@hcmus.edu.vn,0970000255,student,Computer Science,active
+DGU0256,Generated User 0256,generated.user0256@hcmus.edu.vn,0970000256,student,Computer Science,active
+DGU0257,Generated User 0257,generated.user0257@hcmus.edu.vn,0970000257,student,Computer Science,active
+DGU0258,Generated User 0258,generated.user0258@hcmus.edu.vn,0970000258,student,Computer Science,active
+DGU0259,Generated User 0259,generated.user0259@hcmus.edu.vn,0970000259,student,Computer Science,active
+DGU0260,Generated User 0260,generated.user0260@hcmus.edu.vn,0970000260,student,Computer Science,active
+DGU0261,Generated User 0261,generated.user0261@hcmus.edu.vn,0970000261,student,Computer Science,active
+DGU0262,Generated User 0262,generated.user0262@hcmus.edu.vn,0970000262,student,Computer Science,active
+DGU0263,Generated User 0263,generated.user0263@hcmus.edu.vn,0970000263,student,Computer Science,active
+DGU0264,Generated User 0264,generated.user0264@hcmus.edu.vn,0970000264,student,Computer Science,active
+DGU0265,Generated User 0265,generated.user0265@hcmus.edu.vn,0970000265,student,Computer Science,active
+DGU0266,Generated User 0266,generated.user0266@hcmus.edu.vn,0970000266,student,Computer Science,active
+DGU0267,Generated User 0267,generated.user0267@hcmus.edu.vn,0970000267,student,Computer Science,active
+DGU0268,Generated User 0268,generated.user0268@hcmus.edu.vn,0970000268,student,Computer Science,active
+DGU0269,Generated User 0269,generated.user0269@hcmus.edu.vn,0970000269,student,Computer Science,active
+DGU0270,Generated User 0270,generated.user0270@hcmus.edu.vn,0970000270,student,Computer Science,active
+DGU0271,Generated User 0271,generated.user0271@hcmus.edu.vn,0970000271,student,Computer Science,active
+DGU0272,Generated User 0272,generated.user0272@hcmus.edu.vn,0970000272,student,Computer Science,active
+DGU0273,Generated User 0273,generated.user0273@hcmus.edu.vn,0970000273,student,Computer Science,active
+DGU0274,Generated User 0274,generated.user0274@hcmus.edu.vn,0970000274,student,Computer Science,active
+DGU0275,Generated User 0275,generated.user0275@hcmus.edu.vn,0970000275,student,Computer Science,active
+DGU0276,Generated User 0276,generated.user0276@hcmus.edu.vn,0970000276,student,Computer Science,active
+DGU0277,Generated User 0277,generated.user0277@hcmus.edu.vn,0970000277,student,Computer Science,active
+DGU0278,Generated User 0278,generated.user0278@hcmus.edu.vn,0970000278,student,Computer Science,active
+DGU0279,Generated User 0279,generated.user0279@hcmus.edu.vn,0970000279,student,Computer Science,active
+DGU0280,Generated User 0280,generated.user0280@hcmus.edu.vn,0970000280,student,Computer Science,active
+DGU0281,Generated User 0281,generated.user0281@hcmus.edu.vn,0970000281,student,Computer Science,active
+DGU0282,Generated User 0282,generated.user0282@hcmus.edu.vn,0970000282,student,Computer Science,active
+DGU0283,Generated User 0283,generated.user0283@hcmus.edu.vn,0970000283,student,Computer Science,active
+DGU0284,Generated User 0284,generated.user0284@hcmus.edu.vn,0970000284,student,Computer Science,active
+DGU0285,Generated User 0285,generated.user0285@hcmus.edu.vn,0970000285,student,Computer Science,active
+DGU0286,Generated User 0286,generated.user0286@hcmus.edu.vn,0970000286,student,Computer Science,active
+DGU0287,Generated User 0287,generated.user0287@hcmus.edu.vn,0970000287,student,Computer Science,active
+DGU0288,Generated User 0288,generated.user0288@hcmus.edu.vn,0970000288,student,Computer Science,active
+DGU0289,Generated User 0289,generated.user0289@hcmus.edu.vn,0970000289,student,Computer Science,active
+DGU0290,Generated User 0290,generated.user0290@hcmus.edu.vn,0970000290,student,Computer Science,active
+DGU0291,Generated User 0291,generated.user0291@hcmus.edu.vn,0970000291,student,Computer Science,active
+DGU0292,Generated User 0292,generated.user0292@hcmus.edu.vn,0970000292,student,Computer Science,active
+DGU0293,Generated User 0293,generated.user0293@hcmus.edu.vn,0970000293,student,Computer Science,active
+DGU0294,Generated User 0294,generated.user0294@hcmus.edu.vn,0970000294,student,Computer Science,active
+DGU0295,Generated User 0295,generated.user0295@hcmus.edu.vn,0970000295,student,Computer Science,active
+DGU0296,Generated User 0296,generated.user0296@hcmus.edu.vn,0970000296,student,Computer Science,active
+DGU0297,Generated User 0297,generated.user0297@hcmus.edu.vn,0970000297,student,Computer Science,active
+DGU0298,Generated User 0298,generated.user0298@hcmus.edu.vn,0970000298,student,Computer Science,active
+DGU0299,Generated User 0299,generated.user0299@hcmus.edu.vn,0970000299,student,Computer Science,active
+DGU0300,Generated User 0300,generated.user0300@hcmus.edu.vn,0970000300,student,Computer Science,active
+DGU0301,Generated User 0301,generated.user0301@hcmus.edu.vn,0970000301,student,Computer Science,active
+DGU0302,Generated User 0302,generated.user0302@hcmus.edu.vn,0970000302,student,Computer Science,active
+DGU0303,Generated User 0303,generated.user0303@hcmus.edu.vn,0970000303,student,Computer Science,active
+DGU0304,Generated User 0304,generated.user0304@hcmus.edu.vn,0970000304,student,Computer Science,active
+DGU0305,Generated User 0305,generated.user0305@hcmus.edu.vn,0970000305,student,Computer Science,active
+DGU0306,Generated User 0306,generated.user0306@hcmus.edu.vn,0970000306,student,Computer Science,active
+DGU0307,Generated User 0307,generated.user0307@hcmus.edu.vn,0970000307,student,Computer Science,active
+DGU0308,Generated User 0308,generated.user0308@hcmus.edu.vn,0970000308,student,Computer Science,active
+DGU0309,Generated User 0309,generated.user0309@hcmus.edu.vn,0970000309,student,Computer Science,active
+DGU0310,Generated User 0310,generated.user0310@hcmus.edu.vn,0970000310,student,Computer Science,active
+DGU0311,Generated User 0311,generated.user0311@hcmus.edu.vn,0970000311,student,Computer Science,active
+DGU0312,Generated User 0312,generated.user0312@hcmus.edu.vn,0970000312,student,Computer Science,active
+DGU0313,Generated User 0313,generated.user0313@hcmus.edu.vn,0970000313,student,Computer Science,active
+DGU0314,Generated User 0314,generated.user0314@hcmus.edu.vn,0970000314,student,Computer Science,active
+DGU0315,Generated User 0315,generated.user0315@hcmus.edu.vn,0970000315,student,Computer Science,active
+DGU0316,Generated User 0316,generated.user0316@hcmus.edu.vn,0970000316,student,Computer Science,active
+DGU0317,Generated User 0317,generated.user0317@hcmus.edu.vn,0970000317,student,Computer Science,active
+DGU0318,Generated User 0318,generated.user0318@hcmus.edu.vn,0970000318,student,Computer Science,active
+DGU0319,Generated User 0319,generated.user0319@hcmus.edu.vn,0970000319,student,Computer Science,active
+DGU0320,Generated User 0320,generated.user0320@hcmus.edu.vn,0970000320,student,Computer Science,active
+DGU0321,Generated User 0321,generated.user0321@hcmus.edu.vn,0970000321,student,Computer Science,active
+DGU0322,Generated User 0322,generated.user0322@hcmus.edu.vn,0970000322,student,Computer Science,active
+DGU0323,Generated User 0323,generated.user0323@hcmus.edu.vn,0970000323,student,Computer Science,active
+DGU0324,Generated User 0324,generated.user0324@hcmus.edu.vn,0970000324,student,Computer Science,active
+DGU0325,Generated User 0325,generated.user0325@hcmus.edu.vn,0970000325,student,Computer Science,active
+DGU0326,Generated User 0326,generated.user0326@hcmus.edu.vn,0970000326,student,Computer Science,active
+DGU0327,Generated User 0327,generated.user0327@hcmus.edu.vn,0970000327,student,Computer Science,active
+DGU0328,Generated User 0328,generated.user0328@hcmus.edu.vn,0970000328,student,Computer Science,active
+DGU0329,Generated User 0329,generated.user0329@hcmus.edu.vn,0970000329,student,Computer Science,active
+DGU0330,Generated User 0330,generated.user0330@hcmus.edu.vn,0970000330,student,Computer Science,active
+DGU0331,Generated User 0331,generated.user0331@hcmus.edu.vn,0970000331,student,Computer Science,active
+DGU0332,Generated User 0332,generated.user0332@hcmus.edu.vn,0970000332,student,Computer Science,active
+DGU0333,Generated User 0333,generated.user0333@hcmus.edu.vn,0970000333,student,Computer Science,active
+DGU0334,Generated User 0334,generated.user0334@hcmus.edu.vn,0970000334,student,Computer Science,active
+DGU0335,Generated User 0335,generated.user0335@hcmus.edu.vn,0970000335,student,Computer Science,active
+DGU0336,Generated User 0336,generated.user0336@hcmus.edu.vn,0970000336,student,Computer Science,active
+DGU0337,Generated User 0337,generated.user0337@hcmus.edu.vn,0970000337,student,Computer Science,active
+DGU0338,Generated User 0338,generated.user0338@hcmus.edu.vn,0970000338,student,Computer Science,active
+DGU0339,Generated User 0339,generated.user0339@hcmus.edu.vn,0970000339,student,Computer Science,active
+DGU0340,Generated User 0340,generated.user0340@hcmus.edu.vn,0970000340,student,Computer Science,active
+DGU0341,Generated User 0341,generated.user0341@hcmus.edu.vn,0970000341,student,Computer Science,active
+DGU0342,Generated User 0342,generated.user0342@hcmus.edu.vn,0970000342,student,Computer Science,active
+DGU0343,Generated User 0343,generated.user0343@hcmus.edu.vn,0970000343,student,Computer Science,active
+DGU0344,Generated User 0344,generated.user0344@hcmus.edu.vn,0970000344,student,Computer Science,active
+DGU0345,Generated User 0345,generated.user0345@hcmus.edu.vn,0970000345,student,Computer Science,active
+DGU0346,Generated User 0346,generated.user0346@hcmus.edu.vn,0970000346,student,Computer Science,active
+DGU0347,Generated User 0347,generated.user0347@hcmus.edu.vn,0970000347,student,Computer Science,active
+DGU0348,Generated User 0348,generated.user0348@hcmus.edu.vn,0970000348,student,Computer Science,active
+DGU0349,Generated User 0349,generated.user0349@hcmus.edu.vn,0970000349,student,Computer Science,active
+DGU0350,Generated User 0350,generated.user0350@hcmus.edu.vn,0970000350,student,Computer Science,active
+DGU0351,Generated User 0351,generated.user0351@hcmus.edu.vn,0970000351,student,Computer Science,active
+DGU0352,Generated User 0352,generated.user0352@hcmus.edu.vn,0970000352,student,Computer Science,active
+DGU0353,Generated User 0353,generated.user0353@hcmus.edu.vn,0970000353,student,Computer Science,active
+DGU0354,Generated User 0354,generated.user0354@hcmus.edu.vn,0970000354,student,Computer Science,active
+DGU0355,Generated User 0355,generated.user0355@hcmus.edu.vn,0970000355,student,Computer Science,active
+DGU0356,Generated User 0356,generated.user0356@hcmus.edu.vn,0970000356,student,Computer Science,active
+DGU0357,Generated User 0357,generated.user0357@hcmus.edu.vn,0970000357,student,Computer Science,active
+DGU0358,Generated User 0358,generated.user0358@hcmus.edu.vn,0970000358,student,Computer Science,active
+DGU0359,Generated User 0359,generated.user0359@hcmus.edu.vn,0970000359,student,Computer Science,active
+DGU0360,Generated User 0360,generated.user0360@hcmus.edu.vn,0970000360,student,Computer Science,active
+DGU0361,Generated User 0361,generated.user0361@hcmus.edu.vn,0970000361,student,Computer Science,active
+DGU0362,Generated User 0362,generated.user0362@hcmus.edu.vn,0970000362,student,Computer Science,active
+DGU0363,Generated User 0363,generated.user0363@hcmus.edu.vn,0970000363,student,Computer Science,active
+DGU0364,Generated User 0364,generated.user0364@hcmus.edu.vn,0970000364,student,Computer Science,active
+DGU0365,Generated User 0365,generated.user0365@hcmus.edu.vn,0970000365,student,Computer Science,active
+DGU0366,Generated User 0366,generated.user0366@hcmus.edu.vn,0970000366,student,Computer Science,active
+DGU0367,Generated User 0367,generated.user0367@hcmus.edu.vn,0970000367,student,Computer Science,active
+DGU0368,Generated User 0368,generated.user0368@hcmus.edu.vn,0970000368,student,Computer Science,active
+DGU0369,Generated User 0369,generated.user0369@hcmus.edu.vn,0970000369,student,Computer Science,active
+DGU0370,Generated User 0370,generated.user0370@hcmus.edu.vn,0970000370,student,Computer Science,active
+DGU0371,Generated User 0371,generated.user0371@hcmus.edu.vn,0970000371,student,Computer Science,active
+DGU0372,Generated User 0372,generated.user0372@hcmus.edu.vn,0970000372,student,Computer Science,active
+DGU0373,Generated User 0373,generated.user0373@hcmus.edu.vn,0970000373,student,Computer Science,active
+DGU0374,Generated User 0374,generated.user0374@hcmus.edu.vn,0970000374,student,Computer Science,active
+DGU0375,Generated User 0375,generated.user0375@hcmus.edu.vn,0970000375,student,Computer Science,active
+DGU0376,Generated User 0376,generated.user0376@hcmus.edu.vn,0970000376,student,Computer Science,active
+DGU0377,Generated User 0377,generated.user0377@hcmus.edu.vn,0970000377,student,Computer Science,active
+DGU0378,Generated User 0378,generated.user0378@hcmus.edu.vn,0970000378,student,Computer Science,active
+DGU0379,Generated User 0379,generated.user0379@hcmus.edu.vn,0970000379,student,Computer Science,active
+DGU0380,Generated User 0380,generated.user0380@hcmus.edu.vn,0970000380,student,Computer Science,active
+DGU0381,Generated User 0381,generated.user0381@hcmus.edu.vn,0970000381,student,Computer Science,active
+DGU0382,Generated User 0382,generated.user0382@hcmus.edu.vn,0970000382,student,Computer Science,active
+DGU0383,Generated User 0383,generated.user0383@hcmus.edu.vn,0970000383,student,Computer Science,active
+DGU0384,Generated User 0384,generated.user0384@hcmus.edu.vn,0970000384,student,Computer Science,active
+DGU0385,Generated User 0385,generated.user0385@hcmus.edu.vn,0970000385,student,Computer Science,active
+DGU0386,Generated User 0386,generated.user0386@hcmus.edu.vn,0970000386,student,Computer Science,active
+DGU0387,Generated User 0387,generated.user0387@hcmus.edu.vn,0970000387,student,Computer Science,active
+DGU0388,Generated User 0388,generated.user0388@hcmus.edu.vn,0970000388,student,Computer Science,active
+DGU0389,Generated User 0389,generated.user0389@hcmus.edu.vn,0970000389,student,Computer Science,active
+DGU0390,Generated User 0390,generated.user0390@hcmus.edu.vn,0970000390,student,Computer Science,active
+DGU0391,Generated User 0391,generated.user0391@hcmus.edu.vn,0970000391,student,Computer Science,active
+DGU0392,Generated User 0392,generated.user0392@hcmus.edu.vn,0970000392,student,Computer Science,active
+DGU0393,Generated User 0393,generated.user0393@hcmus.edu.vn,0970000393,student,Computer Science,active
+DGU0394,Generated User 0394,generated.user0394@hcmus.edu.vn,0970000394,student,Computer Science,active
+DGU0395,Generated User 0395,generated.user0395@hcmus.edu.vn,0970000395,student,Computer Science,active
+DGU0396,Generated User 0396,generated.user0396@hcmus.edu.vn,0970000396,student,Computer Science,active
+DGU0397,Generated User 0397,generated.user0397@hcmus.edu.vn,0970000397,student,Computer Science,active
+DGU0398,Generated User 0398,generated.user0398@hcmus.edu.vn,0970000398,student,Computer Science,active
+DGU0399,Generated User 0399,generated.user0399@hcmus.edu.vn,0970000399,student,Computer Science,active
+DGU0400,Generated User 0400,generated.user0400@hcmus.edu.vn,0970000400,student,Computer Science,active
+DGL0001,Generated User 0401,generated.user0401@hcmus.edu.vn,0970000401,lecturer,Computer Science,active
+DGL0002,Generated User 0402,generated.user0402@hcmus.edu.vn,0970000402,lecturer,Computer Science,active
+DGL0003,Generated User 0403,generated.user0403@hcmus.edu.vn,0970000403,lecturer,Computer Science,active
+DGL0004,Generated User 0404,generated.user0404@hcmus.edu.vn,0970000404,lecturer,Computer Science,active
+DGL0005,Generated User 0405,generated.user0405@hcmus.edu.vn,0970000405,lecturer,Computer Science,active
+DGL0006,Generated User 0406,generated.user0406@hcmus.edu.vn,0970000406,lecturer,Computer Science,active
+DGL0007,Generated User 0407,generated.user0407@hcmus.edu.vn,0970000407,lecturer,Computer Science,active
+DGL0008,Generated User 0408,generated.user0408@hcmus.edu.vn,0970000408,lecturer,Computer Science,active
+DGL0009,Generated User 0409,generated.user0409@hcmus.edu.vn,0970000409,lecturer,Computer Science,active
+DGL0010,Generated User 0410,generated.user0410@hcmus.edu.vn,0970000410,lecturer,Computer Science,active
+DGL0011,Generated User 0411,generated.user0411@hcmus.edu.vn,0970000411,lecturer,Computer Science,active
+DGL0012,Generated User 0412,generated.user0412@hcmus.edu.vn,0970000412,lecturer,Computer Science,active
+DGL0013,Generated User 0413,generated.user0413@hcmus.edu.vn,0970000413,lecturer,Computer Science,active
+DGL0014,Generated User 0414,generated.user0414@hcmus.edu.vn,0970000414,lecturer,Computer Science,active
+DGL0015,Generated User 0415,generated.user0415@hcmus.edu.vn,0970000415,lecturer,Computer Science,active
+DGL0016,Generated User 0416,generated.user0416@hcmus.edu.vn,0970000416,lecturer,Computer Science,active
+DGL0017,Generated User 0417,generated.user0417@hcmus.edu.vn,0970000417,lecturer,Computer Science,active
+DGL0018,Generated User 0418,generated.user0418@hcmus.edu.vn,0970000418,lecturer,Computer Science,active
+DGL0019,Generated User 0419,generated.user0419@hcmus.edu.vn,0970000419,lecturer,Computer Science,active
+DGL0020,Generated User 0420,generated.user0420@hcmus.edu.vn,0970000420,lecturer,Computer Science,active
+DGL0021,Generated User 0421,generated.user0421@hcmus.edu.vn,0970000421,lecturer,Computer Science,active
+DGL0022,Generated User 0422,generated.user0422@hcmus.edu.vn,0970000422,lecturer,Computer Science,active
+DGL0023,Generated User 0423,generated.user0423@hcmus.edu.vn,0970000423,lecturer,Computer Science,active
+DGL0024,Generated User 0424,generated.user0424@hcmus.edu.vn,0970000424,lecturer,Computer Science,active
+DGL0025,Generated User 0425,generated.user0425@hcmus.edu.vn,0970000425,lecturer,Computer Science,active
+DGL0026,Generated User 0426,generated.user0426@hcmus.edu.vn,0970000426,lecturer,Computer Science,active
+DGL0027,Generated User 0427,generated.user0427@hcmus.edu.vn,0970000427,lecturer,Computer Science,active
+DGL0028,Generated User 0428,generated.user0428@hcmus.edu.vn,0970000428,lecturer,Computer Science,active
+DGL0029,Generated User 0429,generated.user0429@hcmus.edu.vn,0970000429,lecturer,Computer Science,active
+DGL0030,Generated User 0430,generated.user0430@hcmus.edu.vn,0970000430,lecturer,Computer Science,active
+DGL0031,Generated User 0431,generated.user0431@hcmus.edu.vn,0970000431,lecturer,Computer Science,active
+DGL0032,Generated User 0432,generated.user0432@hcmus.edu.vn,0970000432,lecturer,Computer Science,active
+DGL0033,Generated User 0433,generated.user0433@hcmus.edu.vn,0970000433,lecturer,Computer Science,active
+DGL0034,Generated User 0434,generated.user0434@hcmus.edu.vn,0970000434,lecturer,Computer Science,active
+DGL0035,Generated User 0435,generated.user0435@hcmus.edu.vn,0970000435,lecturer,Computer Science,active
+DGTA0001,Generated User 0436,generated.user0436@hcmus.edu.vn,0970000436,teaching assistant,Computer Science,active
+DGTA0002,Generated User 0437,generated.user0437@hcmus.edu.vn,0970000437,teaching assistant,Computer Science,active
+DGTA0003,Generated User 0438,generated.user0438@hcmus.edu.vn,0970000438,teaching assistant,Computer Science,active
+DGTA0004,Generated User 0439,generated.user0439@hcmus.edu.vn,0970000439,teaching assistant,Computer Science,active
+DGTA0005,Generated User 0440,generated.user0440@hcmus.edu.vn,0970000440,teaching assistant,Computer Science,active
+DGTA0006,Generated User 0441,generated.user0441@hcmus.edu.vn,0970000441,teaching assistant,Computer Science,active
+DGTA0007,Generated User 0442,generated.user0442@hcmus.edu.vn,0970000442,teaching assistant,Computer Science,active
+DGTA0008,Generated User 0443,generated.user0443@hcmus.edu.vn,0970000443,teaching assistant,Computer Science,active
+DGTA0009,Generated User 0444,generated.user0444@hcmus.edu.vn,0970000444,teaching assistant,Computer Science,active
+DGTA0010,Generated User 0445,generated.user0445@hcmus.edu.vn,0970000445,teaching assistant,Computer Science,active
+DGTA0011,Generated User 0446,generated.user0446@hcmus.edu.vn,0970000446,teaching assistant,Computer Science,active
+DGTA0012,Generated User 0447,generated.user0447@hcmus.edu.vn,0970000447,teaching assistant,Computer Science,active
+DGTA0013,Generated User 0448,generated.user0448@hcmus.edu.vn,0970000448,teaching assistant,Computer Science,active
+DGTA0014,Generated User 0449,generated.user0449@hcmus.edu.vn,0970000449,teaching assistant,Computer Science,active
+DGTA0015,Generated User 0450,generated.user0450@hcmus.edu.vn,0970000450,teaching assistant,Computer Science,active
+DGTA0016,Generated User 0451,generated.user0451@hcmus.edu.vn,0970000451,teaching assistant,Computer Science,active
+DGTA0017,Generated User 0452,generated.user0452@hcmus.edu.vn,0970000452,teaching assistant,Computer Science,active
+DGTA0018,Generated User 0453,generated.user0453@hcmus.edu.vn,0970000453,teaching assistant,Computer Science,active
+DGTA0019,Generated User 0454,generated.user0454@hcmus.edu.vn,0970000454,teaching assistant,Computer Science,active
+DGTA0020,Generated User 0455,generated.user0455@hcmus.edu.vn,0970000455,teaching assistant,Computer Science,active
+DGTA0021,Generated User 0456,generated.user0456@hcmus.edu.vn,0970000456,teaching assistant,Computer Science,active
+DGTA0022,Generated User 0457,generated.user0457@hcmus.edu.vn,0970000457,teaching assistant,Computer Science,active
+DGTA0023,Generated User 0458,generated.user0458@hcmus.edu.vn,0970000458,teaching assistant,Computer Science,active
+DGTA0024,Generated User 0459,generated.user0459@hcmus.edu.vn,0970000459,teaching assistant,Computer Science,active
+DGTA0025,Generated User 0460,generated.user0460@hcmus.edu.vn,0970000460,teaching assistant,Computer Science,active
+DGDA0001,Generated User 0461,generated.user0461@hcmus.edu.vn,0970000461,department administrator,Computer Science,active
+DGDA0002,Generated User 0462,generated.user0462@hcmus.edu.vn,0970000462,department administrator,Computer Science,active
+DGDA0003,Generated User 0463,generated.user0463@hcmus.edu.vn,0970000463,department administrator,Computer Science,active
+DGDA0004,Generated User 0464,generated.user0464@hcmus.edu.vn,0970000464,department administrator,Computer Science,active
+DGDA0005,Generated User 0465,generated.user0465@hcmus.edu.vn,0970000465,department administrator,Computer Science,active
+DGDA0006,Generated User 0466,generated.user0466@hcmus.edu.vn,0970000466,department administrator,Computer Science,active
+DGDA0007,Generated User 0467,generated.user0467@hcmus.edu.vn,0970000467,department administrator,Computer Science,active
+DGDA0008,Generated User 0468,generated.user0468@hcmus.edu.vn,0970000468,department administrator,Computer Science,active
+DGDA0009,Generated User 0469,generated.user0469@hcmus.edu.vn,0970000469,department administrator,Computer Science,active
+DGDA0010,Generated User 0470,generated.user0470@hcmus.edu.vn,0970000470,department administrator,Computer Science,active
+DGFS0001,Generated User 0471,generated.user0471@hcmus.edu.vn,0970000471,facility staff,Facility Office,active
+DGFS0002,Generated User 0472,generated.user0472@hcmus.edu.vn,0970000472,facility staff,Facility Office,active
+DGFS0003,Generated User 0473,generated.user0473@hcmus.edu.vn,0970000473,facility staff,Facility Office,active
+DGFS0004,Generated User 0474,generated.user0474@hcmus.edu.vn,0970000474,facility staff,Facility Office,active
+DGFS0005,Generated User 0475,generated.user0475@hcmus.edu.vn,0970000475,facility staff,Facility Office,active
+DGFS0006,Generated User 0476,generated.user0476@hcmus.edu.vn,0970000476,facility staff,Facility Office,active
+DGFS0007,Generated User 0477,generated.user0477@hcmus.edu.vn,0970000477,facility staff,Facility Office,active
+DGFS0008,Generated User 0478,generated.user0478@hcmus.edu.vn,0970000478,facility staff,Facility Office,active
+DGFS0009,Generated User 0479,generated.user0479@hcmus.edu.vn,0970000479,facility staff,Facility Office,active
+DGFS0010,Generated User 0480,generated.user0480@hcmus.edu.vn,0970000480,facility staff,Facility Office,active
+DGFS0011,Generated User 0481,generated.user0481@hcmus.edu.vn,0970000481,facility staff,Facility Office,active
+DGFS0012,Generated User 0482,generated.user0482@hcmus.edu.vn,0970000482,facility staff,Facility Office,active
+DGFS0013,Generated User 0483,generated.user0483@hcmus.edu.vn,0970000483,facility staff,Facility Office,active
+DGFS0014,Generated User 0484,generated.user0484@hcmus.edu.vn,0970000484,facility staff,Facility Office,active
+DGFS0015,Generated User 0485,generated.user0485@hcmus.edu.vn,0970000485,facility staff,Facility Office,active
+DGFS0016,Generated User 0486,generated.user0486@hcmus.edu.vn,0970000486,facility staff,Facility Office,active
+DGFS0017,Generated User 0487,generated.user0487@hcmus.edu.vn,0970000487,facility staff,Facility Office,active
+DGFS0018,Generated User 0488,generated.user0488@hcmus.edu.vn,0970000488,facility staff,Facility Office,active
+DGFS0019,Generated User 0489,generated.user0489@hcmus.edu.vn,0970000489,facility staff,Facility Office,active
+DGFS0020,Generated User 0490,generated.user0490@hcmus.edu.vn,0970000490,facility staff,Facility Office,active
+DGFS0021,Generated User 0491,generated.user0491@hcmus.edu.vn,0970000491,facility staff,Facility Office,active
+DGFS0022,Generated User 0492,generated.user0492@hcmus.edu.vn,0970000492,facility staff,Facility Office,active
+DGFS0023,Generated User 0493,generated.user0493@hcmus.edu.vn,0970000493,facility staff,Facility Office,active
+DGFS0024,Generated User 0494,generated.user0494@hcmus.edu.vn,0970000494,facility staff,Facility Office,active
+DGFS0025,Generated User 0495,generated.user0495@hcmus.edu.vn,0970000495,facility staff,Facility Office,active
+DGFM0001,Generated User 0496,generated.user0496@hcmus.edu.vn,0970000496,facility manager,Facility Office,active
+DGFM0002,Generated User 0497,generated.user0497@hcmus.edu.vn,0970000497,facility manager,Facility Office,active
+DGFM0003,Generated User 0498,generated.user0498@hcmus.edu.vn,0970000498,facility manager,Facility Office,active
+DGFM0004,Generated User 0499,generated.user0499@hcmus.edu.vn,0970000499,facility manager,Facility Office,active
+DGFM0005,Generated User 0500,generated.user0500@hcmus.edu.vn,0970000500,facility manager,Facility Office,active
