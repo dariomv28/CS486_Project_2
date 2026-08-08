@@ -139,8 +139,16 @@ BEGIN TRY
     )
     SELECT DISTINCT
         s.space_type,
-        0,
-        N'Migrated from Phase 1. Instant approval is disabled until the policy is configured.'
+        CASE
+            WHEN s.space_type = N'meeting room'
+                THEN 1
+            ELSE 0
+        END,
+        CASE
+            WHEN s.space_type = N'meeting room'
+                THEN N'Meeting rooms support instant approval when the usage policy is satisfied.'
+            ELSE N'Instant approval is disabled for this space type.'
+        END
     FROM dbo.spaces AS s;
 
 
