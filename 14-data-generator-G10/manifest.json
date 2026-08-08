@@ -21,7 +21,7 @@
     "maintenance_records.csv": 1200,
     "maintenance_assignments.csv": 1200,
     "maintenance_escalations.csv": 100,
-    "booking_advisory_acknowledgements.csv": 4066
+    "booking_advisory_acknowledgements.csv": 4144
   },
   "validation": {
     "booking_count": 100000,
@@ -36,25 +36,32 @@
     "approved_lifecycle_count": 60000,
     "approved_overlap_pairs": 0,
     "unintended_oos_overlap_pairs": 0,
-    "intentional_escalation_overlap_pairs": 126,
-    "acknowledgement_count": 4066
+    "intentional_escalation_overlap_pairs": 119,
+    "acknowledgement_count": 4144,
+    "approval_method_counts": {
+      "automatic": 5936,
+      "staff": 64064
+    },
+    "invalid_automatic_approvals": 0
   },
   "notes": [
     "Approved/completed/no-show bookings never overlap one another in the same space.",
     "Normal out-of-service maintenance is placed outside booking hours.",
     "100 advisory-to-out-of-service escalations deliberately overlap already-approved bookings so the affected-bookings report has test data.",
-    "Every generated booking overlapping an initially advisory maintenance interval has an acknowledgement row."
+    "Every generated booking overlapping an initially advisory maintenance interval has an acknowledgement row.",
+    "Automatic approvals are generated only for approved-lifecycle meeting-room bookings; automatic rows have no staff actor.",
+    "Equipment-specific maintenance rows reference a facility instance of the matching equipment type."
   ],
   "sha256": {
     "users.csv": "9add8648348772e1ac8adef1f792eacfd3de42000257bc2e4bcdfe7a92141111",
     "spaces.csv": "32eabbb52e646822be141bd9777c0974cd827462773b6a8f80ba7d7acbe7da29",
     "facility_instances.csv": "d077fb61de9b07331d542a2fc0432de5f1aec4f07d21c9fc6fafc9a4389039a3",
     "booking_requests.csv": "726dfc18930f52c0c32a2bb64008de476546b6fc99e6eec32b7cc9ba8791b8d1",
-    "approvals.csv": "e32445565d758dd5641866bb32301f56faa6518f9163fb0215591049d1933564",
-    "usage_sessions.csv": "d01b3d5fb2407de86b177d9be81156405a97ade371a114c5395099f9a065163f",
-    "maintenance_records.csv": "26cd5a03bf19140f944a01b63cf2c329e859db8773d4eed57d3a28a533a6f303",
-    "maintenance_assignments.csv": "c59ab7ffe1a98b6a98a4a1c7749d42a64dbeaa0c74fd726bc62e02506bb32c1e",
-    "maintenance_escalations.csv": "1946c401d8c546359cb415d3df6bb3660f5a2d442eaea6a8e253e8c22298e4bd",
-    "booking_advisory_acknowledgements.csv": "6552872d99d32e7a81f74336e2198cde843fc189a22a16feb532c3a4bb84f014"
+    "approvals.csv": "f7c0f90f1d331e60551fe543c4bd806227bf91c1e01c9f950a908177b9113608",
+    "usage_sessions.csv": "9dfa3051c9578a6a73d4a286d0ecb9acb0b218b32863bdc4a61759c6d604e566",
+    "maintenance_records.csv": "53296b14e1ccd715b866d7b7053c8402f1ade6cd75bdcb7264541275f5ae0f5f",
+    "maintenance_assignments.csv": "e130dd9efd1c822c8cce5ee8b9dfc9fd9ccbaa65ab71dec708350d3436243e59",
+    "maintenance_escalations.csv": "de278ddda9e85c36a167a0beb0520ab10db3c6daf02305d1f81d56fcc70616c1",
+    "booking_advisory_acknowledgements.csv": "de0ceb154995a639882b4444b5cbb9cbd02bdd66172621070811f8038c4db9cc"
   }
 }

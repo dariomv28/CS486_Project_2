@@ -155,14 +155,14 @@ erDiagram
     USER ||--o{ BOOKING_REQUEST : requests
     SPACE ||--o{ BOOKING_REQUEST : booked_for
 
-    BOOKING_REQUEST ||--|| APPROVAL : has
-    USER ||--o{ APPROVAL : approves
+    BOOKING_REQUEST ||--o| APPROVAL : may_have
+    USER o|--o{ APPROVAL : decides
 
-    BOOKING_REQUEST ||--|| USAGE_SESSION : generates
+    BOOKING_REQUEST ||--o| USAGE_SESSION : may_generate
     USER ||--o{ USAGE_SESSION : checks_in
 
     SPACE ||--o{ MAINTENANCE_RECORD : has
-    FACILITY_INSTANCE ||--o{ MAINTENANCE_RECORD : affects
+    FACILITY_INSTANCE o|--o{ MAINTENANCE_RECORD : affects
     USER ||--o{ MAINTENANCE_RECORD : reports
 
     MAINTENANCE_RECORD ||--o{ MAINTENANCE_ASSIGNMENT : assigned_to
@@ -271,6 +271,15 @@ Primary key:
 ```text
 space_code
 ```
+
+Candidate key:
+
+```text
+(building, floor, room_number)
+```
+
+This candidate key is preserved from Phase 1 and ensures that one physical room
+location identifies at most one space.
 
 Foreign key:
 
@@ -519,8 +528,13 @@ A rejection must be performed through the staff workflow and must contain a reje
 Relationship:
 
 ```text
-BOOKING_REQUEST 1 ---- 1 APPROVAL
+BOOKING_REQUEST 1 ---- 0..1 APPROVAL
 ```
+
+A booking request may have no approval row while it is still pending or when it is
+cancelled before a decision is made. Once a final approval or rejection decision is
+recorded, at most one `APPROVAL` row can exist because `booking_id` is the primary
+key of `APPROVAL`.
 
 The `APPROVAL` entity therefore records both existing manual approval decisions and the new instant approval mechanism.
 
@@ -561,8 +575,12 @@ checked_in_by
 Relationship:
 
 ```text
-BOOKING_REQUEST 1 ---- 1 USAGE_SESSION
+BOOKING_REQUEST 1 ---- 0..1 USAGE_SESSION
 ```
+
+A booking may generate at most one usage session. A usage session exists only when
+the booking is actually checked in. Pending, rejected, cancelled, or no-show bookings
+may therefore have no `USAGE_SESSION` row.
 
 A usage session records actual check-in, check-out, and condition information associated with a booking.
 
@@ -600,8 +618,8 @@ space_code
 ```
 
 ```text
-facility_id
-    -> FACILITY_INSTANCE.facility_id
+(facility_id, space_code)
+    -> FACILITY_INSTANCE(facility_id, space_code)
 ```
 
 ```text
@@ -609,7 +627,12 @@ reporter_id
     -> USER.user_id
 ```
 
-`facility_id` may be null when the problem affects the space as a whole rather than one specific facility instance.
+`facility_id` may be null when the problem affects the space as a whole rather than one
+specific facility instance.
+
+When `facility_id` is provided, the composite referential constraint
+`(facility_id, space_code)` ensures that the selected facility instance belongs to the
+same space as the maintenance record.
 
 Phase 2 introduces:
 
@@ -909,20 +932,26 @@ One space may be referenced by many bookings over time.
 ## 15.6. BOOKING_REQUEST – APPROVAL
 
 ```text
-BOOKING_REQUEST 1 : 1 APPROVAL
+BOOKING_REQUEST 1 : 0..1 APPROVAL
 ```
 
-An approval records the decision for a booking request.
+A booking request may have no approval row before a final decision is made. Because
+`APPROVAL.booking_id` is the primary key, a booking can have at most one approval row.
 
 ---
 
 ## 15.7. USER – APPROVAL
 
 ```text
-USER 1 : N APPROVAL
+USER 0..1 : 0..N APPROVAL
 ```
 
-A staff user may make many approval decisions.
+A staff user may make zero or many approval decisions.
+
+Each `APPROVAL` row references zero or one staff user:
+
+- staff decision: `staff_id IS NOT NULL`;
+- automatic decision: `staff_id IS NULL`.
 
 Automatic approvals are represented through `decision_method = automatic`.
 
@@ -931,10 +960,11 @@ Automatic approvals are represented through `decision_method = automatic`.
 ## 15.8. BOOKING_REQUEST – USAGE_SESSION
 
 ```text
-BOOKING_REQUEST 1 : 1 USAGE_SESSION
+BOOKING_REQUEST 1 : 0..1 USAGE_SESSION
 ```
 
-A usage session records the actual usage associated with a booking.
+A booking may generate at most one usage session. A usage session is created only when
+the booking is actually checked in.
 
 ---
 
@@ -961,10 +991,15 @@ A space may have many maintenance records over time.
 ## 15.11. FACILITY_INSTANCE – MAINTENANCE_RECORD
 
 ```text
-FACILITY_INSTANCE 1 : N MAINTENANCE_RECORD
+FACILITY_INSTANCE 0..1 : 0..N MAINTENANCE_RECORD
 ```
 
-A facility instance may have many maintenance incidents over its lifetime.
+A maintenance record may reference zero or one facility instance.
+
+- `facility_id IS NULL`: the maintenance affects the space as a whole.
+- `facility_id IS NOT NULL`: the maintenance affects one specific facility instance.
+
+A facility instance may be referenced by many maintenance records over its lifetime.
 
 ---
 
@@ -1115,11 +1150,20 @@ SPACE(
     room_number,
     capacity,
     current_status,
-    usage_policy
+    usage_policy,
+
+    UK(building, floor, room_number)
 )
 ```
 
-Functional dependency:
+Candidate keys:
+
+```text
+space_code
+(building, floor, room_number)
+```
+
+Functional dependencies:
 
 ```text
 space_code
@@ -1128,6 +1172,18 @@ space_code
        building,
        floor,
        room_number,
+       capacity,
+       current_status,
+       usage_policy
+```
+
+and because the physical room location is unique:
+
+```text
+(building, floor, room_number)
+    -> space_code,
+       space_name,
+       space_type,
        capacity,
        current_status,
        usage_policy
@@ -1310,8 +1366,7 @@ MAINTENANCE_RECORD(
     maintenance_id PK,
     space_code FK
         -> SPACE(space_code),
-    facility_id FK
-        -> FACILITY_INSTANCE(facility_id),
+    facility_id,
     reporter_id FK
         -> USER(user_id),
     problem_type,
@@ -1320,7 +1375,10 @@ MAINTENANCE_RECORD(
     start_time,
     completion_time,
     maintenance_status,
-    result_note
+    result_note,
+
+    FK(facility_id, space_code)
+        -> FACILITY_INSTANCE(facility_id, space_code)
 )
 ```
 
@@ -1341,6 +1399,23 @@ maintenance_id
 ```
 
 `facility_id` may be null when maintenance affects the entire space.
+
+When `facility_id` is not null, there is also a **conditional business dependency**:
+
+```text
+facility_id -> space_code    (only when facility_id IS NOT NULL)
+```
+
+This follows from `FACILITY_INSTANCE.facility_id` identifying exactly one physical
+facility instance, and every facility instance belongs to exactly one space. The composite
+foreign key `(facility_id, space_code)` guarantees that the duplicated `space_code` is
+consistent with the referenced facility instance.
+
+This is not treated as a relation-wide classical functional dependency of
+`MAINTENANCE_RECORD`, because `facility_id` is optional: room-level maintenance rows
+have `facility_id IS NULL`, and such rows may belong to different spaces. The conditional
+dependency is nevertheless documented explicitly because it represents controlled
+redundancy in the SQL design.
 
 ---
 
@@ -1431,17 +1506,104 @@ booking_id, maintenance_id
 
 ---
 
+## 16.1. Third Normal Form Validation
+
+A relation is in Third Normal Form (3NF) if, for every non-trivial functional dependency
+`X -> A`, at least one of the following conditions holds:
+
+1. `X` is a superkey; or
+2. `A` is a prime attribute.
+
+The validation below distinguishes **relation-wide functional dependencies**, which are
+used for the formal 3NF test, from the conditional consistency rule associated with the
+optional `MAINTENANCE_RECORD.facility_id`.
+
+| Relation | Candidate key(s) / determinant(s) | Normalization result |
+|---|---|---|
+| `USER` | `user_id`; `email` | BCNF, therefore 3NF |
+| `SPACE_TYPE_POLICY` | `space_type` | BCNF, therefore 3NF |
+| `SPACE` | `space_code`; `(building, floor, room_number)` | BCNF, therefore 3NF |
+| `FACILITY_TYPE` | `facility_type_id`; `facility_type_name` | BCNF, therefore 3NF |
+| `FACILITY_INSTANCE` | `facility_id`; `asset_tag` | BCNF, therefore 3NF |
+| `BOOKING_REQUEST` | `booking_id` | BCNF, therefore 3NF |
+| `APPROVAL` | `booking_id` | BCNF, therefore 3NF |
+| `USAGE_SESSION` | `booking_id` | BCNF, therefore 3NF |
+| `MAINTENANCE_RECORD` | relation-wide determinant: `maintenance_id`; conditional rule when non-null: `facility_id -> space_code` | **3NF; BCNF is not claimed for this optional-target design** |
+| `MAINTENANCE_ASSIGNMENT` | `assignment_id` | BCNF, therefore 3NF |
+| `MAINTENANCE_IMPACT_HISTORY` | `impact_change_id` | BCNF, therefore 3NF |
+| `BOOKING_ADVISORY_ACKNOWLEDGEMENT` | `(booking_id, maintenance_id)` | BCNF, therefore 3NF |
+
+### `MAINTENANCE_RECORD` normalization note
+
+For the formal relation-wide dependencies, `maintenance_id` determines every other
+attribute of `MAINTENANCE_RECORD`, so non-key attributes depend on the key, the whole
+key, and nothing but the key. The optional facility reference requires one additional
+qualification.
+
+When `facility_id IS NOT NULL`, the referenced `FACILITY_INSTANCE` determines its
+`space_code`. Storing `space_code` in the maintenance row as well therefore introduces a
+conditional redundancy:
+
+```text
+facility_id -> space_code    (conditional on facility_id IS NOT NULL)
+```
+
+The current schema intentionally keeps `space_code` because a maintenance record can
+also target the room as a whole (`facility_id IS NULL`) and because booking/maintenance
+overlap checks are performed directly by space. The composite foreign key
+`(facility_id, space_code) -> FACILITY_INSTANCE(facility_id, space_code)` prevents the
+two values from becoming inconsistent.
+
+Because rows with `facility_id IS NULL` may reference different spaces,
+`facility_id -> space_code` is **not a relation-wide classical FD** over all
+`MAINTENANCE_RECORD` tuples. Under the relation-wide dependencies used by the standard
+3NF test, the relation therefore satisfies 3NF. To avoid overstating the result, this
+document does not claim BCNF for `MAINTENANCE_RECORD`.
+
+A stricter redesign that also removes this conditional redundancy could move the optional
+facility target into a separate relation such as
+`MAINTENANCE_FACILITY_TARGET(maintenance_id, facility_id)`. That decomposition is not
+adopted here because it would require corresponding migration and implementation changes;
+the present design instead enforces consistency with the composite foreign key.
+
+There are no partial dependencies in relations with composite primary keys: in
+`BOOKING_ADVISORY_ACKNOWLEDGEMENT`, `acknowledged_at` depends on the complete key
+`(booking_id, maintenance_id)`. For the remaining relations, the documented
+relation-wide non-trivial dependencies have candidate keys or superkeys as determinants.
+
+Therefore, **all twelve Phase 2 relations satisfy at least Third Normal Form (3NF)**,
+which is the normalization level required by Phase 2. BCNF is claimed only where the
+documented dependency set justifies that stronger statement.
+
+---
+
 # 17. Important Phase 2 Business Rules Represented by the Design
 
 ## BR1. Instant approval policy
 
-Whether a booking may use instant approval is determined through:
+A booking may use instant approval only when both of the following conditions hold:
+
+1. the selected space type has `instant_approval_enabled = true`; and
+2. the booking request satisfies the usage policy of the selected space.
+
+The design provides the policy configuration through:
 
 ```text
 SPACE
     -> SPACE_TYPE_POLICY
     -> instant_approval_enabled
 ```
+
+and the space-specific policy information through:
+
+```text
+SPACE
+    -> usage_policy
+```
+
+In the current implementation, `usage_policy` remains descriptive text. The booking
+operation receives the policy-evaluation result through `usage_policy_satisfied`; the
+database does not attempt to parse the policy text directly.
 
 ---
 
@@ -1639,7 +1801,7 @@ The token supplements, rather than replaces, the per-space concurrency-control m
 
 # 19. Final Phase 2 Relational Design
 
-The finalized relational design consists of eleven relations:
+The finalized relational design consists of twelve relations:
 
 ```text
 USER

@@ -114,21 +114,16 @@ GO
    QUERY 2
    Number of approved bookings by weekday and hour for a given semester.
 
-   Chosen interpretation: FULL HOURLY OCCUPANCY.
+   Interpretation used for the required Phase 2 report:
+   - Each approved booking is counted exactly ONCE.
+   - The weekday and hour are taken from requested_start_time.
+   - Example: a booking starting Monday at 09:30 contributes one count to
+     Monday / hour 09. It is not expanded into later hourly occupancy
+     buckets.
 
-   A booking contributes once to every hourly bucket that it overlaps.
-   Therefore a booking from 09:00 to 12:00 contributes to:
-       09:00, 10:00, 11:00
-
-   A booking from 09:30 to 10:30 contributes to both the 09:00 and 10:00
-   buckets because it overlaps both hourly intervals.
-
-   Implementation choice:
-   - First clip each approved booking to the semester interval.
-   - Then recursively expand only that booking into the hour buckets it
-     actually touches.
-   This avoids generating every hour of the semester and joining every
-   slot against the whole booking table.
+   This follows the literal requirement "number of approved bookings by
+   weekday and hour" and keeps this report distinct from an occupancy-hours
+   report.
 
    weekday_number uses Monday = 1, ..., Sunday = 7 and does not depend on
    SET DATEFIRST. weekday_name follows the SQL Server session language.
@@ -142,19 +137,10 @@ DECLARE @semester_end   DATETIME2(0) = '2025-02-01 00:00:00';
 IF @semester_end <= @semester_start
     THROW 56002, '@semester_end must be later than @semester_start.', 1;
 
-;WITH ApprovedBookingSegments AS (
+;WITH ApprovedBookingStarts AS (
     SELECT
         br.booking_id,
-        CASE
-            WHEN br.requested_start_time < @semester_start
-                THEN @semester_start
-            ELSE br.requested_start_time
-        END AS effective_start_time,
-        CASE
-            WHEN br.requested_end_time > @semester_end
-                THEN @semester_end
-            ELSE br.requested_end_time
-        END AS effective_end_time
+        br.requested_start_time
     FROM dbo.booking_requests AS br
     WHERE br.booking_status IN (
               N'approved',
@@ -162,64 +148,38 @@ IF @semester_end <= @semester_start
               N'completed',
               N'no-show'
           )
+      AND br.requested_start_time >= @semester_start
       AND br.requested_start_time < @semester_end
-      AND br.requested_end_time > @semester_start
 ),
-BookingHourBuckets AS (
-    -- Anchor: first hourly bucket touched by each clipped booking.
+BookingStartLabels AS (
     SELECT
         abs.booking_id,
-        CONVERT(
-            DATETIME2(0),
-            DATEADD(
-                HOUR,
-                DATEDIFF(HOUR, 0, abs.effective_start_time),
-                0
-            )
-        ) AS hour_bucket_start,
-        abs.effective_end_time
-    FROM ApprovedBookingSegments AS abs
-
-    UNION ALL
-
-    -- Recursively add the next hour while it still intersects the booking.
-    SELECT
-        bhb.booking_id,
-        DATEADD(HOUR, 1, bhb.hour_bucket_start),
-        bhb.effective_end_time
-    FROM BookingHourBuckets AS bhb
-    WHERE DATEADD(HOUR, 1, bhb.hour_bucket_start) < bhb.effective_end_time
-),
-BucketLabels AS (
-    SELECT
-        bhb.booking_id,
         (
             (
                 DATEDIFF(
                     DAY,
                     CONVERT(DATE, '19000101'),
-                    CONVERT(DATE, bhb.hour_bucket_start)
+                    CONVERT(DATE, abs.requested_start_time)
                 ) % 7 + 7
             ) % 7
         ) + 1 AS weekday_number,
-        DATENAME(WEEKDAY, bhb.hour_bucket_start) AS weekday_name,
-        DATEPART(HOUR, bhb.hour_bucket_start) AS hour_of_day
-    FROM BookingHourBuckets AS bhb
+        DATENAME(WEEKDAY, abs.requested_start_time) AS weekday_name,
+        DATEPART(HOUR, abs.requested_start_time) AS hour_of_day
+    FROM ApprovedBookingStarts AS abs
 )
 SELECT
-    bl.weekday_number,
-    bl.weekday_name,
-    bl.hour_of_day,
+    bsl.weekday_number,
+    bsl.weekday_name,
+    bsl.hour_of_day,
     COUNT_BIG(*) AS approved_booking_count
-FROM BucketLabels AS bl
+FROM BookingStartLabels AS bsl
 GROUP BY
-    bl.weekday_number,
-    bl.weekday_name,
-    bl.hour_of_day
+    bsl.weekday_number,
+    bsl.weekday_name,
+    bsl.hour_of_day
 ORDER BY
-    bl.weekday_number,
-    bl.hour_of_day
-OPTION (MAXRECURSION 0);
+    bsl.weekday_number,
+    bsl.hour_of_day;
 GO
 
 /* =====================================================================
@@ -250,8 +210,13 @@ GO
      the requested time interval.
 
    Facility semantic choice:
-   Only facility_instances whose instance_status = 'available' count toward
-   the requested quantity.
+   A facility instance counts toward the requested quantity only when:
+     - instance_status = 'available', and
+     - the physical instance is not itself affected by active maintenance
+       that overlaps the requested interval.
+   This matters for Phase 2 advisory maintenance: the room may remain usable,
+   but a broken projector / faulty air conditioner must not be counted as a
+   usable required facility while that maintenance is active.
 
    Replace the example parameters/facilities as needed.
    ===================================================================== */
@@ -315,6 +280,25 @@ WHERE s.capacity >= @required_capacity
           WHERE fi.space_code = s.space_code
             AND ft.facility_type_name = required.facility_name
             AND fi.instance_status = N'available'
+
+            -- A room-level advisory does not automatically remove a
+            -- facility. A maintenance record tied to this exact physical
+            -- facility instance does.
+            AND NOT EXISTS (
+                SELECT 1
+                FROM dbo.maintenance_records AS fm
+                WHERE fm.facility_id = fi.facility_id
+                  AND fm.maintenance_status IN (
+                          N'reported',
+                          N'assigned',
+                          N'in progress'
+                      )
+                  AND fm.start_time < @requested_end_time
+                  AND COALESCE(
+                          fm.completion_time,
+                          CONVERT(DATETIME2(0), '9999-12-31 23:59:59')
+                      ) > @requested_start_time
+            )
       )
   )
 
@@ -366,27 +350,34 @@ GO
    Approved bookings affected when maintenance is escalated from
    advisory to out-of-service.
 
-   The historical table dbo.maintenance_impact_history is used instead of
-   checking only maintenance_records.impact_level. This is important
-   because a maintenance record may later be downgraded again, while the
-   escalation event must remain historically discoverable.
+   Historical semantics:
+   - dbo.maintenance_impact_history identifies the exact escalation event.
+   - The out-of-service interval begins at the later of:
+         maintenance start time, escalation time
+     because time before escalation was still advisory.
+   - The interval ends at the earlier of:
+         maintenance completion time, next impact-level change
+     so a later downgrade back to advisory is handled correctly.
+   - A booking is treated as "already approved" when an approval decision
+     exists at or before the escalation timestamp. This preserves bookings
+     that were approved at escalation time even if their current status was
+     later changed (for example, later cancellation).
 
-   Required escalation condition:
-       previous_impact_level = 'advisory'
-       new_impact_level      = 'out-of-service'
-
-   Required overlap condition:
-       booking_start < maintenance_end
-       booking_end   > maintenance_start
+   Schema limitation:
+   The current schema does not store a complete booking-status history.
+   Therefore, if a booking was approved and then cancelled BEFORE the
+   escalation, that cancellation time cannot be reconstructed from the
+   existing tables. Approval history is the strongest historical criterion
+   available without changing the schema.
 
    @escalated_maintenance_id is optional:
      NULL -> report affected bookings for every advisory -> out-of-service
              escalation in history.
      value -> report only that maintenance record.
 
-   The result contains the requester contact fields staff need in order to
-   contact affected users. impact_change_id and escalated_at are included
-   as additional audit information.
+   The result includes requester contact fields so staff can contact the
+   affected users, plus the effective out-of-service window used by the
+   overlap test.
    ===================================================================== */
 
 DECLARE @escalated_maintenance_id INT = NULL;
@@ -397,7 +388,23 @@ DECLARE @escalated_maintenance_id INT = NULL;
         mih.maintenance_id,
         mih.changed_at AS escalated_at,
         mih.changed_by,
-        mih.change_reason
+        mih.change_reason,
+        (
+            SELECT TOP (1)
+                next_mih.changed_at
+            FROM dbo.maintenance_impact_history AS next_mih
+            WHERE next_mih.maintenance_id = mih.maintenance_id
+              AND (
+                    next_mih.changed_at > mih.changed_at
+                    OR (
+                        next_mih.changed_at = mih.changed_at
+                        AND next_mih.impact_change_id > mih.impact_change_id
+                    )
+                  )
+            ORDER BY
+                next_mih.changed_at,
+                next_mih.impact_change_id
+        ) AS next_impact_change_at
     FROM dbo.maintenance_impact_history AS mih
     WHERE mih.previous_impact_level = N'advisory'
       AND mih.new_impact_level = N'out-of-service'
@@ -405,6 +412,36 @@ DECLARE @escalated_maintenance_id INT = NULL;
             @escalated_maintenance_id IS NULL
             OR mih.maintenance_id = @escalated_maintenance_id
           )
+),
+EscalationWindows AS (
+    SELECT
+        e.impact_change_id,
+        e.maintenance_id,
+        e.escalated_at,
+        e.changed_by,
+        e.change_reason,
+        mr.space_code,
+        mr.problem_description,
+        CASE
+            WHEN mr.start_time > e.escalated_at
+                THEN mr.start_time
+            ELSE e.escalated_at
+        END AS out_of_service_start,
+        CASE
+            WHEN e.next_impact_change_at IS NOT NULL
+                 AND e.next_impact_change_at < COALESCE(
+                         mr.completion_time,
+                         CONVERT(DATETIME2(0), '9999-12-31 23:59:59')
+                     )
+                THEN e.next_impact_change_at
+            ELSE COALESCE(
+                     mr.completion_time,
+                     CONVERT(DATETIME2(0), '9999-12-31 23:59:59')
+                 )
+        END AS out_of_service_end
+    FROM Escalations AS e
+    INNER JOIN dbo.maintenance_records AS mr
+        ON mr.maintenance_id = e.maintenance_id
 )
 SELECT
     br.booking_id,
@@ -415,31 +452,29 @@ SELECT
     br.space_code,
     br.requested_start_time,
     br.requested_end_time,
-    mr.maintenance_id,
-    mr.problem_description,
-    e.impact_change_id,
-    e.escalated_at
-FROM Escalations AS e
-INNER JOIN dbo.maintenance_records AS mr
-    ON mr.maintenance_id = e.maintenance_id
+    ew.maintenance_id,
+    ew.problem_description,
+    ew.impact_change_id,
+    ew.escalated_at,
+    ew.out_of_service_start,
+    ew.out_of_service_end,
+    a.decision_time AS approved_at,
+    a.decision_method
+FROM EscalationWindows AS ew
 INNER JOIN dbo.booking_requests AS br
-    ON br.space_code = mr.space_code
-   AND br.booking_status IN (
-           N'approved',
-           N'checked in',
-           N'completed',
-           N'no-show'
-       )
-   AND br.requested_start_time < COALESCE(
-           mr.completion_time,
-           CONVERT(DATETIME2(0), '9999-12-31 23:59:59')
-       )
-   AND br.requested_end_time > mr.start_time
+    ON br.space_code = ew.space_code
+   AND br.requested_start_time < ew.out_of_service_end
+   AND br.requested_end_time > ew.out_of_service_start
+INNER JOIN dbo.approvals AS a
+    ON a.booking_id = br.booking_id
+   AND a.decision = N'approved'
+   AND a.decision_time <= ew.escalated_at
 INNER JOIN dbo.users AS u
     ON u.user_id = br.requester_id
+WHERE ew.out_of_service_end > ew.out_of_service_start
 ORDER BY
-    e.escalated_at DESC,
-    mr.maintenance_id,
+    ew.escalated_at DESC,
+    ew.maintenance_id,
     br.requested_start_time,
     br.booking_id;
 GO

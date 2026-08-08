@@ -189,44 +189,124 @@ IF EXISTS (
     WHERE ft.facility_type_id IS NULL
 )
     THROW 54011, 'A generated facility type does not exist in dbo.facility_types.', 1;
+
+/* Automatic approvals must match the Phase 2 policy configured in file 10:
+   only meeting rooms are instant-approval enabled. */
+IF EXISTS (
+    SELECT 1
+    FROM #stg_approvals AS a
+    INNER JOIN #stg_booking_requests AS br
+        ON CONVERT(INT, br.booking_id) = CONVERT(INT, a.booking_id)
+    INNER JOIN #stg_spaces AS s
+        ON s.space_code = br.space_code
+    WHERE a.decision_method = N'automatic'
+      AND (
+            a.decision <> N'approved'
+         OR NULLIF(a.staff_id, N'') IS NOT NULL
+         OR s.space_type <> N'meeting room'
+      )
+)
+    THROW 54012, 'Invalid automatic approval row in generated CSV data.', 1;
+
+/* Equipment-specific maintenance must reference the matching normalized
+   facility instance. Room-level maintenance may keep facility_id NULL. */
+IF EXISTS (
+    SELECT 1
+    FROM #stg_maintenance_records AS mr
+    LEFT JOIN #stg_facility_instances AS fi
+        ON TRY_CONVERT(INT, NULLIF(mr.facility_id, N'')) = TRY_CONVERT(INT, fi.facility_id)
+    WHERE (mr.problem_type = N'broken projector'
+           AND (fi.facility_id IS NULL OR fi.facility_type_name <> N'Projector'))
+       OR (mr.problem_type = N'air-conditioning failure'
+           AND (fi.facility_id IS NULL OR fi.facility_type_name <> N'Air conditioner'))
+)
+    THROW 54013, 'Equipment maintenance does not reference a matching facility instance.', 1;
 GO
 
 /* =====================================================================
    4. RELOAD GENERATED DATA
-   IDs/prefixes are reserved by generate_data.py:
-       booking_id >= 1,000,000
-       maintenance_id >= 1,000,000
-       facility_id >= 1,000,000
-       generated users/spaces start with DG
+
+   Generated users/spaces use the reserved DG prefix. Cleanup is therefore
+   based on generated ownership, not on identity-number thresholds. This is
+   important because SQL Server can allocate ordinary rows identity values
+   above 1,000,000 after a previous benchmark load.
    ===================================================================== */
 
 BEGIN TRY
     BEGIN TRANSACTION;
 
-    /* Child-to-parent cleanup makes the script rerunnable. */
-    DELETE FROM dbo.booking_advisory_acknowledgements
-    WHERE booking_id >= 1000000 OR maintenance_id >= 1000000;
+    /* Capture the currently loaded generated parent IDs before deleting any
+       rows. A booking is generated if it belongs to a DG requester or DG
+       space. Maintenance is generated if it belongs to a DG space. */
+    DROP TABLE IF EXISTS #old_generated_booking_ids;
+    DROP TABLE IF EXISTS #old_generated_maintenance_ids;
 
-    DELETE FROM dbo.usage_sessions
-    WHERE booking_id >= 1000000;
+    CREATE TABLE #old_generated_booking_ids (
+        booking_id INT NOT NULL PRIMARY KEY
+    );
 
-    DELETE FROM dbo.approvals
-    WHERE booking_id >= 1000000;
+    CREATE TABLE #old_generated_maintenance_ids (
+        maintenance_id INT NOT NULL PRIMARY KEY
+    );
 
-    DELETE FROM dbo.maintenance_impact_history
-    WHERE maintenance_id >= 1000000;
+    INSERT INTO #old_generated_booking_ids (booking_id)
+    SELECT br.booking_id
+    FROM dbo.booking_requests AS br
+    WHERE br.space_code LIKE 'DG%'
+       OR br.requester_id LIKE 'DG%';
 
-    DELETE FROM dbo.maintenance_assignments
-    WHERE maintenance_id >= 1000000;
+    INSERT INTO #old_generated_maintenance_ids (maintenance_id)
+    SELECT mr.maintenance_id
+    FROM dbo.maintenance_records AS mr
+    WHERE mr.space_code LIKE 'DG%';
 
-    DELETE FROM dbo.maintenance_records
-    WHERE maintenance_id >= 1000000;
+    /* Child-to-parent cleanup makes the script rerunnable without deleting
+       unrelated rows merely because their identity value is large. */
+    DELETE baa
+    FROM dbo.booking_advisory_acknowledgements AS baa
+    WHERE EXISTS (
+              SELECT 1
+              FROM #old_generated_booking_ids AS g
+              WHERE g.booking_id = baa.booking_id
+          )
+       OR EXISTS (
+              SELECT 1
+              FROM #old_generated_maintenance_ids AS g
+              WHERE g.maintenance_id = baa.maintenance_id
+          );
 
-    DELETE FROM dbo.booking_requests
-    WHERE booking_id >= 1000000;
+    DELETE us
+    FROM dbo.usage_sessions AS us
+    INNER JOIN #old_generated_booking_ids AS g
+        ON g.booking_id = us.booking_id;
+
+    DELETE a
+    FROM dbo.approvals AS a
+    INNER JOIN #old_generated_booking_ids AS g
+        ON g.booking_id = a.booking_id;
+
+    DELETE h
+    FROM dbo.maintenance_impact_history AS h
+    INNER JOIN #old_generated_maintenance_ids AS g
+        ON g.maintenance_id = h.maintenance_id;
+
+    DELETE ma
+    FROM dbo.maintenance_assignments AS ma
+    INNER JOIN #old_generated_maintenance_ids AS g
+        ON g.maintenance_id = ma.maintenance_id;
+
+    DELETE mr
+    FROM dbo.maintenance_records AS mr
+    INNER JOIN #old_generated_maintenance_ids AS g
+        ON g.maintenance_id = mr.maintenance_id;
+
+    DELETE br
+    FROM dbo.booking_requests AS br
+    INNER JOIN #old_generated_booking_ids AS g
+        ON g.booking_id = br.booking_id;
 
     DELETE FROM dbo.facility_instances
-    WHERE facility_id >= 1000000;
+    WHERE space_code LIKE 'DG%';
 
     DELETE FROM dbo.spaces
     WHERE space_code LIKE 'DG%';
@@ -419,7 +499,7 @@ BEGIN TRY
             SELECT 1 FROM #stg_maintenance_escalations
             WHERE CONVERT(VARCHAR(20), changed_by) <> @escalation_actor
         )
-            THROW 54012, 'Generated escalation file contains multiple changed_by actors.', 1;
+            THROW 54014, 'Generated escalation file contains multiple changed_by actors.', 1;
 
         EXEC sys.sp_set_session_context
             @key = N'maintenance_changed_by',
@@ -534,7 +614,7 @@ PRINT N'===== GENERATED DATA SUMMARY =====';
 
 SELECT COUNT_BIG(*) AS generated_booking_count
 FROM dbo.booking_requests
-WHERE booking_id >= 1000000;
+WHERE space_code LIKE 'DG%';
 
 SELECT
     booking_status,
@@ -542,7 +622,7 @@ SELECT
     CAST(100.0 * COUNT_BIG(*) /
          SUM(COUNT_BIG(*)) OVER () AS DECIMAL(6,2)) AS percentage
 FROM dbo.booking_requests
-WHERE booking_id >= 1000000
+WHERE space_code LIKE 'DG%'
 GROUP BY booking_status
 ORDER BY booking_status;
 
@@ -557,26 +637,40 @@ SELECT
         END
     ) AS academic_year_count
 FROM dbo.booking_requests
-WHERE booking_id >= 1000000;
+WHERE space_code LIKE 'DG%';
 
 SELECT
     impact_level,
     maintenance_status,
     COUNT_BIG(*) AS maintenance_count
 FROM dbo.maintenance_records
-WHERE maintenance_id >= 1000000
+WHERE space_code LIKE 'DG%'
 GROUP BY impact_level, maintenance_status
 ORDER BY impact_level, maintenance_status;
 
 SELECT COUNT_BIG(*) AS generated_acknowledgement_count
-FROM dbo.booking_advisory_acknowledgements
-WHERE booking_id >= 1000000;
+FROM dbo.booking_advisory_acknowledgements AS baa
+INNER JOIN dbo.booking_requests AS br
+    ON br.booking_id = baa.booking_id
+WHERE br.space_code LIKE 'DG%';
 
 SELECT COUNT_BIG(*) AS generated_escalation_history_count
-FROM dbo.maintenance_impact_history
-WHERE maintenance_id >= 1000000
-  AND previous_impact_level = N'advisory'
-  AND new_impact_level = N'out-of-service';
+FROM dbo.maintenance_impact_history AS h
+INNER JOIN dbo.maintenance_records AS mr
+    ON mr.maintenance_id = h.maintenance_id
+WHERE mr.space_code LIKE 'DG%'
+  AND h.previous_impact_level = N'advisory'
+  AND h.new_impact_level = N'out-of-service';
+
+SELECT
+    a.decision_method,
+    COUNT_BIG(*) AS approval_count
+FROM dbo.approvals AS a
+INNER JOIN dbo.booking_requests AS br
+    ON br.booking_id = a.booking_id
+WHERE br.space_code LIKE 'DG%'
+GROUP BY a.decision_method
+ORDER BY a.decision_method;
 GO
 
 /* Must return 0: approved-lifecycle bookings do not overlap each other. */
@@ -587,8 +681,8 @@ INNER JOIN dbo.booking_requests AS b2
    AND b2.booking_id > b1.booking_id
    AND b1.requested_start_time < b2.requested_end_time
    AND b1.requested_end_time > b2.requested_start_time
-WHERE b1.booking_id >= 1000000
-  AND b2.booking_id >= 1000000
+WHERE b1.space_code LIKE 'DG%'
+  AND b2.space_code LIKE 'DG%'
   AND b1.booking_status IN (N'approved', N'checked in', N'completed', N'no-show')
   AND b2.booking_status IN (N'approved', N'checked in', N'completed', N'no-show');
 GO
@@ -603,8 +697,8 @@ INNER JOIN dbo.booking_requests AS br
     ON br.space_code = mr.space_code
    AND br.requested_start_time < COALESCE(mr.completion_time, CONVERT(DATETIME2(0), '9999-12-31T23:59:59'))
    AND br.requested_end_time > mr.start_time
-WHERE mr.maintenance_id >= 1000000
-  AND br.booking_id >= 1000000
+WHERE mr.space_code LIKE 'DG%'
+  AND br.space_code LIKE 'DG%'
   AND mr.impact_level = N'out-of-service'
   AND br.booking_status IN (N'approved', N'checked in', N'completed', N'no-show')
   AND NOT EXISTS (
@@ -624,8 +718,8 @@ INNER JOIN dbo.booking_requests AS br
     ON br.space_code = mr.space_code
    AND br.requested_start_time < COALESCE(mr.completion_time, CONVERT(DATETIME2(0), '9999-12-31T23:59:59'))
    AND br.requested_end_time > mr.start_time
-WHERE mr.maintenance_id >= 1000000
-  AND br.booking_id >= 1000000
+WHERE mr.space_code LIKE 'DG%'
+  AND br.space_code LIKE 'DG%'
   AND br.booking_status IN (N'approved', N'checked in', N'completed', N'no-show')
   AND EXISTS (
       SELECT 1

@@ -30,19 +30,42 @@ Default booking-status distribution:
 | no-show | 5% | 5,000 |
 | pending | 15% | 15,000 |
 
-Thus `approved + completed = 55%`, matching the suggested Phase 2 distribution while keeping completed historical sessions realistic.
+Thus `approved + completed = 55%`. This is the **chosen benchmark distribution** for G10; Phase 2 requires realistic large data but does not prescribe these exact percentages.
 
 The generator also creates:
 
 - 500 active users for the benchmark workload.
 - 60 bookable spaces across all six Phase 1 space types.
 - Facility instances linked to the normalized Phase 2 `facility_types` / `facility_instances` model.
-- Staff approval records for approved, completed, no-show, and rejected requests.
+- Approval records for approved, completed, no-show, and rejected requests, including both `staff` and `automatic` decision methods.
 - Usage sessions for completed bookings.
 - 1,200 maintenance records.
 - Advisory maintenance and advisory acknowledgements.
 - 100 advisory → out-of-service escalation cases so the “affected approved bookings” report has meaningful rows.
 - Maintenance assignments.
+- Equipment-consistent maintenance links: `broken projector` references a `Projector` instance and `air-conditioning failure` references an `Air conditioner` instance.
+
+## Automatic approval generation
+
+Phase 2 file `10-schema-migration-G10.sql` enables instant approval for the `meeting room` space type, while file `12-concurrency-implementation-G10.sql` requires automatic approvals to have no staff actor.
+
+The generator therefore makes **60% of otherwise-approved meeting-room decisions automatic** (`AUTO_APPROVAL_RATE = 0.60`). All other approval decisions remain staff decisions; rejected requests are always staff decisions. Automatic rows use:
+
+- `decision = approved`
+- `decision_method = automatic`
+- `staff_id = NULL` (empty CSV field)
+- decision time equal to booking submission time
+
+With the default seed and 100,000 bookings, the current generated dataset contains **5,936 automatic approvals** and **64,064 staff decisions**. The generator validates that no automatic approval is attached to a non-meeting-room booking.
+
+## Maintenance-to-facility consistency
+
+The normalized Phase 2 model stores individual facility instances. Equipment-specific generated maintenance therefore references a matching instance instead of a random facility in the room:
+
+- `broken projector` → `Projector`
+- `air-conditioning failure` → `Air conditioner`
+
+Room-level issues such as damaged furniture, cleaning, network problems, or generic issues keep `facility_id = NULL`. The loader validates these equipment links before changing base tables.
 
 ## Determinism
 
@@ -158,14 +181,17 @@ This keeps the generated dataset consistent with the Phase 2 schema and trigger 
 
 ## Rerunning safely
 
-Generated identifiers are reserved in a separate range:
+The CSV generator still uses deterministic identity values beginning at `1,000,000`, but the loader **does not use `>= 1,000,000` as its cleanup rule**. SQL Server may assign ordinary rows values above that threshold after a benchmark load.
 
-- `booking_id >= 1,000,000`
-- `maintenance_id >= 1,000,000`
-- `facility_id >= 1,000,000`
-- generated users/spaces use the `DG...` prefix
+Generated ownership is identified by the reserved `DG...` users/spaces instead:
 
-`load_generated_data.sql` deletes only rows in those generated ranges/prefixes before reloading, so the original Phase 1 sample data remains intact.
+- generated spaces use `space_code LIKE 'DG%'`
+- generated users use `user_id LIKE 'DG%'`
+- generated bookings are discovered through a DG space/requester
+- generated maintenance is discovered through a DG space
+- child rows are deleted through those captured booking/maintenance IDs
+
+Therefore rerunning the loader does not delete an unrelated normal booking or maintenance row merely because its identity value is greater than `1,000,000`. Rows attached to DG benchmark parents are considered part of the generated dataset and are intentionally replaced on reload.
 
 ## Required statistics refresh
 
@@ -188,6 +214,8 @@ At the end of `load_generated_data.sql`, check that:
 - No-show rows exist.
 - Maintenance rows exist.
 - Advisory acknowledgement rows exist.
+- Both `automatic` and `staff` approval rows exist.
+- Equipment-specific maintenance rows reference matching facility types.
 - `approved_booking_overlap_pairs_should_be_zero = 0`.
 - `unintended_oos_overlap_pairs_should_be_zero = 0`.
 - `intentional_escalation_affected_booking_pairs > 0`.

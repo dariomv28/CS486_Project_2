@@ -32,6 +32,11 @@
      D. ix_tune_facility_room_finder
         Covers counting available facility instances by space/type/status.
 
+     E. ix_tune_maintenance_facility_availability
+        Supports the Room Finder check that excludes a physical facility
+        instance while that exact instance has overlapping active
+        maintenance.
+
    Controlled benchmark baseline:
      - The surviving Phase 1 non-unique performance indexes are expected
        to have been removed by 00-drop-tuning-indexes.sql.
@@ -174,6 +179,33 @@ BEGIN
 END;
 GO
 
+/* =====================================================================
+   INDEX 5 - Facility-specific maintenance lookup in Room Finder
+
+   Query 3 must not count a physical facility instance while that exact
+   instance is affected by active overlapping maintenance. This index
+   supports the correlated lookup by facility_id.
+   ===================================================================== */
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.indexes
+    WHERE object_id = OBJECT_ID(N'dbo.maintenance_records')
+      AND name = N'ix_tune_maintenance_facility_availability'
+)
+BEGIN
+    CREATE INDEX ix_tune_maintenance_facility_availability
+        ON dbo.maintenance_records (
+            facility_id,
+            maintenance_status,
+            start_time
+        )
+        INCLUDE (
+            completion_time
+        )
+        WHERE facility_id IS NOT NULL;
+END;
+GO
+
 /* SQL Server creates statistics for index keys automatically. */
 PRINT 'G10 Phase 2 tuning indexes created successfully.';
 GO
@@ -197,6 +229,7 @@ WHERE i.name IN (
           N'ix_tune_booking_conflict',
           N'ix_tune_booking_reporting',
           N'ix_tune_maintenance_room_finder',
+          N'ix_tune_maintenance_facility_availability',
           N'ix_tune_facility_room_finder'
       )
 ORDER BY

@@ -29,6 +29,7 @@ DEFAULT_BOOKINGS = 100_000
 BOOKING_ID_START = 1_000_000
 MAINTENANCE_ID_START = 1_000_000
 FACILITY_ID_START = 1_000_000
+AUTO_APPROVAL_RATE = 0.60
 
 ACADEMIC_START = datetime(2022, 9, 1, 0, 0, 0)
 ACADEMIC_END = datetime(2025, 8, 31, 23, 59, 59)
@@ -70,6 +71,14 @@ PROBLEM_TYPES = [
     "network problem",
     "other",
 ]
+
+# Equipment-specific maintenance problems must reference a matching
+# facility instance when that problem is generated. Room-level problems
+# intentionally leave facility_id NULL.
+PROBLEM_FACILITY_TYPE = {
+    "broken projector": "Projector",
+    "air-conditioning failure": "Air conditioner",
+}
 
 # Exact distribution for the default 100,000 rows. For other sizes, the same
 # percentages are applied and rounding is corrected on the final status.
@@ -255,9 +264,11 @@ def facilities_for_space(space_type: str) -> List[str]:
     return required + extras[:extra_count]
 
 
-def generate_facility_instances(spaces: Sequence[Space]) -> Tuple[List[dict], Dict[str, List[int]]]:
+def generate_facility_instances(
+    spaces: Sequence[Space],
+) -> Tuple[List[dict], Dict[str, Dict[str, List[int]]]]:
     rows: List[dict] = []
-    by_space: Dict[str, List[int]] = defaultdict(list)
+    by_space_and_type: Dict[str, Dict[str, List[int]]] = defaultdict(lambda: defaultdict(list))
     next_id = FACILITY_ID_START
 
     for space in spaces:
@@ -271,7 +282,7 @@ def generate_facility_instances(spaces: Sequence[Space]) -> Tuple[List[dict], Di
             for unit in range(1, quantity + 1):
                 fid = next_id
                 next_id += 1
-                by_space[space.code].append(fid)
+                by_space_and_type[space.code][facility_name].append(fid)
                 installed = datetime(2021, 1, 1) + timedelta(days=random.randint(0, 900))
                 rows.append(
                     {
@@ -285,7 +296,7 @@ def generate_facility_instances(spaces: Sequence[Space]) -> Tuple[List[dict], Di
                     }
                 )
 
-    return rows, by_space
+    return rows, by_space_and_type
 
 
 def random_date_between(start: datetime, end: datetime) -> datetime:
@@ -384,41 +395,64 @@ def generate_bookings(
     return bookings
 
 
-def generate_approvals(bookings: Sequence[Booking], staff_ids: Sequence[str]) -> List[dict]:
+def generate_approvals(
+    bookings: Sequence[Booking],
+    staff_ids: Sequence[str],
+    spaces: Sequence[Space],
+) -> List[dict]:
     rows: List[dict] = []
+    space_type_by_code = {s.code: s.space_type for s in spaces}
+
     for b in bookings:
         if b.final_status not in {"approved", "completed", "no-show", "rejected"}:
             continue
 
         decision = "rejected" if b.final_status == "rejected" else "approved"
-        max_delay = max(1, int((b.start - b.created_at).total_seconds() // 3600) - 1)
-        delay_hours = random.randint(1, min(max_delay, 72))
-        decision_time = b.created_at + timedelta(hours=delay_hours)
-        if decision_time >= b.start:
-            decision_time = b.start - timedelta(hours=1)
+        is_automatic = (
+            decision == "approved"
+            and space_type_by_code[b.space_code] == "meeting room"
+            and random.random() < AUTO_APPROVAL_RATE
+        )
 
-        if decision == "approved":
-            note = "Generated approval: room, capacity, and policy checks passed."
+        if is_automatic:
+            # Mirrors Phase 2: only a space type with instant approval enabled
+            # can receive an automatic approval, and automatic rows have no staff actor.
+            decision_time = b.created_at
+            staff_id = ""
+            note = "Automatically approved at submission time; generated usage policy satisfied."
             reason = ""
+            method = "automatic"
         else:
-            note = "Generated staff review rejected this request."
-            reason = random.choice(
-                [
-                    "Requested setup is not supported.",
-                    "Purpose does not satisfy the space policy.",
-                    "Requested operational support is unavailable.",
-                ]
-            )
+            max_delay = max(1, int((b.start - b.created_at).total_seconds() // 3600) - 1)
+            delay_hours = random.randint(1, min(max_delay, 72))
+            decision_time = b.created_at + timedelta(hours=delay_hours)
+            if decision_time >= b.start:
+                decision_time = b.start - timedelta(hours=1)
+
+            staff_id = random.choice(staff_ids)
+            method = "staff"
+            if decision == "approved":
+                note = "Generated staff approval: room, capacity, and policy checks passed."
+                reason = ""
+            else:
+                note = "Generated staff review rejected this request."
+                reason = random.choice(
+                    [
+                        "Requested setup is not supported.",
+                        "Purpose does not satisfy the space policy.",
+                        "Requested operational support is unavailable.",
+                    ]
+                )
 
         rows.append(
             {
                 "booking_id": b.booking_id,
-                "staff_id": random.choice(staff_ids),
+                "staff_id": staff_id,
                 "decision": decision,
                 "decision_time": iso(decision_time),
                 "decision_note": note,
                 "rejection_reason": reason,
-                "decision_method": "staff",
+                "decision_method": method,
             }
         )
     return rows
@@ -456,7 +490,7 @@ def generate_maintenance(
     spaces: Sequence[Space],
     requester_ids: Sequence[str],
     staff_ids: Sequence[str],
-    facility_ids_by_space: Dict[str, List[int]],
+    facility_ids_by_space_and_type: Dict[str, Dict[str, List[int]]],
 ) -> Tuple[List[Maintenance], List[dict], List[dict], List[dict]]:
     """Return maintenance, assignments, escalation rows, and acknowledgements.
 
@@ -481,24 +515,37 @@ def generate_maintenance(
         # Mostly ordinary users, sometimes facility staff.
         return random.choice(requester_ids if random.random() < 0.8 else staff_ids)
 
-    def choose_facility(code: str) -> Optional[int]:
-        ids = facility_ids_by_space.get(code, [])
-        if ids and random.random() < 0.70:
-            return random.choice(ids)
-        return None
+    def choose_problem_and_facility(code: str) -> Tuple[str, Optional[int]]:
+        facilities = facility_ids_by_space_and_type.get(code, {})
+
+        # Only generate an equipment-specific problem when the room actually
+        # has that equipment type. If selected, facility_id always references
+        # an instance of the matching type. Room-level problems use NULL.
+        possible_problems = ["damaged furniture", "cleaning issue", "network problem", "other"]
+        for problem, facility_type in PROBLEM_FACILITY_TYPE.items():
+            if facilities.get(facility_type):
+                possible_problems.append(problem)
+
+        problem = random.choice(possible_problems)
+        facility_type = PROBLEM_FACILITY_TYPE.get(problem)
+        if facility_type is None:
+            return problem, None
+
+        return problem, random.choice(facilities[facility_type])
 
     # 1) Advisory maintenance intentionally overlapping normal booking windows.
     targeted = random.sample(list(bookings), 500)
     for b in targeted:
         start = b.start - timedelta(minutes=30)
         completion = b.end + timedelta(minutes=30)
+        problem_type, facility_id = choose_problem_and_facility(b.space_code)
         maintenance.append(
             Maintenance(
                 maintenance_id=next_mid,
                 space_code=b.space_code,
                 reporter_id=choose_reporter(),
-                facility_id=choose_facility(b.space_code),
-                problem_type=random.choice(PROBLEM_TYPES),
+                facility_id=facility_id,
+                problem_type=problem_type,
                 description="Generated advisory: partial equipment/comfort issue; space remained usable.",
                 start=start,
                 completion=completion,
@@ -520,13 +567,14 @@ def generate_maintenance(
         start = b.start - timedelta(minutes=20)
         completion = b.end + timedelta(minutes=40)
         escalated_at = b.start - timedelta(minutes=5)
+        problem_type, facility_id = choose_problem_and_facility(b.space_code)
         maintenance.append(
             Maintenance(
                 maintenance_id=next_mid,
                 space_code=b.space_code,
                 reporter_id=choose_reporter(),
-                facility_id=choose_facility(b.space_code),
-                problem_type=random.choice(PROBLEM_TYPES),
+                facility_id=facility_id,
+                problem_type=problem_type,
                 description="Generated escalation case: advisory later became out-of-service.",
                 start=start,
                 completion=completion,
@@ -562,13 +610,14 @@ def generate_maintenance(
             if status == "completed"
             else "Maintenance request cancelled after reassessment."
         )
+        problem_type, facility_id = choose_problem_and_facility(code)
         maintenance.append(
             Maintenance(
                 maintenance_id=next_mid,
                 space_code=code,
                 reporter_id=choose_reporter(),
-                facility_id=choose_facility(code),
-                problem_type=random.choice(PROBLEM_TYPES),
+                facility_id=facility_id,
+                problem_type=problem_type,
                 description="Generated out-of-service maintenance outside normal booking hours.",
                 start=start,
                 completion=completion,
@@ -589,13 +638,14 @@ def generate_maintenance(
         span_minutes = int((open_start_max - open_start_min).total_seconds() // 60)
         start = open_start_min + timedelta(minutes=random.randint(0, span_minutes))
         start = start.replace(minute=0, second=0)
+        problem_type, facility_id = choose_problem_and_facility(code)
         maintenance.append(
             Maintenance(
                 maintenance_id=next_mid,
                 space_code=code,
                 reporter_id=choose_reporter(),
-                facility_id=choose_facility(code),
-                problem_type=random.choice(PROBLEM_TYPES),
+                facility_id=facility_id,
+                problem_type=problem_type,
                 description="Generated active advisory for late academic-year room-finder testing.",
                 start=start,
                 completion=None,
@@ -780,15 +830,30 @@ def main() -> None:
 
     user_rows, requester_ids, staff_ids = generate_users()
     space_rows, spaces = generate_spaces(60)
-    facility_rows, facility_ids_by_space = generate_facility_instances(spaces)
+    facility_rows, facility_ids_by_space_and_type = generate_facility_instances(spaces)
     bookings = generate_bookings(args.bookings, spaces, requester_ids)
-    approval_rows = generate_approvals(bookings, staff_ids)
+    approval_rows = generate_approvals(bookings, staff_ids, spaces)
     usage_rows = generate_usage_sessions(bookings, staff_ids)
     maintenance, assignment_rows, escalation_rows, ack_rows = generate_maintenance(
-        bookings, spaces, requester_ids, staff_ids, facility_ids_by_space
+        bookings, spaces, requester_ids, staff_ids, facility_ids_by_space_and_type
     )
 
     validation = validate(bookings, maintenance, ack_rows)
+
+    approval_method_counts = Counter(row["decision_method"] for row in approval_rows)
+    automatic_booking_ids = {int(row["booking_id"]) for row in approval_rows if row["decision_method"] == "automatic"}
+    booking_by_id = {b.booking_id: b for b in bookings}
+    space_type_by_code = {s.code: s.space_type for s in spaces}
+    invalid_automatic = [
+        booking_id
+        for booking_id in automatic_booking_ids
+        if booking_by_id[booking_id].final_status not in {"approved", "completed", "no-show"}
+        or space_type_by_code[booking_by_id[booking_id].space_code] != "meeting room"
+    ]
+    if invalid_automatic:
+        raise AssertionError(f"Invalid automatic approval rows: {invalid_automatic[:3]}")
+    validation["approval_method_counts"] = dict(sorted(approval_method_counts.items()))
+    validation["invalid_automatic_approvals"] = 0
 
     files: Dict[str, int] = {}
     files["users.csv"] = write_csv(
@@ -887,6 +952,8 @@ def main() -> None:
             "Normal out-of-service maintenance is placed outside booking hours.",
             "100 advisory-to-out-of-service escalations deliberately overlap already-approved bookings so the affected-bookings report has test data.",
             "Every generated booking overlapping an initially advisory maintenance interval has an acknowledgement row.",
+            "Automatic approvals are generated only for approved-lifecycle meeting-room bookings; automatic rows have no staff actor.",
+            "Equipment-specific maintenance rows reference a facility instance of the matching equipment type.",
         ],
     }
     manifest["sha256"] = {name: sha256(out / name) for name in files}

@@ -86,6 +86,20 @@ BEGIN
 END;
 GO
 
+/* Room-finder facility-specific maintenance index */
+IF OBJECT_ID(N'dbo.maintenance_records', N'U') IS NOT NULL
+   AND EXISTS (
+       SELECT 1
+       FROM sys.indexes
+       WHERE object_id = OBJECT_ID(N'dbo.maintenance_records')
+         AND name = N'ix_tune_maintenance_facility_availability'
+   )
+BEGIN
+    DROP INDEX ix_tune_maintenance_facility_availability
+        ON dbo.maintenance_records;
+END;
+GO
+
 /* Room-finder facility-instance index */
 IF OBJECT_ID(N'dbo.facility_instances', N'U') IS NOT NULL
    AND EXISTS (

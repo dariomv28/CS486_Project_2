@@ -1530,9 +1530,10 @@ CREATE OR ALTER PROCEDURE dbo.usp_change_maintenance_impact
     @maintenance_id                 INT,
     @new_impact_level               NVARCHAR(20),
     @changed_by                     VARCHAR(20),
-    @change_reason                  NVARCHAR(MAX) = NULL,
+    @change_reason                  NVARCHAR(4000) = NULL,
     @expected_current_impact_level  NVARCHAR(20) = NULL,
-    @lock_timeout_ms                INT = 10000
+    @lock_timeout_ms                INT = 10000,
+    @return_result_sets             BIT = 1
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -1598,6 +1599,15 @@ BEGIN
 
         DECLARE @maintenance_start_time DATETIME2(0);
         DECLARE @maintenance_end_time DATETIME2(0);
+
+        /*
+            For advisory -> out-of-service escalation, the blocking
+            interval starts only when out-of-service actually becomes
+            effective. If maintenance itself starts later than the
+            escalation event, the maintenance start time is used instead.
+        */
+        DECLARE @escalated_at DATETIME2(0);
+        DECLARE @effective_out_of_service_start DATETIME2(0);
 
         DECLARE @lock_resource NVARCHAR(255);
         DECLARE @lock_result INT;
@@ -1772,8 +1782,16 @@ BEGIN
         /*
             advisory -> out-of-service
 
-            Return all already-approved overlapping bookings.
-            They are not automatically cancelled.
+            Return already-approved bookings that overlap the period in
+            which this maintenance is ACTUALLY out-of-service. Time before
+            the escalation remains advisory and must not be reported as
+            affected.
+
+            Effective out-of-service start:
+                MAX(maintenance.start_time, escalation.changed_at)
+
+            They are identified for staff follow-up; they are not
+            automatically cancelled.
         */
         IF @old_impact_level =
            N'advisory'
@@ -1781,6 +1799,47 @@ BEGIN
            AND @new_impact_level =
                N'out-of-service'
         BEGIN
+
+            /*
+                The update trigger has already inserted the history row in
+                this transaction. Read that exact latest transition so this
+                procedure uses the same escalation timestamp as Query 4.
+            */
+            SELECT TOP (1)
+                @escalated_at =
+                    mih.changed_at
+
+            FROM dbo.maintenance_impact_history AS mih
+
+            WHERE mih.maintenance_id =
+                  @maintenance_id
+
+              AND mih.previous_impact_level =
+                  N'advisory'
+
+              AND mih.new_impact_level =
+                  N'out-of-service'
+
+            ORDER BY
+                mih.impact_change_id DESC;
+
+
+            IF @escalated_at IS NULL
+            BEGIN
+                THROW 52291,
+                      'The maintenance escalation history row was not created.',
+                      1;
+            END;
+
+
+            SET @effective_out_of_service_start =
+                CASE
+                    WHEN @maintenance_start_time >
+                         @escalated_at
+                        THEN @maintenance_start_time
+                    ELSE @escalated_at
+                END;
+
 
             INSERT INTO @affected_bookings (
                 booking_id,
@@ -1829,7 +1888,7 @@ BEGIN
                   )
 
               AND br.requested_end_time >
-                  @maintenance_start_time;
+                  @effective_out_of_service_start;
 
         END;
 
@@ -1854,36 +1913,39 @@ BEGIN
         COMMIT TRANSACTION;
 
 
-        SELECT
-            @maintenance_id
-                AS maintenance_id,
+        IF @return_result_sets = 1
+        BEGIN
+            SELECT
+                @maintenance_id
+                    AS maintenance_id,
 
-            @old_impact_level
-                AS previous_impact_level,
+                @old_impact_level
+                    AS previous_impact_level,
 
-            @new_impact_level
-                AS new_impact_level,
+                @new_impact_level
+                    AS new_impact_level,
 
-            @space_code
-                AS space_code;
+                @space_code
+                    AS space_code;
 
 
-        SELECT
-            booking_id,
-            requester_id,
-            requester_name,
-            email,
-            phone_number,
-            space_code,
-            requested_start_time,
-            requested_end_time,
-            maintenance_id
+            SELECT
+                booking_id,
+                requester_id,
+                requester_name,
+                email,
+                phone_number,
+                space_code,
+                requested_start_time,
+                requested_end_time,
+                maintenance_id
 
-        FROM @affected_bookings
+            FROM @affected_bookings
 
-        ORDER BY
-            requested_start_time,
-            booking_id;
+            ORDER BY
+                requested_start_time,
+                booking_id;
+        END;
 
     END TRY
     BEGIN CATCH

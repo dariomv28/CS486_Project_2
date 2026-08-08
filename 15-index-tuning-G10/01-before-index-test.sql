@@ -68,6 +68,7 @@ IF EXISTS (
         N'ix_tune_booking_conflict',
         N'ix_tune_booking_reporting',
         N'ix_tune_maintenance_room_finder',
+        N'ix_tune_maintenance_facility_availability',
         N'ix_tune_facility_room_finder'
     )
       AND object_id IN (
@@ -134,9 +135,7 @@ FROM dbo.booking_requests AS br
 WHERE br.space_code = @conflict_space_code
   AND br.booking_status IN (
           N'approved',
-          N'checked in',
-          N'completed',
-          N'no-show'
+          N'checked in'
       )
   AND @conflict_start_time < br.requested_end_time
   AND @conflict_end_time > br.requested_start_time
@@ -147,8 +146,10 @@ GO
    BENCHMARK 2 - ROOM FINDER (Analytical Query 3)
 
    Same semantics as 16-analytical-queries-G10.sql:
-     capacity + operational status + all facilities + no approved booking
-     overlap + no active out-of-service maintenance overlap.
+     capacity + operational status + all usable required facilities +
+     no approved-booking overlap + no active out-of-service maintenance
+     overlap. A facility instance under overlapping active maintenance is
+     not counted as usable, even when that maintenance is only advisory.
    ===================================================================== */
 PRINT '============================================================';
 PRINT 'BENCHMARK 2 - Room finder';
@@ -195,6 +196,21 @@ WHERE s.capacity >= @required_capacity
           WHERE fi.space_code = s.space_code
             AND ft.facility_type_name = required.facility_name
             AND fi.instance_status = N'available'
+            AND NOT EXISTS (
+                SELECT 1
+                FROM dbo.maintenance_records AS fm
+                WHERE fm.facility_id = fi.facility_id
+                  AND fm.maintenance_status IN (
+                          N'reported',
+                          N'assigned',
+                          N'in progress'
+                      )
+                  AND fm.start_time < @requested_end_time
+                  AND COALESCE(
+                          fm.completion_time,
+                          CONVERT(DATETIME2(0), '9999-12-31 23:59:59')
+                      ) > @requested_start_time
+            )
       )
   )
   AND NOT EXISTS (
@@ -304,28 +320,20 @@ GO
 
 /* =====================================================================
    BENCHMARK 4 - ANALYTICAL QUERY 2
-   Number of approved bookings by weekday/hour using full hourly occupancy.
+   Number of approved bookings by weekday/hour of requested start time.
+   Each booking contributes exactly one count.
    ===================================================================== */
 PRINT '============================================================';
-PRINT 'BENCHMARK 4 - Analytical Query 2: weekday/hour occupancy';
+PRINT 'BENCHMARK 4 - Analytical Query 2: booking starts by weekday/hour';
 PRINT '============================================================';
 
 DECLARE @semester_start DATETIME2(0) = '2024-09-01 00:00:00';
 DECLARE @semester_end   DATETIME2(0) = '2025-02-01 00:00:00';
 
-;WITH ApprovedBookingSegments AS (
+;WITH ApprovedBookingStarts AS (
     SELECT
         br.booking_id,
-        CASE
-            WHEN br.requested_start_time < @semester_start
-                THEN @semester_start
-            ELSE br.requested_start_time
-        END AS effective_start_time,
-        CASE
-            WHEN br.requested_end_time > @semester_end
-                THEN @semester_end
-            ELSE br.requested_end_time
-        END AS effective_end_time
+        br.requested_start_time
     FROM dbo.booking_requests AS br
     WHERE br.booking_status IN (
               N'approved',
@@ -333,62 +341,39 @@ DECLARE @semester_end   DATETIME2(0) = '2025-02-01 00:00:00';
               N'completed',
               N'no-show'
           )
+      AND br.requested_start_time >= @semester_start
       AND br.requested_start_time < @semester_end
-      AND br.requested_end_time > @semester_start
 ),
-BookingHourBuckets AS (
+BookingStartLabels AS (
     SELECT
         abs.booking_id,
-        CONVERT(
-            DATETIME2(0),
-            DATEADD(
-                HOUR,
-                DATEDIFF(HOUR, 0, abs.effective_start_time),
-                0
-            )
-        ) AS hour_bucket_start,
-        abs.effective_end_time
-    FROM ApprovedBookingSegments AS abs
-
-    UNION ALL
-
-    SELECT
-        bhb.booking_id,
-        DATEADD(HOUR, 1, bhb.hour_bucket_start),
-        bhb.effective_end_time
-    FROM BookingHourBuckets AS bhb
-    WHERE DATEADD(HOUR, 1, bhb.hour_bucket_start) < bhb.effective_end_time
-),
-BucketLabels AS (
-    SELECT
-        bhb.booking_id,
         (
             (
                 DATEDIFF(
                     DAY,
                     CONVERT(DATE, '19000101'),
-                    CONVERT(DATE, bhb.hour_bucket_start)
+                    CONVERT(DATE, abs.requested_start_time)
                 ) % 7 + 7
             ) % 7
         ) + 1 AS weekday_number,
-        DATENAME(WEEKDAY, bhb.hour_bucket_start) AS weekday_name,
-        DATEPART(HOUR, bhb.hour_bucket_start) AS hour_of_day
-    FROM BookingHourBuckets AS bhb
+        DATENAME(WEEKDAY, abs.requested_start_time) AS weekday_name,
+        DATEPART(HOUR, abs.requested_start_time) AS hour_of_day
+    FROM ApprovedBookingStarts AS abs
 )
 SELECT
-    bl.weekday_number,
-    bl.weekday_name,
-    bl.hour_of_day,
+    bsl.weekday_number,
+    bsl.weekday_name,
+    bsl.hour_of_day,
     COUNT_BIG(*) AS approved_booking_count
-FROM BucketLabels AS bl
+FROM BookingStartLabels AS bsl
 GROUP BY
-    bl.weekday_number,
-    bl.weekday_name,
-    bl.hour_of_day
+    bsl.weekday_number,
+    bsl.weekday_name,
+    bsl.hour_of_day
 ORDER BY
-    bl.weekday_number,
-    bl.hour_of_day
-OPTION (MAXRECURSION 0, RECOMPILE);
+    bsl.weekday_number,
+    bsl.hour_of_day
+OPTION (RECOMPILE);
 GO
 
 SET STATISTICS IO OFF;
